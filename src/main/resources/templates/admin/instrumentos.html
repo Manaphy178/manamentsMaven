@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instrumentos</title>
+  </head>
+  <body>
+    <header>
+      <div class="banner">ZONA DE ADMINISTRACION</div>
+      <nav class="options">
+        <a href="usuarios">Gestionar Usuarios</a>
+        <a href="instrumentos">Gestionar Instrumentos</a>
+        <a href="categorias">Gestionar Categorias</a>
+        <a href="#">Gestionar Pedidos</a>
+        <a href="../index">CERRAR SESION</a>
+      </nav>
+    </header>
+
+    <h1>Listado de libros de la tienda:</h1>
+    <div th:each="i : ${instrumentos}">
+      nombre: <span th:text="${i.nombre}"></span><br />
+      tipo: <span th:text="${i.tipo}"></span><br />
+      marca: <span th:text="${i.marca}"></span><br />
+      gamma: <span th:text="${i.gamma}"></span><br />
+      description: <span th:text="${i.description}"></span><br />
+      precio: <span th:text="${i.precio}"></span><br />
+      ultimaModificacion: <span th:text="${i.ultimaModificacion}"></span><br />
+    </div>
+  </body>
+</html>
