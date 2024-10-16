@@ -13,12 +13,12 @@
         <a href="instrumentos">Gestionar Instrumentos</a>
         <a href="categorias">Gestionar Categorias</a>
         <a href="#">Gestionar Pedidos</a>
-        <a href="../index">CERRAR SESION</a>
+        <a href="../">CERRAR SESION</a>
       </nav>
     </header>
 
     <h1>Listado de libros de la tienda:</h1>
-    <div th:each="i : ${instrumentos}">
+    <!-- <div th:each="i : ${instrumentos}">
       nombre: <span th:text="${i.nombre}"></span><br />
       tipo: <span th:text="${i.tipo}"></span><br />
       marca: <span th:text="${i.marca}"></span><br />
@@ -26,6 +26,46 @@
       description: <span th:text="${i.description}"></span><br />
       precio: <span th:text="${i.precio}"></span><br />
       ultimaModificacion: <span th:text="${i.ultimaModificacion}"></span><br />
+    </div> -->
+
+    <table>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Marca</th>
+        <th>Descripcion</th>
+        <th>Gamma</th>
+        <th>Precio</th>
+        <th>Ultima modificacion</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </tr>
+
+      <tr th:each="i :${instrumentos}">
+        <td>&nbsp;</td>
+        <td><span th:text="${i.nombre}"></span></td>
+        <td><span th:text="${i.tipo}"></span></td>
+        <td><span th:text="${i.marca}"></span></td>
+        <td class="description"><span th:text="${i.description}"></span></td>
+        <td><span th:text="${i.gamma}"></span></td>
+        <td><span th:text="${i.precio}"></span> euros</td>
+        <td><span th:text="${i.ultimaModificacion}"></span></td>
+        <td class="delete">
+          <a
+            href="instrumentos-borrar?id=${i.id }"
+            class="delLink"
+            onclick="return confirm('¿seguro?')"
+            >Borrar</a
+          >
+        </td>
+        <td class="edit">
+          <a href="instrumentos-editar?id=${i.id }" class="editLink">Editar</a>
+        </td>
+      </tr>
+    </table>
+    <div class="annadir">
+      <a href="instrumentos-nuevo">Añadir nuevo Instrumento</a>
     </div>
   </body>
 </html>

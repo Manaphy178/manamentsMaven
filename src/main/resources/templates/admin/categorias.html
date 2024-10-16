@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/portada.css" />
+    <link rel="stylesheet" href="../assets/menu.css" />
+    <title>Categorias</title>
+  </head>
+  <body>
+    <header>
+      <div class="banner">ZONA DE ADMINISTRACION</div>
+      <nav class="options">
+        <a href="usuarios">Gestionar Usuarios</a>
+        <a href="instrumentos">Gestionar Instrumentos</a>
+        <a href="categorias">Gestionar Categorias</a>
+        <a href="#">Gestionar Pedidos</a>
+        <a href="../">CERRAR SESION</a>
+      </nav>
+    </header>
+    <h1>Listado de categorias</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+
+        <!-- <th>&nbsp;</th>
+        <th>&nbsp;</th> -->
+      </tr>
+      <tr th:each="c : ${categorias}">
+        <td><span th:text="${c.id}"></span></td>
+        <td><span th:text="${c.nombre}"></span></td>
+        <td><span th:text="${c.descripcion}"></span></td>
+        <!-- <td class="delete">
+          <a
+            href="categoria-borrar?id=${elemento.id }"
+            class="delLink"
+            onclick="return confirm('¿seguro?')"
+            >Borrar</a
+          >
+        </td>
+        <td class="edit">
+          <a href="categoria-editar?id=${elemento.id }" class="editLink"
+            >Editar</a
+          >
+        </td> -->
+      </tr>
+    </table>
+  </body>
+</html>
