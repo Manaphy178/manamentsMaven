@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/portada.css" />
-    <link rel="stylesheet" href="../assets/menu.css" />
+      <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/portada.css">
     <title>Usuarios</title>
   </head>
   <body>
-    <header>
-      <div class="banner">ZONA DE ADMINISTRACION</div>
-      <nav class="options">
-        <a href="usuarios">Gestionar Usuarios</a>
-        <a href="instrumentos">Gestionar Instrumentos</a>
-        <a href="categorias">Gestionar Categorias</a>
-        <a href="#">Gestionar Pedidos</a>
-        <a href="../">CERRAR SESION</a>
-      </nav>
-    </header>
+    <div th:insert="fragments/general.html :: menu"></div>
+
     <h1>Listado de Usuarios</h1>
     <table>
       <tr>

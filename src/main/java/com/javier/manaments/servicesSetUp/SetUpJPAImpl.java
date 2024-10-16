@@ -45,13 +45,13 @@ public class SetUpJPAImpl implements SetUp {
 			 * la idea es que si no hay ningun registro en la tabla de setup pues preparemos
 			 * los registros para todo el sistema
 			 */
-			Instrumento i1 = new Instrumento("Bajo", "bajo", "marca", "gamma", "description", 1,
+			Instrumento i1 = new Instrumento("Bajo", "bajo", "marca", "gamma", "descripcion", 1,
 					new Date(System.currentTimeMillis()));
 			i1.setCategoria(cuerda);
-			Instrumento i2 = new Instrumento("guitarra", "guitarra", "marca", "gamma", "description", 2,
+			Instrumento i2 = new Instrumento("guitarra", "guitarra", "marca", "gamma", "descripcion", 2,
 					new Date(System.currentTimeMillis()));
 			i2.setCategoria(cuerda);
-			Instrumento i3 = new Instrumento("bateria", "bateria", "marca", "gamma", "description", 3,
+			Instrumento i3 = new Instrumento("bateria", "bateria", "marca", "gamma", "descripcion", 3,
 					new Date(System.currentTimeMillis()));
 			i3.setCategoria(percusion);
 			entityManager.persist(i1);

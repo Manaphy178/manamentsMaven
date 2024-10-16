@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --verde: #04aa6d;
+  --blancoTabla: #f2f2f2;
+}
+body{
+  margin: 0 auto;
+}
+h1 {
+  margin: 1rem auto;
+  text-align: center;
+}
+.adminBox {
+  /* border: 1px solid; */
+  text-align: center;
+  margin: 3rem;
+}
+.adminBox > a {
+  text-decoration: none;
+  padding: 1rem;
+  color: white;
+  border-radius: 1.5rem;
+  background-color: var(--verde);
+}
+.adminBox > a:hover {
+  background-color: red;
+  transition: all 1s ease-in-out;
+}
+h2{
+  text-align: center;
+  margin: 3rem 0 0 0;
+}
+table {
+  margin: 2rem auto;
+  width: 100vh;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 1rem;
+}
+tr:nth-child(even) {
+  background-color: var(--blancoTabla);
+}
+
+th {
+  background-color: var(--verde);
+  color: white;
+}
+.delete:hover {
+  background-color: red;
+  transition: all 300ms ease-in-out;
+}
+.delLink {
+  text-decoration: none;
+  color: black;
+}
+.delete:hover > * {
+  color: white;
+}
+.annadir {
+ margin:2rem auto;
+  text-align: center;
+}
+.annadir > * {
+	margin:2rem auto;
+  background-color: var(--verde);
+  padding: 1rem;
+  border-radius: 2rem;
+  color: white;
+  text-decoration: none;
+}

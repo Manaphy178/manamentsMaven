@@ -21,6 +21,9 @@ public class ControladorInstrumento {
 	@Autowired
 	private ServicioInstrumento servicioInstrumento;
 
+	@Autowired
+	private ServicioCategoria servicioCategoria;
+
 	@RequestMapping("instrumentos")
 	public String obtenerInstrumentos(Model model) {
 		List<Instrumento> instrumentos = servicioInstrumento.obtenerInstrumentos();
@@ -39,6 +42,7 @@ public class ControladorInstrumento {
 		Instrumento i = new Instrumento();
 		i.setPrecio(1);
 		model.addAttribute("nuevoInstrumento", i);
+		model.addAttribute("categorias", servicioCategoria.obtenerCategorias());
 		return "admin/instrumentos-nuevo";
 
 	}
@@ -46,30 +50,9 @@ public class ControladorInstrumento {
 	@RequestMapping("instrumentos-guardar-nuevo")
 	public String guardarNuevoInstrumento(Instrumento nuevoInstrumento, Model model, HttpServletRequest request) {
 		// lo suyo seria valiar el libro antes de nada
+		nuevoInstrumento.setFechaCreacion(new Date(System.currentTimeMillis()));
 		servicioInstrumento.registrarInstrumento(nuevoInstrumento);
 
-		// nuevoLibro ya tiene el archvo subido, simplemente
-		// queremos guardar el archivo en una ruta concreta
-		// el proyecto realmente se esta ejecutando en una ruta
-		// distinta a la del workspace
-		// necesitamos saber esa ruta:
-		String rutaRealDelProyecto = request.getServletContext().getRealPath("");
-		// vamos a crear una carpeta para las subidas de archivo:
-		File rutaSubidas = new File(rutaRealDelProyecto + "/subidas");
-		if (!rutaSubidas.exists()) {
-			rutaSubidas.mkdirs();
-		}
-		String nombreArchivo = nuevoInstrumento.getId() + ".jpg";
-		// guardar el archivo subido a la ruta indicada
-		try {
-			nuevoInstrumento.getFoto().transferTo(new File(rutaSubidas, nombreArchivo));
-			System.out.println("portada del producto subida en: " + rutaRealDelProyecto + "subidas");
-			nuevoInstrumento.setUltimaModificacion(new Date(System.currentTimeMillis()));
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		return obtenerInstrumentos(model);
 	}
 

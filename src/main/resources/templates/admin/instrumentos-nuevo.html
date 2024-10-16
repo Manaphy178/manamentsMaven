@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuevo Instrumento</title>
+  </head>
+  <body>
+    <h1>Introduce los datos del nuevo libro</h1>
+    <form
+      action="#"
+      th:action="instrumentos-guardar-nuevo"
+      th:object="${nuevoInstrumento}"
+      method="post"
+    >
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre" th:field="*{nombre}" />
+      <br />
+      <label for="tipo">Tipo</label>
+      <input type="text" name="tipo" id="tipo" th:field="*{tipo}" />
+      <br />
+      <label for="marca">Marca</label>
+      <input type="text" name="marca" id="marca" th:field="*{marca}" />
+      <br />
+      <label for="gamma">Gamma</label>
+      <select name="gamma" id="gamma" th:field="*{gamma}">
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+      </select>
+      <br />
+      <label for="descripcion">Descripcion</label>
+      <textarea
+        th:field="*{descripcion}"
+        cols="20"
+        rows="3"
+        name="descripcion"
+        id="descripcion"
+      ></textarea>
+      <br />
+      <label for="categoria">Elige una categoria</label>
+      <select name="categoria" id="categoria" th:field="*{idCategoria}">
+        <option
+          th:each="c : ${categorias}"
+          th:text="${c.nombre}"
+          th:value="${c.id}"
+        />
+      </select>
+      <br />
+      <label for="precio">Precio</label>
+      <input
+        type="number"
+        name="precio"
+        id="precio"
+        step="0.1"
+        th:field="*{precio}"
+      /><br />
+
+      <input type="submit" value="REGISTRAR NUEVO INSTRUMENTO" />
+    </form>
+  </body>
+</html>

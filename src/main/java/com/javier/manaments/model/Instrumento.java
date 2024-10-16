@@ -16,8 +16,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "tabla_instrumentos")
 public class Instrumento {
 
+//	Campo que me ayuda a gestionar la id de categoria del desplegable
+	@Transient
+	private int idCategoria;
+
 //	asociaciones
-	@ManyToOne()
+	@ManyToOne(optional = true)
 	private Categoria categoria;
 
 	@Id
@@ -29,34 +33,35 @@ public class Instrumento {
 	private String marca;
 	private String gamma;
 	@Column(length = 650)
-	private String description;
+	private String descripcion;
 	@Transient
 	private MultipartFile foto;
 	private double precio;
 	private Date ultimaModificacion;
+	private Date fechaCreacion;
 
 	public Instrumento() {
 	}
 
-	public Instrumento(String nombre, String tipo, String marca, String gamma, String description, double precio,
-			Date ultimaModificacion) {
+	public Instrumento(String nombre, String tipo, String marca, String gamma, String descripcion, double precio,
+			Date fechaCreacion) {
 		super();
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.marca = marca;
 		this.gamma = gamma;
-		this.description = description;
+		this.descripcion = descripcion;
 		this.precio = precio;
-		this.ultimaModificacion = ultimaModificacion;
+		this.fechaCreacion = fechaCreacion;
 	}
 
-	public Instrumento(String nombre, String tipo, String marca, String gamma, String description, double precio) {
+	public Instrumento(String nombre, String tipo, String marca, String gamma, String descripcion, double precio) {
 		super();
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.marca = marca;
 		this.gamma = gamma;
-		this.description = description;
+		this.descripcion = descripcion;
 		this.precio = precio;
 	}
 
@@ -100,12 +105,12 @@ public class Instrumento {
 		this.gamma = gamma;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public int getId() {
@@ -140,10 +145,26 @@ public class Instrumento {
 		this.categoria = categoria;
 	}
 
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
 	@Override
 	public String toString() {
 		return "Instrumento [categoria=" + categoria + ", id=" + id + ", nombre=" + nombre + ", tipo=" + tipo
-				+ ", marca=" + marca + ", gamma=" + gamma + ", description=" + description + ", foto=" + foto
+				+ ", marca=" + marca + ", gamma=" + gamma + ", descripcion=" + descripcion + ", foto=" + foto
 				+ ", precio=" + precio + ", ultimaModificacion=" + ultimaModificacion + "]";
 	}
 

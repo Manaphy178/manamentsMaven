@@ -5,10 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javier.manaments.model.Categoria;
 import com.javier.manaments.model.Instrumento;
 import com.javier.manaments.services.ServicioInstrumento;
 
@@ -21,6 +21,12 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 
 	@Override
 	public void registrarInstrumento(Instrumento i) {
+		/*
+		 * Vamos a obtener la categoria dle id de categoria del instrumento para
+		 * asociarlo correctamente antes de guardarlo
+		 */
+		Categoria c = entityManager.find(Categoria.class, i.getIdCategoria());
+		i.setCategoria(c);
 		entityManager.persist(i);
 	}
 
