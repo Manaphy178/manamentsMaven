@@ -48,7 +48,7 @@ public class ControladorInstrumento {
 
 	@RequestMapping("instrumentos-guardar-nuevo")
 	public String guardarNuevoInstrumento(Instrumento nuevoInstrumento, Model model, HttpServletRequest request) {
-		// lo suyo seria valiar el libro antes de nada
+		// lo suyo seria valiar el instrumento antes de nada
 		// vamos a asignarle el archivo subido
 		System.err.println("instrumento guardar nuevo");
 		try {
@@ -67,6 +67,7 @@ public class ControladorInstrumento {
 	public String editarInstrumento(String id, Model model) {
 		Instrumento i = servicioInstrumento.obtenerInstrumentoPorId(Integer.parseInt(id));
 		model.addAttribute("instrumentoEditar", i);
+		model.addAttribute("categorias", servicioCategoria.obtenerCategorias());
 		return "admin/instrumentos-editar";
 	}
 
