@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -15,6 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name = "tabla_instrumentos")
 public class Instrumento {
+
+//	Vamos a guardar la portada en base de datos
+	@Lob
+	@Column(name = "imagen_portada")
+	private byte[] imagenPortada;
 
 //	Campo que me ayuda a gestionar la id de categoria del desplegable
 	@Transient
@@ -35,7 +41,7 @@ public class Instrumento {
 	@Column(length = 650)
 	private String descripcion;
 	@Transient
-	private MultipartFile foto;
+	private MultipartFile archivoSubido;
 	private double precio;
 	private Date ultimaModificacion;
 	private Date fechaCreacion;
@@ -121,14 +127,6 @@ public class Instrumento {
 		this.id = id;
 	}
 
-	public MultipartFile getFoto() {
-		return foto;
-	}
-
-	public void setFoto(MultipartFile foto) {
-		this.foto = foto;
-	}
-
 	public Date getUltimaModificacion() {
 		return ultimaModificacion;
 	}
@@ -161,10 +159,26 @@ public class Instrumento {
 		this.idCategoria = idCategoria;
 	}
 
+	public byte[] getImagenPortada() {
+		return imagenPortada;
+	}
+
+	public void setImagenPortada(byte[] imagenPortada) {
+		this.imagenPortada = imagenPortada;
+	}
+
+	public MultipartFile getArchivoSubido() {
+		return archivoSubido;
+	}
+
+	public void setArchivoSubido(MultipartFile archivoSubido) {
+		this.archivoSubido = archivoSubido;
+	}
+
 	@Override
 	public String toString() {
 		return "Instrumento [categoria=" + categoria + ", id=" + id + ", nombre=" + nombre + ", tipo=" + tipo
-				+ ", marca=" + marca + ", gamma=" + gamma + ", descripcion=" + descripcion + ", foto=" + foto
+				+ ", marca=" + marca + ", gamma=" + gamma + ", descripcion=" + descripcion + ", foto=" + archivoSubido
 				+ ", precio=" + precio + ", ultimaModificacion=" + ultimaModificacion + "]";
 	}
 

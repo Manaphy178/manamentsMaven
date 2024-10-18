@@ -12,6 +12,7 @@
       th:action="instrumentos-guardar-nuevo"
       th:object="${nuevoInstrumento}"
       method="post"
+      enctype="multipart/form-data"
     >
       <label for="nombre">Nombre</label>
       <input type="text" name="nombre" id="nombre" th:field="*{nombre}" />
@@ -46,6 +47,9 @@
           th:value="${c.id}"
         />
       </select>
+      <br />
+      <label for="foto">Foto de instrumento</label>
+      <input type="file" name="foto" id="foto" th:field="*{archivoSubido}" />
       <br />
       <label for="precio">Precio</label>
       <input

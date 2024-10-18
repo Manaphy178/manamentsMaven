@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/portada.css">
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/portada.css" />
     <title>Instrumentos</title>
   </head>
   <body>
@@ -38,7 +38,13 @@
       </tr>
 
       <tr th:each="i :${instrumentos}">
-        <td>&nbsp;</td>
+        <td>
+          <img
+            height="80px"
+            th:src="@{${'../mostrar_imagen?id=' + i.id}}"
+            alt=""
+          />
+        </td>
 
         <td><span th:text="${i.nombre}"></span></td>
         <td><span th:text="${i.categoria.nombre}"></span></td>

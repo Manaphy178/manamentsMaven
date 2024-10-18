@@ -1,6 +1,5 @@
 package com.javier.manaments.controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
@@ -50,6 +49,14 @@ public class ControladorInstrumento {
 	@RequestMapping("instrumentos-guardar-nuevo")
 	public String guardarNuevoInstrumento(Instrumento nuevoInstrumento, Model model, HttpServletRequest request) {
 		// lo suyo seria valiar el libro antes de nada
+		// vamos a asignarle el archivo subido
+		System.err.println("instrumento guardar nuevo");
+		try {
+			nuevoInstrumento.setImagenPortada(nuevoInstrumento.getArchivoSubido().getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		nuevoInstrumento.setFechaCreacion(new Date(System.currentTimeMillis()));
 		servicioInstrumento.registrarInstrumento(nuevoInstrumento);
 
@@ -66,24 +73,10 @@ public class ControladorInstrumento {
 	@RequestMapping("instrumentos-guardar-cambios")
 	public String guardarCambioInstrumento(Instrumento instrumentoEditar, Model model, HttpServletRequest request) {
 		// Antes de nada lo suyo seria validar los datos introducidos
-		servicioInstrumento.actualizarInstrumento(instrumentoEditar);
-		String rutaRealDelProyecto = request.getServletContext().getRealPath("");
-		if (instrumentoEditar.getFoto().getSize() > 0) {
-			// Si se cumple este if es que han subido una nueva imagen
-			String rutaSubidas = request.getServletContext().getRealPath("") + "/subidas";
-			String rutaImagen = rutaSubidas + "/" + instrumentoEditar.getId() + ".jpg";
-			// instrumentoEditar.getFoto().getName();
-			try {
-				instrumentoEditar.getFoto().transferTo(new File(rutaImagen));
-				instrumentoEditar.setUltimaModificacion(new Date(System.currentTimeMillis()));
-				System.out.println("imagen actualizada en la ruta:" + rutaImagen);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
-		} // end if archivo subido
+		// falta volver a asignal el archivo subido
+		servicioInstrumento.actualizarInstrumento(instrumentoEditar);
+
 		return obtenerInstrumentos(model);
 	}
 }
