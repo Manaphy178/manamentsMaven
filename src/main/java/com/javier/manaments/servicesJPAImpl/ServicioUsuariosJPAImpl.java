@@ -2,9 +2,8 @@ package com.javier.manaments.servicesJPAImpl;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
+import javax.persistence.Query;
 
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -36,17 +35,16 @@ public class ServicioUsuariosJPAImpl implements ServicioUsuarios {
 
 	@Override
 	public Usuario obtenerUsuarioPorEmailPass(String email, String pass) {
-		try {
-			Usuario usuario = (Usuario) entityManager
-					.createQuery("SELECT u FROM Usuario u WHERE u.email = :email AND u.pass = :pass", Usuario.class)
-					.setParameter("email", email).setParameter("pass", pass).getSingleResult();
-			return usuario;
-		} catch (NoResultException e) {
-			// Si no se encuentra ningún usuario con ese email y pass, manejamos la
-			// excepción
+//		Las consultas con query son con jpql
+		Query query = entityManager.createQuery("select u from Usuario u where u.email = :email and u.pass = :pass");
+		query.setParameter("email", email);
+		query.setParameter("pass", pass);
+		List<Usuario> resultado = query.getResultList();
+		if (resultado.size() == 0) {
 			return null;
+		} else {
+			return resultado.get(0);
 		}
-
 	}
 
 }

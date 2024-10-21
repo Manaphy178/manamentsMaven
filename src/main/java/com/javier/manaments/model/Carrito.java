@@ -1,6 +1,6 @@
 package com.javier.manaments.model;
 
-import java.util.Date;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -9,6 +9,9 @@ public class Carrito {
 
 	@OneToOne
 	private Usuario usuario;
+
+	@OneToMany(mappedBy = "carrito")
+	private List<ProductoCarrito> productoCarritos = new ArrayList<ProductoCarrito>();
 
 	private Date ultimoUso;
 
@@ -27,6 +30,14 @@ public class Carrito {
 
 	public Usuario getUsuario() {
 		return usuario;
+	}
+
+	public List<ProductoCarrito> getProductoCarritos() {
+		return productoCarritos;
+	}
+
+	public void setProductoCarritos(List<ProductoCarrito> productoCarritos) {
+		this.productoCarritos = productoCarritos;
 	}
 
 	public void setUsuario(Usuario usuario) {

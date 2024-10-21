@@ -1,0 +1,30 @@
+<!-- plantilla a usar por el js de index.html para 
+mostrar un listado de productos usando mustache -->
+<div style="margin: 10px">
+  <div>Listado de instumentos de la tienda</div>
+  <table>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Marca</th>
+      <th>Descripcion</th>
+      <th>Gamma</th>
+      <th>Precio</th>
+      <th>&nbsp;</th>
+    </tr>
+
+    {{#.}}
+    <tr>
+      <td><img src="mostrar_imagen?id={{id}}" height="80px" /></td>
+      <td>{{nombre}}</td>
+      <td>{{tipo}}</td>
+      <td>{{marca}}</td>
+      <td>{{descripcion}}</td>
+      <td>{{gamma}}</td>
+      <td>{{precio}}</td>
+      <td><a href="#" class="enlace_ver_detalles_libro" id-producto="{{id}}">Ver detalles</a></td>
+    </tr>
+    {{/.}}
+  </table>
+</div>

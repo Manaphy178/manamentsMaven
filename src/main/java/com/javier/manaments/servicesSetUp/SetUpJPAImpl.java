@@ -1,10 +1,13 @@
 package com.javier.manaments.servicesSetUp;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,9 +56,12 @@ public class SetUpJPAImpl implements SetUp {
 			Instrumento i1 = new Instrumento("Guitarra Clásica", "Acústico", "Yamaha", "Alta",
 					"Guitarra acústica clásica con cuerdas de nylon", 350, new Date(System.currentTimeMillis()));
 			i1.setCategoria(cuerda);
+			i1.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/1.jpg"));
 			Instrumento i2 = new Instrumento("Guitarra Eléctrica", "Eléctrico", "Fender", "Media",
 					"Guitarra eléctrica con pastillas dobles", 1200, new Date(System.currentTimeMillis()));
 			i2.setCategoria(cuerda);
+			i2.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/2.jpg"));
+
 			Instrumento i3 = new Instrumento("Saxofón", "Acústico", "Selmer", "Alta", "Saxofón alto de latón", 2500,
 					new Date(System.currentTimeMillis()));
 			i3.setCategoria(viento);
@@ -89,6 +95,18 @@ public class SetUpJPAImpl implements SetUp {
 			setUp.setCompleto(true);
 			entityManager.persist(setUp);
 		}
-	}
+	}// end setup
 
-}
+	private byte[] leerBytesDeRutaOrigen(String rutaOrigen) {
+		byte[] info = null;
+		try {
+			URL url = new URL(rutaOrigen);
+			info = IOUtils.toByteArray(url);
+		} catch (IOException e) {
+			System.err.println("La url esta mal");
+			e.printStackTrace();
+		}
+		return info;
+
+	}
+}// end class

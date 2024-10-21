@@ -3,11 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <title>Inicio</title>
+    <link rel="stylesheet" href="../css/portada.css" />
   </head>
   <body>
     <h1>Bienvenido a la pagina principal de la tienda</h1>
-     <div class="adminBox">
+    <div class="adminBox">
       <a href="admin/"> Acceder a administracion </a>
     </div>
+    <div style="margin: 10px">
+      <a href="#" id="menu-inicio">inicio</a>
+      <a href="#" id="menu-identificarme">identificarme</a>
+      <a href="#" id="menu-registrarme">registrarme</a>
+      <a href="#" id="menu-carrito">carrito</a>
+      <a href="#" id="menu-mis-pedidos">mis pedidos</a>
+      <a href="#" id="menu-mis-datos">mis datos personales</a>
+    </div>
+    <div id="contenedor"></div>
+    <script src="librerias_js/jquery.js"></script>
+    <script src="librerias_js/mustache.js"></script>
+    <script src="javascript/variables_plantillas.js"></script>
+    <script src="javascript/operaciones.js"></script>
+    <script src="javascript/menu.js"></script>
+    <script>
+      // Por defecto cuando se carga la pagina listamos los productos
+      obtenerProductos();
+    </script>
   </body>
 </html>
