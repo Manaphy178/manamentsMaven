@@ -16,7 +16,7 @@ function mostrarDetallesProducto() {
   let idProducto = $(this).attr("id-producto");
   alert("mostrar detalles del producto de id " + idProducto);
   $.getJson("obtener-detalles-instrumento", {
-    id: idProducto,
+    id: idProducto
   }).done(function (res) {
     let html = Mustache.render(html_detalles_instrumento, res);
     $("#contenedor").html(html);

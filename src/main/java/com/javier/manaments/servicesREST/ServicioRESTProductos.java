@@ -17,7 +17,7 @@ public class ServicioRESTProductos {
 
 	@RequestMapping("obtener-productos-json")
 	public String obtenerProductos() {
-		return new Gson().toJson( servicioInstrumento.obtenerInstrumentosParaListado());
+		return new Gson().toJson(servicioInstrumento.obtenerInstrumentosParaListado());
 	}
 
 //	@RequestParam("id") Integer id -> es para recibir directamente como entero el id
