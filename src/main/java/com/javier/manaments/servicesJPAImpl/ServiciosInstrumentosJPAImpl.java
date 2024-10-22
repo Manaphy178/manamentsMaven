@@ -19,7 +19,7 @@ import com.javier.manaments.services.ServicioInstrumento;
 
 @Service
 @Transactional
-public abstract class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
+public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 
 	@PersistenceContext
 	private EntityManager entityManager;
