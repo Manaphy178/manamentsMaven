@@ -55,28 +55,32 @@ public class SetUpJPAImpl implements SetUp {
 			 */
 			Instrumento i1 = new Instrumento("Guitarra Clásica", "Acústico", "Yamaha", "Alta",
 					"Guitarra acústica clásica con cuerdas de nylon", 350, new Date(System.currentTimeMillis()));
-			i1.setCategoria(cuerda);
-			i1.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/1.jpg"));
 			Instrumento i2 = new Instrumento("Guitarra Eléctrica", "Eléctrico", "Fender", "Media",
 					"Guitarra eléctrica con pastillas dobles", 1200, new Date(System.currentTimeMillis()));
-			i2.setCategoria(cuerda);
-			i2.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/2.jpg"));
-
 			Instrumento i3 = new Instrumento("Saxofón", "Acústico", "Selmer", "Alta", "Saxofón alto de latón", 2500,
 					new Date(System.currentTimeMillis()));
-			i3.setCategoria(viento);
 			Instrumento i4 = new Instrumento("Batería Acústica", "Acústico", "Tama", "Media",
 					"Batería acústica de 5 piezas", 800, new Date(System.currentTimeMillis()));
-			i4.setCategoria(percusion);
 			Instrumento i5 = new Instrumento("Teclado Electrónico", "Eléctrico", "Casio", "Media",
 					"Teclado electrónico con 61 teclas y efectos", 300, new Date(System.currentTimeMillis()));
-			i5.setCategoria(electrico);
 			Instrumento i6 = new Instrumento("Trompeta", "Acústico", "Bach", "Alta", "Trompeta en Sib, cuerpo de latón",
 					1800, new Date(System.currentTimeMillis()));
-			i6.setCategoria(viento);
 			Instrumento i7 = new Instrumento("Bajo Eléctrico", "Eléctrico", "Ibanez", "Media",
 					"Bajo eléctrico de 4 cuerdas", 950, new Date(System.currentTimeMillis()));
+			i1.setCategoria(cuerda);
+			i2.setCategoria(cuerda);
+			i3.setCategoria(viento);
+			i4.setCategoria(percusion);
+			i5.setCategoria(electrico);
+			i6.setCategoria(viento);
 			i7.setCategoria(cuerda);
+			i1.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/1.jpg"));
+			i2.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/2.jpg"));
+			i3.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/3.jpg"));
+			i4.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/4.jpg"));
+			i5.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/5.jpg"));
+			i6.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/6.jpg"));
+			i7.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/7.jpg"));
 			entityManager.persist(i1);
 			entityManager.persist(i2);
 			entityManager.persist(i3);

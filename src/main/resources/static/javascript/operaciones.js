@@ -16,13 +16,17 @@ function mostrarDetallesProducto() {
   let idProducto = $(this).attr("id-producto");
   alert("mostrar detalles del producto de id " + idProducto);
   $.getJson("obtener-detalles-instrumento", {
-    id: idProducto
+    id: idProducto,
   }).done(function (res) {
-    alert("recibido del servicio rest: " + res);
-    alert(
-      "usar una plantilla y mustache para mostrar dicha informacion al usuario"
-    );
+    let html = Mustache.render(html_detalles_instrumento, res);
+    $("#contenedor").html(html);
+    $("#enlace_agregar_al_carrito").click(agregarProductoAlCarrito);
   });
+}
+
+function agregarProductoAlCarrito() {
+  let idProducto = $(this).attr("id-producto");
+  alert("Agregar al carrito del usuario el producto de id: " + idProducto);
 }
 
 function enviarInfoUsuarioAlServidor() {
@@ -65,7 +69,8 @@ function mostrarFormularioLogin() {
     } //end funcion
   ); //end submit
 } //end mostrarFormularioLogin
+
 function mostrarFormularioRegistroUsuario() {
   $("#contenedor").html(html_formulario_registro_usuario);
   $("#boton_registro_usuario").click(enviarInfoUsuarioAlServidor);
-}
+} //end mostrarFormularioRegistroUsuario

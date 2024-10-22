@@ -1,20 +1,25 @@
 package com.javier.manaments.servicesJPAImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
+import org.hibernate.query.internal.NativeQueryImpl;
+import org.hibernate.transform.AliasToEntityMapResultTransformer;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javier.manaments.constantesSQL.ConstantesSQL;
 import com.javier.manaments.model.Categoria;
 import com.javier.manaments.model.Instrumento;
 import com.javier.manaments.services.ServicioInstrumento;
 
 @Service
 @Transactional
-public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
+public abstract class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -50,6 +55,30 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 	@Override
 	public Instrumento obtenerInstrumentoPorId(int id) {
 		return entityManager.find(Instrumento.class, id);
+	}
+
+	@Override
+	public Map<String, Object> obtenerInstrumentoVerDetallesPorId(long id) {
+		// Una forma de especificar que campos queremos en la consulta es esta:
+//		Asi seria usando JPQL:
+//		return (Instrumento) entityManager
+//				.createQuery("select i.nombre,i.descripcion,i.precio from Instrumento i where i.id = :id")
+//				.setParameter("id", id).getSingleResult();
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_DETALLES_INSTRUMENTO);
+		query.setParameter("id", id);
+
+//		Una vez preparada la query para obtener el resultado como tipo map hay que hacer esto:
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return (Map<String, Object>) nativeQuery.getSingleResult();
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerInstrumentosParaListado() {
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS);
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return nativeQuery.getResultList();
 	}
 
 }

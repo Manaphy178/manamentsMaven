@@ -11,12 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.javier.manaments.model.*;
-import com.javier.manaments.services.*;
+import com.javier.manaments.model.Instrumento;
+import com.javier.manaments.services.ServicioCategoria;
+import com.javier.manaments.services.ServicioInstrumento;
 
 @Controller
 @RequestMapping("admin/")
 public class ControladorInstrumento {
+	
 	@Autowired
 	private ServicioInstrumento servicioInstrumento;
 
