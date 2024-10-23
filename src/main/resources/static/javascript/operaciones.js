@@ -15,7 +15,7 @@ function mostrarDetallesProducto() {
   // indica el elemento sobre el que se ha hecho click
   let idProducto = $(this).attr("id-producto");
   alert("mostrar detalles del producto de id " + idProducto);
-  $.getJson("obtener-detalles-instrumento", {
+  $.getJSON("obtener-detalles-instrumento", {
     id: idProducto
   }).done(function (res) {
     let html = Mustache.render(html_detalles_instrumento, res);
