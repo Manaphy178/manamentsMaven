@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.javier.manaments.model.Usuario;
 import com.javier.manaments.services.ServicioUsuarios;
+import com.javier.manaments.servicesREST.respuestas.RespuestaLogin;
 
 @RestController
 public class ServicioRESTUsuarios {
@@ -26,20 +27,19 @@ public class ServicioRESTUsuarios {
 	}
 
 	@RequestMapping("identificar-usuario")
-	public String identificarUsuario(String email, String pass, HttpServletRequest request) {
-		String respuesta = "";
+	public RespuestaLogin identificarUsuario(String email, String pass, HttpServletRequest request) {
 		Usuario u = serviciosUsuarios.obtenerUsuarioPorEmailPass(email, pass);
-		if (u != null) {
-			respuesta = "Bienvenido " + u.getNombre() + " ya puedes comprar en la tienda";
-			/*
-			 * vamos a meter en sesion, la informacion del usuario que se ha identificado
-			 */
+		RespuestaLogin rl = null;
+		if( u != null) {
+			rl = new RespuestaLogin("ok", u.getNombre());
+			//vamos a meter en sesion, la informacion del usuario que se ha identificado
 			request.getSession().setAttribute("usuario", u);
-		} else {
-			respuesta = "email o pass incorrectos";
+		}else {
+			rl = new RespuestaLogin("no-ok", "");
 		}
-		return respuesta;
+		return rl;
 	}
+	
 	@RequestMapping("cerrar-sesion-usuario")
 	public String cerrarSesionUsuario(HttpServletRequest request) {
 		request.getSession().invalidate();//esto elimina la sesion

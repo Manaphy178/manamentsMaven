@@ -1,5 +1,8 @@
 package com.javier.manaments.servicesREST;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +17,19 @@ import com.javier.manaments.services.ServicioCarrito;
 public class ServicioRESTCarrito {
 	@Autowired
 	private ServicioCarrito servicioCarrito;
-	
+
 	@RequestMapping("agregar-producto-carrito")
-	public String agregarProductoAlCarrito(@RequestParam("id") Integer id, @RequestParam("cantidad") Integer cantidad, HttpServletRequest request) {
-		
+	public String agregarProductoAlCarrito(@RequestParam("id") Integer id, @RequestParam("cantidad") Integer cantidad,
+			HttpServletRequest request) {
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-		
-		servicioCarrito.agregarProducto(id, usuario.getId() , cantidad);
-		
+		servicioCarrito.agregarProducto(id, usuario.getId(), cantidad);
 		return "ok";
+	}
+
+	@RequestMapping("obtener-productos-carrito")
+	public List<Map<String, Object>> obtenerProductosCarrito(HttpServletRequest request) {
+
+		return servicioCarrito
+				.obtenerProductosCarritoUsuario(((Usuario) request.getSession().getAttribute("usuario")).getId());
 	}
 }

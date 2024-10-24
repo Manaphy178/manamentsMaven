@@ -18,7 +18,7 @@ public class ControladorUsuario {
 
 	@RequestMapping("usuarios")
 	public String obtenerUsuarios(Model model) {
-		System.out.println("Controlador usuario");
+		System.err.println("Controlador usuario");
 		List<Usuario> usuarios = servicioUsuarios.obtenerUsuarios();
 		model.addAttribute("usuarios", usuarios);
 		return "admin/usuarios";

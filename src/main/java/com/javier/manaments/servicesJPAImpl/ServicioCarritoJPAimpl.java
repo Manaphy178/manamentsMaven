@@ -1,16 +1,22 @@
 package com.javier.manaments.servicesJPAImpl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.javier.manaments.constantesSQL.ConstantesSQL;
 import com.javier.manaments.model.Carrito;
 import com.javier.manaments.model.Instrumento;
 import com.javier.manaments.model.ProductoCarrito;
 import com.javier.manaments.model.Usuario;
 import com.javier.manaments.services.ServicioCarrito;
+import com.javier.manaments.utilidades.Utilidades;
 
 @Service
 @Transactional
@@ -20,7 +26,7 @@ public class ServicioCarritoJPAimpl implements ServicioCarrito {
 	private EntityManager entityManager;
 
 	@Override
-	public void agregarProducto(long idProducto, long idUsuario, int cantidad) {
+	public void agregarProducto(int idProducto, long idUsuario, int cantidad) {
 		Usuario usuario = entityManager.find(Usuario.class, idUsuario);
 		Carrito carrito = usuario.getCarrito();
 		// si el usuario no tiene asociado un carrito, pues creamos un carrito
@@ -50,6 +56,21 @@ public class ServicioCarritoJPAimpl implements ServicioCarrito {
 			pc.setCantidad(cantidad);
 			entityManager.persist(pc);
 		}
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerProductosCarritoUsuario(long idUsuario) {
+		Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+		Carrito carrito = usuario.getCarrito();
+		List<Map<String, Object>> res = null;
+		if (carrito != null) {
+//			createNativeQuery es para poder usar SQL
+			Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_PRODUCTOS_CARRITO);
+			query.setParameter("carrito_id", carrito.getId());
+			res = Utilidades.procesaNativeQuery(query);
+		}
+		
+		return res;
 	}
 
 }
