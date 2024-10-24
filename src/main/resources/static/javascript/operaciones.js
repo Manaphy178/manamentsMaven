@@ -16,7 +16,7 @@ function mostrarDetallesProducto() {
   let idProducto = $(this).attr("id-producto");
   alert("mostrar detalles del producto de id " + idProducto);
   $.getJSON("obtener-detalles-instrumento", {
-    id: idProducto
+    id: idProducto,
   }).done(function (res) {
     let html = Mustache.render(html_detalles_instrumento, res);
     $("#contenedor").html(html);
@@ -25,8 +25,20 @@ function mostrarDetallesProducto() {
 }
 
 function agregarProductoAlCarrito() {
+  if (nombre_login == "") {
+    alert("tienes que identificarte para poder comprar productos");
+    return;
+  }
   let idProducto = $(this).attr("id-producto");
-  alert("Agregar al carrito del usuario el producto de id: " + idProducto);
+  alert("agregar al carrito del usuario el producto de id " + idProducto);
+  $.post("agregar-producto-carrito", {
+    id: idProducto,
+    cantidad: 1,
+  }).done(function (res) {
+    if (res == "ok") {
+      alert("producto agregado al carrito correctamente");
+    }
+  });
 }
 
 function enviarInfoUsuarioAlServidor() {
@@ -64,7 +76,16 @@ function mostrarFormularioLogin() {
         email: $("#email").val(),
         pass: $("#pass").val(),
       }).done(function (res) {
-        alert(res);
+        if (res.operacion == "ok") {
+          nombre_login = res.usuario;
+          alert("bienvenido " + nombre_login + " ya puedes comprar libros");
+          obtenerProductos();
+          $("#menu-cerrar-sesion").css("visibility", "visible");
+          $("#menu-identificarme").hide();
+          $("#menu-registrarme").hide();
+        } else {
+          alert("email o pass incorrecto");
+        }
       });
     } //end funcion
   ); //end submit
@@ -74,3 +95,17 @@ function mostrarFormularioRegistroUsuario() {
   $("#contenedor").html(html_formulario_registro_usuario);
   $("#boton_registro_usuario").click(enviarInfoUsuarioAlServidor);
 } //end mostrarFormularioRegistroUsuario
+
+
+function cerrarSesionUsuario() {
+  $.get("cerrar-sesion-usuario").done(function (res) {
+    if (res == "ok") {
+      alert("hasta pronto " + nombre_login);
+      nombre_login = "";
+      $("#menu-cerrar-sesion").css("visibility", "hidden");
+      $("#menu-identificarme").show();
+      $("#menu-registrarme").show();
+      obtenerProductos();
+    }
+  });
+} //end cerrarSesionUsuario

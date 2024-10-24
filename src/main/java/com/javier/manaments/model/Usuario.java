@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario {
@@ -17,7 +18,8 @@ public class Usuario {
 	private String email;
 	private String pass;
 	private long codPostal;
-
+	@OneToOne
+	private Carrito carrito;
 	public Usuario() {
 
 	}
@@ -86,6 +88,14 @@ public class Usuario {
 
 	public void setCodPostal(long codPostal) {
 		this.codPostal = codPostal;
+	}
+
+	public Carrito getCarrito() {
+		return carrito;
+	}
+
+	public void setCarrito(Carrito carrito) {
+		this.carrito = carrito;
 	}
 
 	@Override

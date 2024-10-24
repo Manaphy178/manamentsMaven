@@ -40,4 +40,9 @@ public class ServicioRESTUsuarios {
 		}
 		return respuesta;
 	}
+	@RequestMapping("cerrar-sesion-usuario")
+	public String cerrarSesionUsuario(HttpServletRequest request) {
+		request.getSession().invalidate();//esto elimina la sesion
+		return "ok";
+	}
 }
