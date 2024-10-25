@@ -17,6 +17,9 @@ public class ProductoCarrito {
 	@Id
 	@GeneratedValue
 	private int id;
+	
+	@Column(name="total")
+	private double totalPrecio;
 
 	public Instrumento getInstrumento() {
 		return instrumento;
@@ -48,6 +51,14 @@ public class ProductoCarrito {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public double getTotalPrecio() {
+		return totalPrecio;
+	}
+
+	public void setTotalPrecio(double totalPrecio) {
+		this.totalPrecio = totalPrecio;
 	}
 
 }
