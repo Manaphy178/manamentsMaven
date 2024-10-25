@@ -16,14 +16,24 @@ mostrar un listado de productos usando mustache -->
 
     {{#.}}
     <tr>
-      <td><img src="mostrar_imagen?id={{ID}}" height="80px" alt="algo" /></td>
+      <td>
+        <img
+          src="mostrar_imagen?id={{ID}}"
+          height="80px"
+          alt="Imagen de producto"
+        />
+      </td>
       <td>{{NOMBRE_INSTRUMENTO}}</td>
       <td>{{TIPO}}</td>
       <td>{{MARCA}}</td>
       <td>{{DESCRIPCION}}</td>
       <td>{{GAMMA}}</td>
       <td>{{PRECIO}}</td>
-      <td><a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{ID}}">Ver detalles</a></td>
+      <td>
+        <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{ID}}"
+          >Ver detalles</a
+        >
+      </td>
     </tr>
     {{/.}}
   </table>

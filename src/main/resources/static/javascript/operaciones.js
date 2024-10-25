@@ -55,8 +55,18 @@ function enviarInfoUsuarioAlServidor() {
 
 function mostrarFormularioLogin() {
   $("#contenedor").html(html_formulario_identificacion_usuario);
-  /*Para evitar el comportamiento por defecto de un form
-    al hacer click en el boton de submit:*/
+
+  if (typeof Cookies.get("email") != "undefined") {
+    $("#email").val(Cookies.get("email"));
+  }
+  if (typeof Cookies.get("pass") != "undefined") {
+    $("#pass").val(Cookies.get("pass"));
+  }
+
+  /**
+   * Para evitar el comportamiento por defecto de un form
+   * al hacer click en el boton de submit:
+   */
   $("#form_login").submit(
     function (e) {
       /**
@@ -73,6 +83,28 @@ function mostrarFormularioLogin() {
         pass: $("#pass").val(),
       }).done(function (res) {
         if (res.operacion == "ok") {
+          /**
+           * Si el login fue correcto y se activo el checkbox
+           * guardo el email y pass del usuario en una cookie
+           */
+          if ($("#recordar_datos").prop("checked")) {
+            Cookies.set("email", $("#email").val(), { expires: 100 });
+            Cookies.set("pass", $("#pass").val(), { expires: 100 });
+          } else {
+            /**
+             * La idea basica es que si el usuario se identifica
+             * sin activar el recordar datos, que se borren
+             * las coockies previas con su email y pass
+             */
+            if (
+              typeof Cookies.get("email") != "undefined" ||
+              typeof Cookies.get("pass") != "undefined"
+            ) {
+              H;
+              Cookies.remove("email");
+              Cookies.remove("pass");
+            }
+          }
           nombre_login = res.usuario;
           alert(
             "bienvenido " + nombre_login + " ya puedes comprar instrumentos"
@@ -138,11 +170,65 @@ function obtenerProductosCarrito() {
   $.getJSON("obtener-productos-carrito").done(function (res) {
     console.log("producto del carrito:");
     console.log(res);
-    alert("respuesta recibida: " + JSON.stringify(res));
-	texto_html = Mustache.render(html_carrito, res);
-    $("#contenedor").html(html_carrito);
+    // alert("respuesta recibida: " + JSON.stringify(res));
+    let res_html = Mustache.render(html_carrito, res);
+    $("#contenedor").html(res_html);
+    $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+    $(".restar_cantidad_producto").click(restarCantidadProducto);
+    $(".aumentar_cantidad_producto").click(aumentarCantidadProducto);
+    $(".button_delete").click(borrarProductoCarrito);
+    let total_productos = 0;
+    let precio_total = 0;
+    let total_por_producto = 0;
+
+    for (i in res) {
+      total_productos += res[i].CANTIDAD;
+      precio_total += res[i].PRECIO * res[i].CANTIDAD;
+      total_por_producto = res[i].PRECIO * res[i].CANTIDAD;
+      $("#precio_suma").html(total_por_producto);
+      console.log(total_por_producto);
+      console.log(precio_total);
+      total_por_producto = 0;
+    }
+    $("#total_productos").html(total_productos);
+    $("#total_precio").html(precio_total);
   });
 } //End obtenerProductosCarrito
+
+function restarCantidadProducto() {
+  let idProducto = $(this).attr("id-producto");
+  $.post("restar-producto-carrito", {
+    id: idProducto,
+    cantidad: 1,
+  }).done(function (res) {
+    if (res == "ok") {
+      obtenerProductosCarrito();
+    }
+  });
+} //End restarCantidadProducto
+
+function aumentarCantidadProducto() {
+  let idProducto = $(this).attr("id-producto");
+  $.post("aumentar-producto-carrito", {
+    id: idProducto,
+    cantidad: 1,
+  }).done(function (res) {
+    if (res == "ok") {
+      obtenerProductosCarrito();
+    }
+  });
+} //End restarCantidadProducto
+
+function borrarProductoCarrito() {
+  let idProducto = $(this).attr("id-producto");
+  $.post("borrar-producto-carrito", {
+    id: idProducto,
+  }).done(function (res) {
+    if (res == "ok") {
+      obtenerProductosCarrito();
+    }
+  });
+}
 /**
  *    FIN CARRITO
  */

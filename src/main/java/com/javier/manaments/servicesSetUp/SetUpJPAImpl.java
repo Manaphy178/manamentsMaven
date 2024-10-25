@@ -8,10 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.javier.manaments.model.*;
+import com.javier.manaments.services.ServicioCarrito;
 
 @Service
 @Transactional
@@ -19,6 +21,9 @@ public class SetUpJPAImpl implements SetUp {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+
+	@Autowired
+	private ServicioCarrito servicioCarrito;
 
 	@Override
 	public void setUp() {
@@ -90,9 +95,16 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(i7);
 			Usuario u1 = new Usuario("Javier", "Gonzalez", "mana", "jgonzalez@centronelson.org", "123", 28440);
 			Usuario u2 = new Usuario("Sergio", "Prados", "prapra", "sprados@centronelson.org", "123", 28440);
+			Usuario u3 = new Usuario("Alba", "Rueda", "albitagambita", "alba@gmail.com", "123", 28440);
 			entityManager.persist(u1);
 			entityManager.persist(u2);
+			entityManager.persist(u3);
 
+//			Metemos algunos productos en el carrito del primer y segundo usuario
+			servicioCarrito.agregarProducto(i1.getId(), u1.getId(), 5);
+			servicioCarrito.agregarProducto(i3.getId(), u1.getId(), 1);
+			servicioCarrito.agregarProducto(i5.getId(), u2.getId(), 2);
+			servicioCarrito.agregarProducto(i7.getId(), u3.getId(), 10);
 			System.out.println("registros iniciales realizados correctamente");
 
 			com.javier.manaments.model.SetUp setUp = new com.javier.manaments.model.SetUp();

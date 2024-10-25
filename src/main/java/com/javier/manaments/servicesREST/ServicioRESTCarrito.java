@@ -28,8 +28,31 @@ public class ServicioRESTCarrito {
 
 	@RequestMapping("obtener-productos-carrito")
 	public List<Map<String, Object>> obtenerProductosCarrito(HttpServletRequest request) {
-
 		return servicioCarrito
 				.obtenerProductosCarritoUsuario(((Usuario) request.getSession().getAttribute("usuario")).getId());
 	}
+
+	@RequestMapping("restar-producto-carrito")
+	public String restarProductoAlCarrito(@RequestParam("id") Integer id, @RequestParam("cantidad") Integer cantidad,
+			HttpServletRequest request) {
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		servicioCarrito.restarProductoCarrito(id, usuario.getId(), cantidad);
+		return "ok";
+	}
+
+	@RequestMapping("aumentar-producto-carrito")
+	public String aumentarProductoAlCarrito(@RequestParam("id") Integer id, @RequestParam("cantidad") Integer cantidad,
+			HttpServletRequest request) {
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		servicioCarrito.aumentarProductoCarrito(id, usuario.getId(), cantidad);
+		return "ok";
+	}
+
+	@RequestMapping("borrar-producto-carrito")
+	public String borrarProductoAlCarrito(@RequestParam("id") Integer id, HttpServletRequest request) {
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		servicioCarrito.borrarProductoCarrito(id, usuario.getId());
+		return "ok";
+	}
+
 }

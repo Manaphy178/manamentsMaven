@@ -69,8 +69,48 @@ public class ServicioCarritoJPAimpl implements ServicioCarrito {
 			query.setParameter("carrito_id", carrito.getId());
 			res = Utilidades.procesaNativeQuery(query);
 		}
-		
+
 		return res;
+	}
+
+	@Override
+	public void restarProductoCarrito(int idProducto, long idUsuario, int cantidad) {
+		Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+		Carrito carrito = usuario.getCarrito();
+		for (ProductoCarrito pc : carrito.getProductoCarritos()) {
+			if (pc.getInstrumento().getId() == idProducto) {
+				// aprovechamos e incrementamos su cantidad
+				pc.setCantidad(pc.getCantidad() - cantidad);
+				entityManager.merge(pc);
+			}
+		}
+	}
+
+	@Override
+	public void aumentarProductoCarrito(int idProducto, long idUsuario, int cantidad) {
+		Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+		Carrito carrito = usuario.getCarrito();
+		for (ProductoCarrito pc : carrito.getProductoCarritos()) {
+			if (pc.getInstrumento().getId() == idProducto) {
+				// aprovechamos e incrementamos su cantidad
+				pc.setCantidad(pc.getCantidad() + cantidad);
+				entityManager.merge(pc);
+			}
+		}
+
+	}
+
+	@Override
+	public void borrarProductoCarrito(int idProducto, long idUsuario) {
+		Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+		Carrito carrito = usuario.getCarrito();
+		for (ProductoCarrito pc : carrito.getProductoCarritos()) {
+			if (pc.getInstrumento().getId() == idProducto) {
+				// aprovechamos e incrementamos su cantidad
+				entityManager.remove(pc);
+			}
+		}
+
 	}
 
 }
