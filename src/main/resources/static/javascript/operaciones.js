@@ -179,15 +179,13 @@ function obtenerProductosCarrito() {
     $(".button_delete").click(borrarProductoCarrito);
     let total_productos = 0;
     let precio_total = 0;
-
-
     for (i in res) {
       total_productos += res[i].CANTIDAD;
       precio_total += res[i].PRECIO * res[i].CANTIDAD;
-
     }
     $("#total_productos").html(total_productos);
     $("#total_precio").html(precio_total);
+    $("#realizar-pedido").click(checkout_paso_0);
   });
 } //End obtenerProductosCarrito
 
