@@ -13,8 +13,11 @@ public class Pedido {
 //	Se pide en paso 1
 
 	private String nombreCompleto;
+	private String pais;
+	private String telefono;
 	private String direccion;
 	private String provincia;
+	private String poblacion;
 
 //	Fin paso 1
 
@@ -22,7 +25,9 @@ public class Pedido {
 
 	private String titularTarjeta;
 	private String numeroTarjeta;
+	private long cvv;
 	private String tipoTarjeta;
+	private String caducidadTarjeta;
 
 //	Fin paso 2
 
@@ -33,16 +38,20 @@ public class Pedido {
 	@GeneratedValue
 	private int id;
 
-//	Se pide en paso 3
-
-//	Fin paso 3
-
 	public String getEstado() {
 		return estado;
 	}
 
 	public String getNombreCompleto() {
 		return nombreCompleto;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public String getTelefono() {
+		return telefono;
 	}
 
 	public String getDireccion() {
@@ -53,6 +62,10 @@ public class Pedido {
 		return provincia;
 	}
 
+	public String getPoblacion() {
+		return poblacion;
+	}
+
 	public String getTitularTarjeta() {
 		return titularTarjeta;
 	}
@@ -61,8 +74,16 @@ public class Pedido {
 		return numeroTarjeta;
 	}
 
+	public long getCvv() {
+		return cvv;
+	}
+
 	public String getTipoTarjeta() {
 		return tipoTarjeta;
+	}
+
+	public String getCaducidadTarjeta() {
+		return caducidadTarjeta;
 	}
 
 	public Usuario getUsuario() {
@@ -81,12 +102,24 @@ public class Pedido {
 		this.nombreCompleto = nombreCompleto;
 	}
 
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
+	}
+
+	public void setPoblacion(String poblacion) {
+		this.poblacion = poblacion;
 	}
 
 	public void setTitularTarjeta(String titularTarjeta) {
@@ -97,8 +130,16 @@ public class Pedido {
 		this.numeroTarjeta = numeroTarjeta;
 	}
 
+	public void setCvv(long cvv) {
+		this.cvv = cvv;
+	}
+
 	public void setTipoTarjeta(String tipoTarjeta) {
 		this.tipoTarjeta = tipoTarjeta;
+	}
+
+	public void setCaducidadTarjeta(String caducidadTarjeta) {
+		this.caducidadTarjeta = caducidadTarjeta;
 	}
 
 	public void setUsuario(Usuario usuario) {
@@ -108,4 +149,7 @@ public class Pedido {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	
+
 }

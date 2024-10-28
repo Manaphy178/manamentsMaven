@@ -53,25 +53,39 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 	}
 
 	@Override
-	public void procesarPaso1(String nombreCompleto, String direccion, String provincia, long idUsuario) {
+	public void procesarPaso1(String nombreCompleto, String pais, String telefono, String direccion, String provincia,
+			String poblacion, long idUsuario) {
 		try {
 			Pedido p = obtenerPedidoActual(idUsuario);
 			p.setNombreCompleto(nombreCompleto);
 			p.setDireccion(direccion);
 			p.setProvincia(provincia);
+			p.setTelefono(telefono);
+			p.setPais(pais);
+			p.setPoblacion(poblacion);
 			entityManager.merge(p);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Hubo un problema obteniendo el pedido actual");
 		}
-		
 
 	}
 
 	@Override
-	public void procesarPaso2(String titular, String numero, String tipoTarjeta, long idUsuario) {
-		// TODO Auto-generated method stub
-
+	public void procesarPaso2(String titular, String numero, long cvv, String tipoTarjeta, String caducidadTarjeta,
+			long idUsuario) {
+		try {
+			Pedido p = obtenerPedidoActual(idUsuario);
+			p.setTitularTarjeta(titular);
+			p.setNumeroTarjeta(numero);
+			p.setCvv(cvv);
+			p.setTipoTarjeta(tipoTarjeta);
+			p.setCaducidadTarjeta(caducidadTarjeta);
+			entityManager.merge(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Hubo un problema obteniendo el pedido actual");
+		}
 	}
 
 	@Override
@@ -85,4 +99,5 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 		// TODO Auto-generated method stub
 
 	}
+
 }

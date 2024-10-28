@@ -19,7 +19,26 @@
   <label for="titular_tarjeta">Titular de la tarjeta:</label>
   <input type="text" name="titular_tarjeta" id="titular_tarjeta" />
 </div>
-
+<div>
+  <label for="fecha_caducidad">Fecha de caducidad</label>
+  <input
+    id="fecha_caducidad"
+    type="text"
+    pattern="[0-9]*"
+    inputmode="numeric"
+    name="fecha_caducidad"
+  />
+</div>
+<div>
+  <label for="codigo_seguridad">Codigo de seguridad</label>
+  <input
+    name="codigo_seguridad"
+    id="codigo_seguridad"
+    type="text"
+    pattern="[0-9]*"
+    inputmode="numeric"
+  />
+</div>
 <div>
   <button style="padding: 10px" id="aceptar_paso_2">Aceptar</button>
 </div>
