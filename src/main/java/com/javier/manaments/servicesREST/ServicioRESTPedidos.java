@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javier.manaments.model.Usuario;
+import com.javier.manaments.model.tiposExtra.ResumenPedido;
 import com.javier.manaments.services.ServicioPedidos;
 
 @RestController
@@ -29,10 +30,18 @@ public class ServicioRESTPedidos {
 	}
 
 	@RequestMapping("realizar-pedido-paso2")
-	public String realizarPerdidoPaso2(String tipoTarjeta, String numeroTarjeta, String titularTarjeta, long cvv,
-			String caducidadTarjeta, HttpServletRequest request) {
+	public ResumenPedido realizarPerdidoPaso2(String tarjeta, String numero, String titular, long cvv, String caducidad,
+			HttpServletRequest request) {
 		Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-		servicioPedidos.procesarPaso2(titularTarjeta, numeroTarjeta, cvv, tipoTarjeta, caducidadTarjeta, u.getId());
-		return "ok";
+		servicioPedidos.procesarPaso2(titular, numero, cvv, tarjeta, caducidad, u.getId());
+		ResumenPedido resumen = servicioPedidos.obtenerResumenDelPedido(u.getId());
+		return resumen;
+	}
+
+	@RequestMapping("confirmar-pedido")
+	public String confirmarPedido(HttpServletRequest request) {
+		Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+		servicioPedidos.confirmarPedido(u.getId());
+		return "pedido completado";
 	}
 }

@@ -4,14 +4,21 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javier.manaments.constantesSQL.ConstantesSQL;
+import com.javier.manaments.model.Carrito;
 import com.javier.manaments.model.Pedido;
+import com.javier.manaments.model.ProductoCarrito;
+import com.javier.manaments.model.ProductoPedido;
 import com.javier.manaments.model.Usuario;
 import com.javier.manaments.model.estadosPedido.EstadosPedido;
 import com.javier.manaments.model.tiposExtra.ResumenPedido;
+import com.javier.manaments.services.ServicioCarrito;
 import com.javier.manaments.services.ServicioPedidos;
 
 @Service
@@ -20,6 +27,9 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+
+	@Autowired
+	private ServicioCarrito servicioCarrito;
 
 	/**
 	 * en cuanto el usuario completa el paso 1 generamos, si no existe ya, un unico
@@ -90,14 +100,59 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 
 	@Override
 	public ResumenPedido obtenerResumenDelPedido(long idUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		ResumenPedido resumen = new ResumenPedido();
+		try {
+			Pedido p = obtenerPedidoActual(idUsuario);
+//			Paso 1
+			resumen.setNombreCompleto(p.getNombreCompleto());
+			resumen.setPais(p.getPais());
+			resumen.setTelefono(p.getTelefono());
+			resumen.setDireccion(p.getDireccion());
+			resumen.setProvincia(p.getProvincia());
+			resumen.setPoblacion(p.getPoblacion());
+//			paso 2
+			resumen.setTitularTarjeta(p.getTitularTarjeta());
+			resumen.setNumeroTarjeta(p.getNumeroTarjeta());
+			resumen.setCvv(p.getCvv());
+			resumen.setTipoTarjeta(p.getTipoTarjeta());
+			resumen.setCaducidadTarjeta(p.getCaducidadTarjeta());
+
+			resumen.setInstrumentos(servicioCarrito.obtenerProductosCarritoUsuario(idUsuario));
+		} catch (Exception e) {
+			System.err.println("error en obtener pedido en obtenerResumenDelPedido");
+			e.printStackTrace();
+		}
+		return resumen;
 	}
 
 	@Override
 	public void confirmarPedido(long idUsuario) {
-		// TODO Auto-generated method stub
-
-	}
+		try {
+			Pedido p = obtenerPedidoActual(idUsuario);
+			Usuario usuario = entityManager.find(Usuario.class, idUsuario);
+			Carrito carrito = usuario.getCarrito();
+//			pasar todos los productos del carrito al pedido
+			if (carrito != null && carrito.getProductoCarritos().size() > 0) {
+				for (ProductoCarrito pc : carrito.getProductoCarritos()) {
+					ProductoPedido pp = new ProductoPedido();
+					pp.setCantidad(pc.getCantidad());
+					pp.setInstrumento(pc.getInstrumento());
+					p.getProductoPedidos().add(pp);
+					pp.setPedido(p);
+					entityManager.persist(pp);
+				}
+			}
+//			Borrar los productos del carrito del usuario
+			Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_BORRAR_PRODUCTOS_CARRITO);
+			query.setParameter("carrito_id", carrito.getId());
+			query.executeUpdate();
+			p.setEstado(EstadosPedido.COMPLETO.name());
+			entityManager.merge(p);
+//			Finalizar pedido
+		} catch (Exception e) {
+			System.err.println("error al obtener pedido en confirmarPedido");
+			e.printStackTrace();
+		}
+	}// end confirmarPedido
 
 }

@@ -50,14 +50,23 @@ function checkout_paso_2_aceptar() {
     cvv: codigo_seguridad,
     caducidad: fecha_caducidad,
   }).done(function (res) {
-    if ((res = "ok")) {
-      $("#contenedor").html(html_checkout_3);
-      $("#aceptar_paso_3").click(checkout_paso_3_aceptar);
-      console.log(res);
-    } else {
-      alert("fallo en realizar-pedido-paso2");
-      console.log(res);
+    /**
+     * res tiene el resumen del pedido para mostrarlo
+     * en checkout_3.html
+     */
+    console.log("resumen del pedido");
+    console.log(res);
+    let html = Mustache.render(html_checkout_3, res);
+    $("#contenedor").html(html);
+    $("#boton_confirmar_pedido").click(confirmar_pedido);
+  });
+}
+function confirmar_pedido() {
+  $.post("confirmar-pedido").done(function (res) {
+    console.log("Respuesta del REST de pedidos: " + res);
+    if (res == "pedido completado") {
+      alert("Gracias por realizar tu pedido con nosotros");
+      obtenerProductos();
     }
   });
 }
-function checkout_paso_3_aceptar() {}

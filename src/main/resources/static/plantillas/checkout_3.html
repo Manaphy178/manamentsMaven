@@ -3,10 +3,38 @@
 <h3>Resumen del pedido:</h3>
 
 <div>Productos del pedido:</div>
-
+<div id="productos_pedido">
+  {{#instrumentos}}
+  <div style="margin: 10px">
+    nombre: {{NOMBRE_INSTRUMENTO}} <br />
+    <img
+      src="mostrar_imagen?id={{ID}}"
+      height="40px"
+      alt="Imagen de producto"
+    /><br />
+    cantidad: {{CANTIDAD}} <br />
+    precio/unidad: {{PRECIO}} €
+  </div>
+  {{/instrumentos}}
+</div>
 <div>Datos de envio:</div>
+<div style="margin: 10px">
+  Nombre Completo: {{nombreCompleto}} <br />
+  Pais: {{pais}} <br />
+  Telefono: {{telefono}} <br />
+  Direccion: {{direccion}} <br />
+  Provincia: {{provincia}} <br />
+  Poblacion: {{poblacion}}
+</div>
 
 <div>Datos de pago:</div>
+<div style="margin: 10px">
+  Tipo de tarjeta: {{tipoTarjeta}} <br />
+  Titular: {{titularTarjeta}} <br />
+  Numero de tarjeta: {{numeroTarjeta}} <br />
+  CVV: {{cvv}} <br />
+  Caducidad de tarjeta: {{caducidadTarjeta}}
+</div>
 
 <div>
   <button style="padding: 10px" id="boton_confirmar_pedido">
