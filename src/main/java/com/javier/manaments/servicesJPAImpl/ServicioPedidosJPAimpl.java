@@ -99,6 +99,20 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 	}
 
 	@Override
+	public void procesarPaso3(String formaEntrega, String extra, long idUsuario) {
+		try {
+			Pedido p = obtenerPedidoActual(idUsuario);
+			p.setFormaEnvio(formaEntrega);
+			p.setExtra(extra);
+			entityManager.merge(p);
+		} catch (Exception e) {
+			System.err.println("Hubo un problema obteniendo el pedido actual en procesarPaso3");
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
 	public ResumenPedido obtenerResumenDelPedido(long idUsuario) {
 		ResumenPedido resumen = new ResumenPedido();
 		try {
@@ -116,6 +130,13 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 			resumen.setCvv(p.getCvv());
 			resumen.setTipoTarjeta(p.getTipoTarjeta());
 			resumen.setCaducidadTarjeta(p.getCaducidadTarjeta());
+//			paso 3
+			resumen.setFormaEntrega(p.getFormaEnvio());
+			if (p.getExtra() != null) {
+				resumen.setExtra(p.getExtra());
+			} else {
+				resumen.setExtra("Sin especificaciones");
+			}
 
 			resumen.setInstrumentos(servicioCarrito.obtenerProductosCarritoUsuario(idUsuario));
 		} catch (Exception e) {

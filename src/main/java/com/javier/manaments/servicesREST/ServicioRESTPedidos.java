@@ -38,6 +38,14 @@ public class ServicioRESTPedidos {
 		return resumen;
 	}
 
+	@RequestMapping("resumen-pedido")
+	public ResumenPedido resumirPedido(String formaEntrega,String extra,HttpServletRequest request) {
+		System.err.println("Entro en resumir pedido");
+		Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+		servicioPedidos.procesarPaso3(formaEntrega,extra, u.getId());
+		ResumenPedido resumen = servicioPedidos.obtenerResumenDelPedido(u.getId());
+		return resumen;
+	}
 	@RequestMapping("confirmar-pedido")
 	public String confirmarPedido(HttpServletRequest request) {
 		Usuario u = (Usuario) request.getSession().getAttribute("usuario");

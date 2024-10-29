@@ -54,13 +54,38 @@ function checkout_paso_2_aceptar() {
      * res tiene el resumen del pedido para mostrarlo
      * en checkout_3.html
      */
-    console.log("resumen del pedido");
     console.log(res);
     let html = Mustache.render(html_checkout_3, res);
+    $("#contenedor").html(html);
+    $("#aceptar_paso_3").click(resumen_pedido);
+  });
+}
+
+function mostrarTextarea() {
+  const envio = document.querySelector('input[name="entrega"][value="envio"]');
+  const text = document.getElementById("especificacion_entrega");
+  if (envio.checked) {
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+
+function resumen_pedido() {
+  let envio = $("#entrega").find(":selected").val();
+  let extra = $("#extra").val();
+  $.post("resumen-pedido", {
+    forma_envio: envio,
+    extra: extra,
+  }).done(function (res) {
+    console.log(res);
+    let html = Mustache.render(html_resumen_pedido, res);
+
     $("#contenedor").html(html);
     $("#boton_confirmar_pedido").click(confirmar_pedido);
   });
 }
+
 function confirmar_pedido() {
   $.post("confirmar-pedido").done(function (res) {
     console.log("Respuesta del REST de pedidos: " + res);
@@ -69,4 +94,9 @@ function confirmar_pedido() {
       obtenerProductos();
     }
   });
+}
+
+function opcionEntrega() {
+  const especificaciones = $("#especificaciones");
+  
 }

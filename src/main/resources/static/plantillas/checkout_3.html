@@ -1,43 +1,43 @@
 <!-- Paso 3 del procedimiento de checkout/compra -->
 <h1>REALIZAR PEDIDO - PASO 3</h1>
 <h3>Resumen del pedido:</h3>
-
-<div>Productos del pedido:</div>
-<div id="productos_pedido">
-  {{#instrumentos}}
-  <div style="margin: 10px">
-    nombre: {{NOMBRE_INSTRUMENTO}} <br />
-    <img
-      src="mostrar_imagen?id={{ID}}"
-      height="40px"
-      alt="Imagen de producto"
-    /><br />
-    cantidad: {{CANTIDAD}} <br />
-    precio/unidad: {{PRECIO}} €
-  </div>
-  {{/instrumentos}}
-</div>
 <div>Datos de envio:</div>
 <div style="margin: 10px">
-  Nombre Completo: {{nombreCompleto}} <br />
-  Pais: {{pais}} <br />
-  Telefono: {{telefono}} <br />
-  Direccion: {{direccion}} <br />
-  Provincia: {{provincia}} <br />
-  Poblacion: {{poblacion}}
+  Nombre Completo: <span>{{nombreCompleto}}</span> <br />
+  Pais: <span> {{pais}}</span> <br />
+  Telefono: <span>{{telefono}}</span> <br />
+  Direccion: <span>{{direccion}}</span> <br />
+  Provincia: <span>{{provincia}}</span> <br />
+  Poblacion: <span>{{poblacion}}</span> <br />
 </div>
-
-<div>Datos de pago:</div>
-<div style="margin: 10px">
-  Tipo de tarjeta: {{tipoTarjeta}} <br />
-  Titular: {{titularTarjeta}} <br />
-  Numero de tarjeta: {{numeroTarjeta}} <br />
-  CVV: {{cvv}} <br />
-  Caducidad de tarjeta: {{caducidadTarjeta}}
+<div id="forma_entrega">
+  <label for="entrega">Forma de entrega:</label><br />
+  <label
+    ><input
+      type="radio"
+      name="entrega"
+      id="entrega"
+      value="recogida"
+      onchange="mostrarTextarea()"
+    />
+    Recoger en la tienda</label
+  >
+  <br />
+  <label
+    ><input
+      type="radio"
+      name="entrega"
+      id="envio"
+      value="envio"
+      onchange="mostrarTextarea()"
+    />
+    Entrega a domicilio</label
+  >
 </div>
-
+<div id="especificacion_entrega" style="display: none">
+  <label for="extra">¿Alguna especificacion de la entrega?</label><br />
+  <textarea name="extra" id="extra" rows="5" cols="25"></textarea>
+</div>
 <div>
-  <button style="padding: 10px" id="boton_confirmar_pedido">
-    CONFIRMAR PEDIDO
-  </button>
+  <button id="aceptar_paso_3" style="margin-top: 10px;">CONTINUAR</button>
 </div>

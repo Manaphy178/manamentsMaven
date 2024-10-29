@@ -10,7 +10,10 @@ public interface ServicioPedidos {
 	void procesarPaso2(String titular, String numero, long cvv, String tipoTarjeta, String caducidadTarjeta,
 			long idUsuario);
 
+	void procesarPaso3(String formaEntrega,String extra, long idUsuario);
+	
 	ResumenPedido obtenerResumenDelPedido(long idUsuario);
+	
 
 	void confirmarPedido(long idUsuario);
 }

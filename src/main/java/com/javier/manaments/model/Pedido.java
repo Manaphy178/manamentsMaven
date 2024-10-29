@@ -38,9 +38,16 @@ public class Pedido {
 
 //	Fin paso 2
 
+//	Se pide paso 3
+
+	private String formaEnvio;
+	private String extra;
+
+//	Fin paso 3
+
 	@ManyToOne(targetEntity = Usuario.class, optional = false)
 	private Usuario usuario;
-	
+
 	@Id
 	@GeneratedValue
 	private int id;
@@ -149,12 +156,36 @@ public class Pedido {
 		this.caducidadTarjeta = caducidadTarjeta;
 	}
 
+	public String getFormaEnvio() {
+		return formaEnvio;
+	}
+
+	public void setFormaEnvio(String formaEnvio) {
+		this.formaEnvio = formaEnvio;
+	}
+
+	public String getExtra() {
+		return extra;
+	}
+
+	public void setExtra(String extra) {
+		this.extra = extra;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

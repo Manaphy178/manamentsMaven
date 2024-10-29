@@ -22,11 +22,14 @@ public class ResumenPedido {
 	private String tipoTarjeta;
 	private String caducidadTarjeta;
 
+//	Datos paso 3
+	private String formaEntrega;
+	private String extra;
+
 	/**
 	 * Si no hay ningun constructor, java incorpora uno vacio, que no pide nada, por
 	 * defecto
 	 */
-
 	public List<Map<String, Object>> getInstrumentos() {
 		return instrumentos;
 	}
@@ -121,6 +124,22 @@ public class ResumenPedido {
 
 	public void setCaducidadTarjeta(String caducidadTarjeta) {
 		this.caducidadTarjeta = caducidadTarjeta;
+	}
+
+	public String getFormaEntrega() {
+		return formaEntrega;
+	}
+
+	public void setFormaEntrega(String formaEntrega) {
+		this.formaEntrega = formaEntrega;
+	}
+
+	public String getExtra() {
+		return extra;
+	}
+
+	public void setExtra(String extra) {
+		this.extra = extra;
 	}
 
 }

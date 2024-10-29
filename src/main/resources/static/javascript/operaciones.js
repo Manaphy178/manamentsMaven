@@ -170,22 +170,27 @@ function obtenerProductosCarrito() {
   $.getJSON("obtener-productos-carrito").done(function (res) {
     console.log("producto del carrito:");
     console.log(res);
-    // alert("respuesta recibida: " + JSON.stringify(res));
-    let res_html = Mustache.render(html_carrito, res);
-    $("#contenedor").html(res_html);
-    $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
-    $(".restar_cantidad_producto").click(restarCantidadProducto);
-    $(".aumentar_cantidad_producto").click(aumentarCantidadProducto);
-    $(".button_delete").click(borrarProductoCarrito);
-    let total_productos = 0;
-    let precio_total = 0;
-    for (i in res) {
-      total_productos += res[i].CANTIDAD;
-      precio_total += res[i].PRECIO * res[i].CANTIDAD;
+    if (res.length < 1) {
+      let res_html = Mustache.render(html_carrito_vacio, res);
+      $("#contenedor").html(res_html);
+    } else {
+      // alert("respuesta recibida: " + JSON.stringify(res));
+      let res_html = Mustache.render(html_carrito, res);
+      $("#contenedor").html(res_html);
+      $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+      $(".restar_cantidad_producto").click(restarCantidadProducto);
+      $(".aumentar_cantidad_producto").click(aumentarCantidadProducto);
+      $(".button_delete").click(borrarProductoCarrito);
+      let total_productos = 0;
+      let precio_total = 0;
+      for (i in res) {
+        total_productos += res[i].CANTIDAD;
+        precio_total += res[i].PRECIO * res[i].CANTIDAD;
+      }
+      $("#total_productos").html(total_productos);
+      $("#total_precio").html(precio_total);
+      $("#realizar-pedido").click(checkout_paso_0);
     }
-    $("#total_productos").html(total_productos);
-    $("#total_precio").html(precio_total);
-    $("#realizar-pedido").click(checkout_paso_0);
   });
 } //End obtenerProductosCarrito
 
