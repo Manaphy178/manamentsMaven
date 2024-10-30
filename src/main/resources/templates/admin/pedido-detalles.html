@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/portada.css">
+    <title>Pedidos detalles</title>
+  </head>
+  <body>
+    <div th:insert="fragments/general.html :: menu"></div>
+    <h1>Detalles del pedido</h1>
+
+    <div style="text-align: center">Datos del envio:</div>
+
+    Nombre completo: <span th:text="${pedido.nombreCompleto}"></span> <br />
+    Direccion: <span th:text="${pedido.direccion}"></span> <br />
+    Provincia: <span th:text="${pedido.provincia}"></span><br />
+
+    <div style="text-align: center">Datos del pago:</div>
+    Tipo de tarjeta: <span th:text="${pedido.tipoTarjeta}"></span> <br />
+    Titular de tarjeta: <span th:text="${pedido.titularTarjeta}"></span> <br />
+    Numero de tarjeta: <span th:text="${pedido.numeroTarjeta}"></span> <br />
+
+    <div style="text-align: center">Productos del pedido:</div>
+    <div
+      th:each="productosPedido : ${pedidos.productosPedido}"
+      style="margin: 15px"
+    >
+      Nombre: <span th:text="${productoPedido.instrumento.nombre}"></span><br />
+      Precio/Unidad: <span th:text="${productoPedido.instrumento.precio}"></span
+      ><br />
+      Cantidad: <span th:text="${productoPedido.cantidad}"></span><br />
+    </div>
+    <select th:field="${pedido.estado}">
+      <option
+        th:each="estado: ${estados}"
+        th:text="${estado}"
+        th:value="{estado.key}"
+      ></option>
+    </select>
+  </body>
+</html>

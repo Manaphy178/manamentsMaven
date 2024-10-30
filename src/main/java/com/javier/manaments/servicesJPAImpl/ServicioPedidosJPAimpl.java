@@ -176,4 +176,14 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 		}
 	}// end confirmarPedido
 
+	@Override
+	public List<Pedido> obtenerPedido() {
+		return entityManager.createQuery("select p from Pedido p order by p.id desc").getResultList();
+	}
+
+	@Override
+	public Pedido obtenerPedidoPorId(int idPedido) {
+		return entityManager.find(Pedido.class, idPedido);
+	}
+
 }

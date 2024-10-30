@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/portada.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div th:insert="fragments/general.html :: menu"></div>
+    <h1>Listado de pedidos de la tienda</h1>
+    <table>
+      <tr>
+        <th>Nombre completo</th>
+        <th>Direccion</th>
+        <th>Estado</th>
+        <th>Detalles</th>
+
+
+      </tr>
+      <tr th:each="p : ${pedidos}">
+        <td><span th:text="${p.nombreCompleto}"></span></td>
+        <td><span th:text="${p.direccion}"></span></td>
+        <td><span th:text="${p.estado}"></span></td>
+        <td><a th:href="@{${'ver-detalles-pedido?id'+p.id}}">Ver detalles</a></td>
+      </tr>
+    </table>
+  </body>
+</html>
