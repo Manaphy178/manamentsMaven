@@ -14,7 +14,6 @@ import com.javier.manaments.services.ServicioPedidos;
 
 @Controller
 @RequestMapping("admin/")
-
 public class ControladorPedidos {
 
 	@Autowired

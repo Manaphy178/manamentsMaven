@@ -24,19 +24,19 @@
 
     <div style="text-align: center">Productos del pedido:</div>
     <div
-      th:each="productosPedido : ${pedidos.productosPedido}"
+      th:each="producto : ${pedido.productoPedidos}"
       style="margin: 15px"
     >
-      Nombre: <span th:text="${productoPedido.instrumento.nombre}"></span><br />
-      Precio/Unidad: <span th:text="${productoPedido.instrumento.precio}"></span
+      Nombre: <span th:text="${producto.instrumento.nombre}"></span><br />
+      Precio/Unidad: <span th:text="${producto.instrumento.precio}"></span
       ><br />
-      Cantidad: <span th:text="${productoPedido.cantidad}"></span><br />
+      Cantidad: <span th:text="${producto.cantidad}"></span><br />
     </div>
     <select th:field="${pedido.estado}">
       <option
         th:each="estado: ${estados}"
         th:text="${estado}"
-        th:value="{estado.key}"
+        th:value="${estado.key}"
       ></option>
     </select>
   </body>
