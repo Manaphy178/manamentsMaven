@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/portada.css" />
+    <!-- HACER MAS BONITA LA PAGINA DE PEDIDO-DETALLES-->
     <title>Pedidos detalles</title>
   </head>
   <body>
@@ -24,6 +25,10 @@
 
     <div style="text-align: center">Productos del pedido:</div>
     <div th:each="producto : ${pedido.productoPedidos}" style="margin: 15px">
+      <img
+        height="80px"
+        th:src="@{${'../mostrar_imagen?id=' + producto.instrumento.id}}"
+      /><br />
       Nombre: <span th:text="${producto.instrumento.nombre}"></span><br />
       Precio/Unidad: <span th:text="${producto.instrumento.precio}"></span
       ><br />
