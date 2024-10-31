@@ -43,7 +43,6 @@ function checkout_paso_2_aceptar() {
   let fecha_caducidad = $("#fecha_caducidad").val();
 
   $.post("realizar-pedido-paso2", {
-    // TODO meter numero de seguridad y fecha de caducidad
     tarjeta: tipo_tarjeta,
     numero: numero_tarjeta,
     titular: titular_tarjeta,
@@ -98,5 +97,4 @@ function confirmar_pedido() {
 
 function opcionEntrega() {
   const especificaciones = $("#especificaciones");
-  
 }

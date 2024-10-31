@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/portada.css">
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/portada.css" />
     <title>Pedidos detalles</title>
   </head>
   <body>
@@ -23,21 +23,38 @@
     Numero de tarjeta: <span th:text="${pedido.numeroTarjeta}"></span> <br />
 
     <div style="text-align: center">Productos del pedido:</div>
-    <div
-      th:each="producto : ${pedido.productoPedidos}"
-      style="margin: 15px"
-    >
+    <div th:each="producto : ${pedido.productoPedidos}" style="margin: 15px">
       Nombre: <span th:text="${producto.instrumento.nombre}"></span><br />
       Precio/Unidad: <span th:text="${producto.instrumento.precio}"></span
       ><br />
       Cantidad: <span th:text="${producto.cantidad}"></span><br />
     </div>
-    <select th:field="${pedido.estado}">
+    <input type="hidden" name="" id="id_pedido" th:field="${pedido.id}" />
+    <select id="select_estado" th:field="${pedido.estado}">
       <option
         th:each="estado: ${estados}"
         th:text="${estado}"
         th:value="${estado.key}"
       ></option>
     </select>
+    <script src="../librerias_js/jquery.js"></script>
+
+    <script>
+      /**
+       * a la que se cambie el estado del pedido,
+       * registramos el cambio mediante un servicio REST
+       */
+      $("#select_estado").change(function () {
+        let estado = $("#select_estado").find(":selected").val();
+        let idPedido = $("#id_pedido").val();
+        console.log("estado: " + estado + " a la id de pedido: " + idPedido);
+        $.post("administracion-actualizar-estado-pedido", {
+          id: idPedido,
+          estado: estado,
+        }).done(function (res) {
+          console.log(res);
+        });
+      });
+    </script>
   </body>
 </html>

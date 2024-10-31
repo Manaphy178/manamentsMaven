@@ -9,7 +9,9 @@ public interface ServicioPedidos {
 
 //	Para administracion
 	List<Pedido> obtenerPedido();
+
 	Pedido obtenerPedidoPorId(int idPedido);
+
 //	para la parte cliente
 	void procesarPaso1(String nombreCompleto, String pais, String telefono, String direccion, String provincia,
 			String poblacion, long idUsuario);
@@ -23,5 +25,6 @@ public interface ServicioPedidos {
 
 	void confirmarPedido(long idUsuario);
 
+	void actualizarEstadoPedido(int id, String estado);
 
 }

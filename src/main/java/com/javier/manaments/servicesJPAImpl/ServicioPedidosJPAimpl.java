@@ -186,4 +186,11 @@ public class ServicioPedidosJPAimpl implements ServicioPedidos {
 		return entityManager.find(Pedido.class, idPedido);
 	}
 
-}
+	@Override
+	public void actualizarEstadoPedido(int id, String estado) {
+		Pedido p = entityManager.find(Pedido.class, id);
+		p.setEstado(estado);
+		entityManager.merge(p);
+	}
+
+} // end class

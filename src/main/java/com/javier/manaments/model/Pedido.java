@@ -52,6 +52,9 @@ public class Pedido {
 	@GeneratedValue
 	private int id;
 
+	
+	
+
 	public List<ProductoPedido> getProductoPedidos() {
 		return productoPedidos;
 	}
