@@ -17,9 +17,17 @@
     >
       <label for="nombre">Nombre</label>
       <input type="text" name="nombre" id="nombre" th:field="*{nombre}" />
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('nombre')}"
+        th:errors="*{nombre}"
+      ></span>
       <br />
       <label for="tipo">Tipo</label>
-      <input type="text" name="tipo" id="tipo" th:field="*{tipo}" />
+      <select name="tipo" id="tipo" th:field="*{tipo}" >
+        <option value="Eléctrico">Eléctrico</option>
+        <option value="Acústico">Acústico</option>
+      </select>
       <br />
       <label for="marca">Marca</label>
       <input type="text" name="marca" id="marca" th:field="*{marca}" />
@@ -59,7 +67,13 @@
         id="precio"
         step="0.1"
         th:field="*{precio}"
-      /><br />
+      />
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('precio')}"
+        th:errors="*{precio}"
+      ></span>
+      <br />
 
       <input type="submit" value="REGISTRAR NUEVO INSTRUMENTO" />
     </form>

@@ -13,4 +13,6 @@ public interface ServicioUsuarios {
 	List<Usuario> obtenerUsuarios();
 
 	Usuario obtenerUsuarioPorEmailPass(String email, String pass);
+
+	boolean comprobarEmailExiste(String email);
 }

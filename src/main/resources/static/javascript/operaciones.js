@@ -40,7 +40,18 @@ function enviarInfoUsuarioAlServidor() {
   let email = $("#email").val();
   let pass = $("#pass").val();
   let codPostal = $("#codPostal").val();
-  //falta validar los datos antes de mandarlos a ServicioUsuarios
+  
+  if (
+    !validarNombre(nombre) ||
+    !validarApellidos(apellido) ||
+    !validarUsuario(nomUsuario) ||
+    !validarEmail(email) ||
+    !validarPass(pass) ||
+    !validarCodigoPostal(codPostal)
+  ) {
+    alert("Hay datos incorrectos");
+    return;
+  }
   $.post("registrar-usuario-cliente", {
     nombre: nombre,
     apellido: apellido,
@@ -49,7 +60,7 @@ function enviarInfoUsuarioAlServidor() {
     pass: pass,
     codPostal: codPostal,
   }).done(function (res) {
-    alert(res);
+    console.log(res);
   });
 } //end enviarInfoUsuarioAlServidor
 

@@ -37,6 +37,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
@@ -72,11 +76,11 @@
 			<version>2.10.1</version>
 		</dependency>
 		<dependency>
-			<groupId>commons-io	</groupId>
+			<groupId>commons-io </groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.14.0</version>
 		</dependency>
-		 <dependency>
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>

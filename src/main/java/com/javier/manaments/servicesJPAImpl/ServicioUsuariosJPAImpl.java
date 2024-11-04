@@ -1,18 +1,18 @@
 package com.javier.manaments.servicesJPAImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.*;
 import javax.persistence.Query;
 
-import org.hibernate.*;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javier.manaments.constantesSQL.ConstantesSQL;
 import com.javier.manaments.model.Usuario;
 import com.javier.manaments.services.ServicioUsuarios;
+import com.javier.manaments.utilidades.Utilidades;
 
 @Service
 @Transactional
@@ -45,6 +45,14 @@ public class ServicioUsuariosJPAImpl implements ServicioUsuarios {
 		} else {
 			return resultado.get(0);
 		}
+	}
+
+	@Override
+	public boolean comprobarEmailExiste(String email) {
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_ID_USUARIO_POR_EMAIL);
+		query.setParameter("email", email);
+		List<Map<String, Object>> res = Utilidades.procesaNativeQuery(query);
+		return !res.isEmpty();
 	}
 
 }

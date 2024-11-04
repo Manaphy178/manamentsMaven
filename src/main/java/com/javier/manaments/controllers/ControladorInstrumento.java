@@ -5,10 +5,13 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javier.manaments.model.Instrumento;
@@ -18,7 +21,7 @@ import com.javier.manaments.services.ServicioInstrumento;
 @Controller
 @RequestMapping("admin/")
 public class ControladorInstrumento {
-	
+
 	@Autowired
 	private ServicioInstrumento servicioInstrumento;
 
@@ -49,14 +52,17 @@ public class ControladorInstrumento {
 	}
 
 	@RequestMapping("instrumentos-guardar-nuevo")
-	public String guardarNuevoInstrumento(Instrumento nuevoInstrumento, Model model, HttpServletRequest request) {
-		// lo suyo seria valiar el instrumento antes de nada
+	public String guardarNuevoInstrumento(@ModelAttribute("nuevoInstrumento") @Valid Instrumento nuevoInstrumento,
+			BindingResult br, Model model, HttpServletRequest request) {
+		if (br.hasErrors()) {
+			model.addAttribute("categorias", servicioCategoria.obtenerCategorias());
+			return "admin/instrumentos-nuevo";
+		}
 		// vamos a asignarle el archivo subido
 		System.err.println("instrumento guardar nuevo");
 		try {
 			nuevoInstrumento.setImagenPortada(nuevoInstrumento.getArchivoSubido().getBytes());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		nuevoInstrumento.setFechaCreacion(new Date(System.currentTimeMillis()));

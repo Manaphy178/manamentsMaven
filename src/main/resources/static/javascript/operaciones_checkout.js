@@ -12,11 +12,19 @@ function checkout_paso_1_aceptar() {
   let telefono = $("#campo_telefono").val();
   let poblacion = $("#campo_poblacion").val();
 
-  // Ahora lo suyo seria validar los valores recogidos
-  // TODO
+  if (
+    !validarNombreCompleto(nombre) ||
+    !validarDireccion(direccion) ||
+    !validarProvincia(provincia) ||
+    !validarPais(pais) ||
+    !validarTelefono(telefono) ||
+    !validarPoblacion(poblacion)
+  ) {
+    alert("Hay datos que no son posibles");
+    return;
+  }
 
   $.post("realizar-pedido-paso1", {
-    // TODO meter 3 campos mas que puedas meter en campos de envio
     nombre: nombre,
     pais: pais,
     telefono: telefono,
@@ -41,6 +49,16 @@ function checkout_paso_2_aceptar() {
   let titular_tarjeta = $("#titular_tarjeta").val();
   let codigo_seguridad = $("#codigo_seguridad").val();
   let fecha_caducidad = $("#fecha_caducidad").val();
+
+  if (
+    !validarNumeroTarjeta(numero_tarjeta) ||
+    !validarTitularTarjeta(titular_tarjeta) ||
+    !validarCodigoSeguridad(codigo_seguridad) ||
+    !validarFechaCaducidad(fecha_caducidad)
+  ) {
+    alert("Hay datos que no estan correctos");
+    return;
+  }
 
   $.post("realizar-pedido-paso2", {
     tarjeta: tipo_tarjeta,
@@ -71,6 +89,7 @@ function mostrarTextarea() {
 }
 
 function resumen_pedido() {
+  // TODO no encuentra el valor de entrega a lo mejor haciendo un document.getElementById
   let envio = $("#entrega").find(":selected").val();
   let extra = $("#extra").val();
   $.post("resumen-pedido", {

@@ -10,6 +10,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,19 +36,39 @@ public class Instrumento {
 	@ManyToOne(optional = true)
 	private Categoria categoria;
 
+//	Valores de Instrumento
+
 	@Id
 	@GeneratedValue
 	private int id;
+
+	@Size(min = 3, max = 40, message = "El nombre del intrumento tiene que tener entre 3 y 40 caracteres")
+	@NotEmpty(message = "El nombre no puede estar vacio")
+	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "El nombre solo puede tener numeros,letras y espacios en blanco")
 	@Column(name = "nombre_instrumento", length = 120)
 	private String nombre;
-	private String tipo;
+
+	@Size(min = 3, max = 40, message = "La marca del intrumento tiene que tener entre 3 y 40 caracteres")
+	@NotEmpty(message = "La marca no puede estar vacio")
+	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "La marca solo puede tener numeros,letras y espacios en blanco")
 	private String marca;
-	private String gamma;
+	
 	@Column(length = 650)
 	private String descripcion;
+
+	@NotNull(message = "debes insertar un precio")
+	@Min(value = 1, message = "el precio minimo es 1 euro")
+	@Max(value = 1000000, message = "el precio maximo es 1000000 euros")
+	private double precio;
+
 	@Transient
 	private MultipartFile archivoSubido;
-	private double precio;
+
+	private String tipo;
+
+	private String gamma;
+//	Añadir Estado
+
 	private Date ultimaModificacion;
 	private Date fechaCreacion;
 
