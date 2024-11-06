@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.javier.manaments.model.Categoria;
 import com.javier.manaments.model.Instrumento;
 import com.javier.manaments.services.ServicioCategoria;
 import com.javier.manaments.services.ServicioInstrumento;
@@ -80,11 +81,24 @@ public class ControladorInstrumento {
 	}
 
 	@RequestMapping("instrumentos-guardar-cambios")
-	public String guardarCambioInstrumento(Instrumento instrumentoEditar, Model model, HttpServletRequest request) {
-		// Antes de nada lo suyo seria validar los datos introducidos
-		// falta volver a asignal el archivo subido
+	public String guardarCambioInstrumento(@ModelAttribute("instrumentoEditar") @Valid Instrumento instrumentoEditar,
+			BindingResult br, Model model, HttpServletRequest request) {
+		if (br.hasErrors()) {
+			return "admin/instrumentos-editar";
+		}
+		if (instrumentoEditar.getArchivoSubido() != null && !instrumentoEditar.getArchivoSubido().isEmpty()) {
+			try {
+				instrumentoEditar.setImagenPortada(instrumentoEditar.getArchivoSubido().getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+				model.addAttribute("imageError", "Error al procesar la imagen");
+				return "admin/instrumentos-editar";
+			}
+		}
+		Categoria categoria = servicioCategoria.obtenerCategoriaPorId(instrumentoEditar.getIdCategoria());
+		instrumentoEditar.setCategoria(categoria);
+		instrumentoEditar.setUltimaModificacion(new Date(System.currentTimeMillis()));
 		servicioInstrumento.actualizarInstrumento(instrumentoEditar);
-
 		return obtenerInstrumentos(model);
 	}
 }

@@ -2,6 +2,8 @@ package com.javier.manaments.servicesREST;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javier.manaments.constantesValidaciones.ConstantesValidaciones;
 import com.javier.manaments.model.Usuario;
 import com.javier.manaments.services.ServicioCarrito;
 
@@ -17,6 +20,16 @@ import com.javier.manaments.services.ServicioCarrito;
 public class ServicioRESTCarrito {
 	@Autowired
 	private ServicioCarrito servicioCarrito;
+
+	private String validateFields(Integer cantidad) {
+		Pattern patternCantidad = Pattern.compile(ConstantesValidaciones.regExpCantidad);
+
+		Matcher matchesCantidad = patternCantidad.matcher(cantidad.toString());
+		if (!matchesCantidad.matches()) {
+			return "Cantidad incorrecta desde el servidor";
+		}
+		return "ok";
+	}
 
 	@RequestMapping("agregar-producto-carrito")
 	public String agregarProductoAlCarrito(@RequestParam("id") Integer id, @RequestParam("cantidad") Integer cantidad,

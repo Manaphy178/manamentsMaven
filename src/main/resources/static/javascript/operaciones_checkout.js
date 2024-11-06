@@ -90,16 +90,19 @@ function mostrarTextarea() {
 
 function resumen_pedido() {
   // TODO no encuentra el valor de entrega a lo mejor haciendo un document.getElementById
-  let envio = $("#entrega").find(":selected").val();
+  let envio = document.querySelector('input[name="entrega"]:checked').value;
   let extra = $("#extra").val();
   $.post("resumen-pedido", {
-    forma_envio: envio,
+    formaEntrega: envio,
     extra: extra,
   }).done(function (res) {
     console.log(res);
     let html = Mustache.render(html_resumen_pedido, res);
 
     $("#contenedor").html(html);
+    if (envio == "Envio") {
+      $("#especificaciones").css("display", "block");
+    }
     $("#boton_confirmar_pedido").click(confirmar_pedido);
   });
 }

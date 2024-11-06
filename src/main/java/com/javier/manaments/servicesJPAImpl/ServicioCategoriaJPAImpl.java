@@ -23,4 +23,9 @@ public class ServicioCategoriaJPAImpl implements ServicioCategoria {
 		return c;
 	}
 
+	@Override
+	public Categoria obtenerCategoriaPorId(int id) {
+		return entityManager.find(Categoria.class, id);
+	}
+
 }

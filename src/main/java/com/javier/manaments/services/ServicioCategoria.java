@@ -8,4 +8,6 @@ import com.javier.manaments.model.Categoria;
 public interface ServicioCategoria {
 
 	List<Categoria> obtenerCategorias();
+	
+	Categoria obtenerCategoriaPorId(int id);
 }

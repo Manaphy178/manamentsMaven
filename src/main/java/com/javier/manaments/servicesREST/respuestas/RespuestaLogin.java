@@ -1,8 +1,9 @@
 package com.javier.manaments.servicesREST.respuestas;
 
 public class RespuestaLogin {
-	private String operacion;
 	
+	private String operacion;
+
 	private String usuario;
 
 	public RespuestaLogin(String operacion, String usuario) {
@@ -26,6 +27,5 @@ public class RespuestaLogin {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+
 }

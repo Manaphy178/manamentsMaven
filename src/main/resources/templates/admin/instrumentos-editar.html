@@ -10,7 +10,7 @@
     <h1>Introduce los nuevos datos al instrumento</h1>
     <form
       action="#"
-      th:action="instrumentoEditar"
+      th:action="instrumentos-guardar-cambios"
       th:object="${instrumentoEditar}"
       method="post"
       enctype="multipart/form-data"
@@ -23,7 +23,13 @@
         th:field="*{nombre}"
         th:value="*{nombre}"
       />
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('nombre')}"
+        th:errors="*{nombre}"
+      ></span>
       <br />
+
       <label for="tipo">Tipo</label>
       <input
         type="text"
@@ -32,7 +38,13 @@
         th:field="*{tipo}"
         th:value="*{tipo}"
       />
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('tipo')}"
+        th:errors="*{tipo}"
+      ></span>
       <br />
+
       <label for="marca">Marca</label>
       <input
         type="text"
@@ -41,15 +53,27 @@
         th:field="*{marca}"
         th:value="*{marca}"
       />
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('marca')}"
+        th:errors="*{marca}"
+      ></span>
       <br />
+
       <label for="gamma">Gamma</label>
       <select name="gamma" id="gamma" th:field="*{gamma}">
         <option value="Baja">Baja</option>
         <option value="Media">Media</option>
         <option value="Alta">Alta</option>
       </select>
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('gamma')}"
+        th:errors="*{gamma}"
+      ></span>
       <br />
-      <label for="descripcion">Descripcion</label>
+
+      <label for="descripcion">Descripción</label>
       <textarea
         th:field="*{descripcion}"
         cols="20"
@@ -58,8 +82,14 @@
         id="descripcion"
         th:text="*{descripcion}"
       ></textarea>
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('descripcion')}"
+        th:errors="*{descripcion}"
+      ></span>
       <br />
-      <label for="categoria">Elige una categoria</label>
+
+      <label for="categoria">Elige una categoría</label>
       <select name="categoria" id="categoria" th:field="*{idCategoria}">
         <option
           th:each="c : ${categorias}"
@@ -67,11 +97,28 @@
           th:value="${c.id}"
         />
       </select>
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('idCategoria')}"
+        th:errors="*{idCategoria}"
+      ></span>
       <br />
-      <label for="foto">Foto de instrumento  </label>
+
+      <div>Foto actual del producto</div>
+      <img
+        th:src="@{/mostrar_imagen(id=${instrumentoEditar.id})}"
+        alt="Imagen producto"
+        style="max-width: 200px; max-height: 300px"
+      /><br />
+      <label for="foto">Subir nueva foto:</label>
       <input type="file" name="foto" id="foto" th:field="*{archivoSubido}" />
-      
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('archivoSubido')}"
+        th:errors="*{archivoSubido}"
+      ></span>
       <br />
+
       <label for="precio">Precio</label>
       <input
         type="number"
@@ -80,8 +127,26 @@
         step="0.10"
         th:field="*{precio}"
         th:value="*{precio}"
-      /><br />
-
+      />
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('precio')}"
+        th:errors="*{precio}"
+      ></span>
+      <br />
+      <input
+        type="hidden"
+        id="imagenPortada"
+        th:field="*{imagenPortada}"
+        th:value="*{imagenPortada}"
+      />
+      <input type="hidden" id="id" th:field="*{id}" th:value="*{id}" />
+      <input
+        type="hidden"
+        id="fechaCreacion"
+        th:field="*{fechaCreacion}"
+        th:value="*{fechaCreacion}"
+      />
       <input type="submit" value="EDITAR INSTRUMENTO" />
     </form>
   </body>
