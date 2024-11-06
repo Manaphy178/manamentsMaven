@@ -82,7 +82,6 @@ public class ControladorInstrumento {
 	@RequestMapping("instrumentos-guardar-cambios")
 	public String guardarCambioInstrumento(Instrumento instrumentoEditar, Model model, HttpServletRequest request) {
 		// Antes de nada lo suyo seria validar los datos introducidos
-
 		// falta volver a asignal el archivo subido
 		servicioInstrumento.actualizarInstrumento(instrumentoEditar);
 

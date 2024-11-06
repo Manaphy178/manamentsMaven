@@ -5,3 +5,6 @@
  *  para no perder el login al refrescar la pagina
  */
 let nombre_login = "";
+
+// variable que indica de que carpeta de plantillas usar
+let sufijo_idioma = "";

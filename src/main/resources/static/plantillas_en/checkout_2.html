@@ -1,0 +1,44 @@
+<!-- Paso 2 del procedimiento de checkout/compra -->
+<h1>REALIZAR PEDIDO - PASO 2</h1>
+<h3>Introduce tus datos de pago:</h3>
+<div>(no introducir datos reales, aplicacion en pruebas)</div>
+
+<div>
+  <label for="tipo_tarjeta"> Tipo de tarjeta:</label>
+  <select name="tipo_tarjeta" id="tipo_tarjeta">
+    <option value="0" id="nula">Elegir tipo</option>
+    <option value="VISA">VISA</option>
+    <option value="MASTER CARD">MASTER CARD</option>
+  </select>
+</div>
+<div>
+  <label for="numero_tarjeta">Numero de tarjeta:</label>
+  <input type="text" name="numero_tarjeta" id="numero_tarjeta" />
+</div>
+<div>
+  <label for="titular_tarjeta">Titular de la tarjeta:</label>
+  <input type="text" name="titular_tarjeta" id="titular_tarjeta" />
+</div>
+<div>
+  <label for="fecha_caducidad">Fecha de caducidad</label>
+  <input
+    id="fecha_caducidad"
+    type="text"
+    pattern="[0-9]*"
+    inputmode="numeric"
+    name="fecha_caducidad"
+  />
+</div>
+<div>
+  <label for="codigo_seguridad">Codigo de seguridad</label>
+  <input
+    name="codigo_seguridad"
+    id="codigo_seguridad"
+    type="text"
+    pattern="[0-9]*"
+    inputmode="numeric"
+  />
+</div>
+<div>
+  <button style="padding: 10px" id="aceptar_paso_2">Aceptar</button>
+</div>
