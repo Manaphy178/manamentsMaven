@@ -79,7 +79,7 @@ function checkout_paso_2_aceptar() {
 }
 
 function mostrarTextarea() {
-  const envio = document.querySelector('input[name="entrega"][value="envio"]');
+  const envio = document.querySelector('input[name="entrega"][id="envio"]');
   const text = document.getElementById("especificacion_entrega");
   if (envio.checked) {
     text.style.display = "block";
@@ -100,7 +100,7 @@ function resumen_pedido() {
     let html = Mustache.render(html_resumen_pedido, res);
 
     $("#contenedor").html(html);
-    if (envio == "Envio") {
+    if (envio == "Envio" || envio == "Delivery") {
       $("#especificaciones").css("display", "block");
     }
     $("#boton_confirmar_pedido").click(confirmar_pedido);

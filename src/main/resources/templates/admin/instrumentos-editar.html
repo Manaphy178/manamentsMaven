@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editar Instrumento</title>
-    <!-- HACER UNA MEJOR FORMA PARA EL EDITAR, SERIA LO MISMO QUE EN EL AÑADIR UN NUEVO INSTRUMENTO -->
+    <title th:text="#{instrumento.editar.titulo}">Editar Instrumento</title>
   </head>
   <body>
-    <h1>Introduce los nuevos datos al instrumento</h1>
+    <h1 th:text="#{instrumento.editar.titulo}">
+      Introduce los nuevos datos al instrumento
+    </h1>
     <form
       action="#"
       th:action="instrumentos-guardar-cambios"
@@ -15,7 +16,7 @@
       method="post"
       enctype="multipart/form-data"
     >
-      <label for="nombre">Nombre</label>
+      <label for="nombre" th:text="#{instrumento.nombre}">Nombre</label>
       <input
         type="text"
         name="nombre"
@@ -30,14 +31,11 @@
       ></span>
       <br />
 
-      <label for="tipo">Tipo</label>
-      <input
-        type="text"
-        name="tipo"
-        id="tipo"
-        th:field="*{tipo}"
-        th:value="*{tipo}"
-      />
+      <label for="tipo" th:text="#{instrumento.tipo}">Tipo</label>
+      <select name="tipo" id="tipo" th:field="*{tipo}">
+        <option value="Eléctrico">Eléctrico</option>
+        <option value="Acústico">Acústico</option>
+      </select>
       <span
         style="color: red"
         th:if="${#fields.hasErrors('tipo')}"
@@ -45,7 +43,7 @@
       ></span>
       <br />
 
-      <label for="marca">Marca</label>
+      <label for="marca" th:text="#{instrumento.marca}">Marca</label>
       <input
         type="text"
         name="marca"
@@ -60,11 +58,13 @@
       ></span>
       <br />
 
-      <label for="gamma">Gamma</label>
+      <label for="gamma" th:text="#{instrumento.gamma}">Gamma</label>
       <select name="gamma" id="gamma" th:field="*{gamma}">
-        <option value="Baja">Baja</option>
-        <option value="Media">Media</option>
-        <option value="Alta">Alta</option>
+        <option value="Baja" th:text="#{instrumento.gamma.baja}">Baja</option>
+        <option value="Media" th:text="#{instrumento.gamma.media}">
+          Media
+        </option>
+        <option value="Alta" th:text="#{instrumento.gamma.alta}">Alta</option>
       </select>
       <span
         style="color: red"
@@ -73,7 +73,9 @@
       ></span>
       <br />
 
-      <label for="descripcion">Descripción</label>
+      <label for="descripcion" th:text="#{instrumento.descripcion}"
+        >Descripción</label
+      >
       <textarea
         th:field="*{descripcion}"
         cols="20"
@@ -89,7 +91,9 @@
       ></span>
       <br />
 
-      <label for="categoria">Elige una categoría</label>
+      <label for="categoria" th:text="#{instrumento.categoria.editar}"
+        >Elige una categoría</label
+      >
       <select name="categoria" id="categoria" th:field="*{idCategoria}">
         <option
           th:each="c : ${categorias}"
@@ -104,13 +108,15 @@
       ></span>
       <br />
 
-      <div>Foto actual del producto</div>
+      <div th:text="#{instrumento.foto.actual}">Foto actual del producto</div>
       <img
         th:src="@{/mostrar_imagen(id=${instrumentoEditar.id})}"
         alt="Imagen producto"
         style="max-width: 200px; max-height: 300px"
       /><br />
-      <label for="foto">Subir nueva foto:</label>
+      <label for="foto" th:text="#{instrumento.subir.foto}"
+        >Subir nueva foto:</label
+      >
       <input type="file" name="foto" id="foto" th:field="*{archivoSubido}" />
       <span
         style="color: red"
@@ -119,7 +125,7 @@
       ></span>
       <br />
 
-      <label for="precio">Precio</label>
+      <label for="precio" th:text="#{instrumento.precio}">Precio</label>
       <input
         type="number"
         name="precio"
@@ -147,7 +153,11 @@
         th:field="*{fechaCreacion}"
         th:value="*{fechaCreacion}"
       />
-      <input type="submit" value="EDITAR INSTRUMENTO" />
+      <input
+        type="submit"
+        th:value="#{instrumento.editar.submit}"
+        value="EDITAR INSTRUMENTO"
+      />
     </form>
   </body>
 </html>

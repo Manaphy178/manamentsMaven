@@ -5,36 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/portada.css" />
-    <!-- HACER MAS BONITA LA PAGINA DE PEDIDO-DETALLES-->
-    <title>Pedidos detalles</title>
+    <title th:text="#{pedido.detalles.titulo}">Order Details</title>
   </head>
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
-    <h1>Detalles del pedido</h1>
+    <h1 th:text="#{pedido.detalles.titulo}">Detalles del pedido</h1>
 
-    <div style="text-align: center">Datos del envio:</div>
+    <div style="text-align: center" th:text="#{pedido.envio.datos}">
+      Datos del envio:
+    </div>
 
-    Nombre completo: <span th:text="${pedido.nombreCompleto}"></span> <br />
-    Direccion: <span th:text="${pedido.direccion}"></span> <br />
-    Provincia: <span th:text="${pedido.provincia}"></span><br />
+    <div>
+      <span th:text="#{pedido.nombre.completo}">Nombre completo:</span>
+      <span th:text="${pedido.nombreCompleto}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.direccion}">Direccion:</span>
+      <span th:text="${pedido.direccion}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.provincia}">Provincia:</span>
+      <span th:text="${pedido.provincia}"></span>
+    </div>
 
-    <div style="text-align: center">Datos del pago:</div>
-    Tipo de tarjeta: <span th:text="${pedido.tipoTarjeta}"></span> <br />
-    Titular de tarjeta: <span th:text="${pedido.titularTarjeta}"></span> <br />
-    Numero de tarjeta: <span th:text="${pedido.numeroTarjeta}"></span> <br />
+    <!-- Añadir las especificaciones y la forma de envio -->
 
-    <div style="text-align: center">Productos del pedido:</div>
+    <div style="text-align: center" th:text="#{pedido.pago.datos}">
+      Datos del pago:
+    </div>
+    <div>
+      <span th:text="#{pedido.tipo.tarjeta}">Tipo de tarjeta:</span>
+      <span th:text="${pedido.tipoTarjeta}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.titular.tarjeta}">Titular de tarjeta:</span>
+      <span th:text="${pedido.titularTarjeta}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.numero.tarjeta}">Numero de tarjeta:</span>
+      <span th:text="${pedido.numeroTarjeta}"></span>
+    </div>
+
+    <div style="text-align: center" th:text="#{pedido.productos.datos}">
+      Productos del pedido:
+    </div>
     <div th:each="producto : ${pedido.productoPedidos}" style="margin: 15px">
       <img
         height="80px"
         th:src="@{${'../mostrar_imagen?id=' + producto.instrumento.id}}"
+        alt="Producto"
       /><br />
-      Nombre: <span th:text="${producto.instrumento.nombre}"></span><br />
-      Precio/Unidad: <span th:text="${producto.instrumento.precio}"></span
-      ><br />
-      Cantidad: <span th:text="${producto.cantidad}"></span><br />
+      <div>
+        <span th:text="#{pedido.nombre}">Nombre:</span>
+        <span th:text="${producto.instrumento.nombre}"></span>
+      </div>
+      <div>
+        <span th:text="#{pedido.precio.unidad}">Precio/Unidad:</span>
+        <span th:text="${producto.instrumento.precio}"></span>
+      </div>
+      <div>
+        <span th:text="#{pedido.cantidad}">Cantidad:</span>
+        <span th:text="${producto.cantidad}"></span>
+      </div>
     </div>
-    <input type="hidden" name="" id="id_pedido" th:field="${pedido.id}" />
+
+    <input
+      type="hidden"
+      name="id_pedido"
+      id="id_pedido"
+      th:field="${pedido.id}"
+    />
     <select id="select_estado" th:field="${pedido.estado}">
       <option
         th:each="estado: ${estados}"
@@ -42,17 +82,19 @@
         th:value="${estado.key}"
       ></option>
     </select>
-    <script src="../librerias_js/jquery.js"></script>
 
+    <script src="../librerias_js/jquery.js"></script>
     <script>
       /**
-       * a la que se cambie el estado del pedido,
+       * A la que se cambie el estado del pedido,
        * registramos el cambio mediante un servicio REST
        */
       $("#select_estado").change(function () {
         let estado = $("#select_estado").find(":selected").val();
         let idPedido = $("#id_pedido").val();
-        console.log("estado: " + estado + " a la id de pedido: " + idPedido);
+        console.log(
+          "Estado: " + estado + " para el pedido con ID: " + idPedido
+        );
         $.post("administracion-actualizar-estado-pedido", {
           id: idPedido,
           estado: estado,

@@ -15,7 +15,7 @@
       method="post"
       enctype="multipart/form-data"
     >
-      <label for="nombre">Nombre</label>
+      <label for="nombre" th:text="#{instrumento.nombre}">Nombre</label>
       <input type="text" name="nombre" id="nombre" th:field="*{nombre}" />
       <span
         style="color: red"
@@ -23,23 +23,27 @@
         th:errors="*{nombre}"
       ></span>
       <br />
-      <label for="tipo">Tipo</label>
-      <select name="tipo" id="tipo" th:field="*{tipo}" >
+      <label for="tipo" th:text="#{instrumento.tipo}">Tipo</label>
+      <select name="tipo" id="tipo" th:field="*{tipo}">
         <option value="Eléctrico">Eléctrico</option>
         <option value="Acústico">Acústico</option>
       </select>
       <br />
-      <label for="marca">Marca</label>
+      <label for="marca" th:text="#{instrumento.marca}">Marca</label>
       <input type="text" name="marca" id="marca" th:field="*{marca}" />
       <br />
-      <label for="gamma">Gamma</label>
+      <label for="gamma" th:text="#{instrumento.gamma}">Gamma</label>
       <select name="gamma" id="gamma" th:field="*{gamma}">
-        <option value="Baja">Baja</option>
-        <option value="Media">Media</option>
-        <option value="Alta">Alta</option>
+        <option value="Baja" th:text="#{instrumento.gamma.baja}">Baja</option>
+        <option value="Media" th:text="#{instrumento.gamma.media}">
+          Media
+        </option>
+        <option value="Alta" th:text="#{instrumento.gamma.alta}">Alta</option>
       </select>
       <br />
-      <label for="descripcion">Descripcion</label>
+      <label for="descripcion" th:text="#{instrumento.descripcion}"
+        >Descripción</label
+      >
       <textarea
         th:field="*{descripcion}"
         cols="20"
@@ -48,7 +52,9 @@
         id="descripcion"
       ></textarea>
       <br />
-      <label for="categoria">Elige una categoria</label>
+      <label for="categoria" th:text="#{instrumento.categoria.editar}"
+        >Elige una categoría</label
+      >
       <select name="categoria" id="categoria" th:field="*{idCategoria}">
         <option
           th:each="c : ${categorias}"
@@ -57,10 +63,12 @@
         />
       </select>
       <br />
-      <label for="foto">Foto de instrumento</label>
+      <label for="foto" th:text="#{instrumento.foto}"
+        >Foto de instrumento</label
+      >
       <input type="file" name="foto" id="foto" th:field="*{archivoSubido}" />
       <br />
-      <label for="precio">Precio</label>
+      <label for="precio" th:text="#{instrumento.precio}">Precio</label>
       <input
         type="number"
         name="precio"
@@ -75,7 +83,11 @@
       ></span>
       <br />
 
-      <input type="submit" value="REGISTRAR NUEVO INSTRUMENTO" />
+      <input
+        type="submit"
+        value="REGISTRAR NUEVO INSTRUMENTO"
+        th:value="#{instrumento.registrar.submit}"
+      />
     </form>
   </body>
 </html>

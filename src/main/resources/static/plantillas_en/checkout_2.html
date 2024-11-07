@@ -1,26 +1,26 @@
-<!-- Paso 2 del procedimiento de checkout/compra -->
-<h1>REALIZAR PEDIDO - PASO 2</h1>
-<h3>Introduce tus datos de pago:</h3>
-<div>(no introducir datos reales, aplicacion en pruebas)</div>
+<!-- Step 2 of the checkout process -->
+<h1>PLACE ORDER</h1>
+<h3>Enter your payment information:</h3>
+<div>(do not enter real data, application in testing mode)</div>
 
 <div>
-  <label for="tipo_tarjeta"> Tipo de tarjeta:</label>
+  <label for="tipo_tarjeta"> Card Type:</label>
   <select name="tipo_tarjeta" id="tipo_tarjeta">
-    <option value="0" id="nula">Elegir tipo</option>
+    <option value="0" id="nula">Choose Type</option>
     <option value="VISA">VISA</option>
     <option value="MASTER CARD">MASTER CARD</option>
   </select>
 </div>
 <div>
-  <label for="numero_tarjeta">Numero de tarjeta:</label>
+  <label for="numero_tarjeta">Card Number:</label>
   <input type="text" name="numero_tarjeta" id="numero_tarjeta" />
 </div>
 <div>
-  <label for="titular_tarjeta">Titular de la tarjeta:</label>
+  <label for="titular_tarjeta">Cardholder Name:</label>
   <input type="text" name="titular_tarjeta" id="titular_tarjeta" />
 </div>
 <div>
-  <label for="fecha_caducidad">Fecha de caducidad</label>
+  <label for="fecha_caducidad">Expiration Date:</label>
   <input
     id="fecha_caducidad"
     type="text"
@@ -30,7 +30,7 @@
   />
 </div>
 <div>
-  <label for="codigo_seguridad">Codigo de seguridad</label>
+  <label for="codigo_seguridad">Security Code:</label>
   <input
     name="codigo_seguridad"
     id="codigo_seguridad"
@@ -40,5 +40,5 @@
   />
 </div>
 <div>
-  <button style="padding: 10px" id="aceptar_paso_2">Aceptar</button>
+  <button style="padding: 10px" id="aceptar_paso_2">Submit</button>
 </div>

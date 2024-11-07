@@ -6,9 +6,11 @@
     <title>Login Admin</title>
   </head>
   <body>
-    <h2>No puedes acceder a daministracion hasta que te identifiques:</h2>
+    <h2 th:text="#{login.admin.aviso}"></h2>
     <form action="admin/instrumentos">
-      <label for="pass-login-admin">Contraseña</label>
+      <label for="pass-login-admin" th:text="#{login.admin.password}"
+        >Contraseña</label
+      >
       <input
         type="password"
         name="pass-login-admin"
@@ -16,7 +18,7 @@
         value="123"
       />
       <br />
-      <input type="submit" value="ACEPTAR" />
+      <input type="submit" value="ACEPTAR" th:text="#{login.admin.aceptar}" />
     </form>
   </body>
 </html>

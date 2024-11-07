@@ -1,24 +1,24 @@
-<h1>carrito</h1>
+<h1>Cart</h1>
 <!-- Para h2 -->
 {{#.}}
 <div>
   <img src="mostrar_imagen?id={{ID}}" height="80px" alt="Imagen de producto" />
   <br />
-  Nombre:<span> {{NOMBRE_INSTRUMENTO}}</span>
+  Name:<span> {{NOMBRE_INSTRUMENTO}}</span>
   <br />
-  Cantidad: <span>{{CANTIDAD}}</span>
+  Quantity: <span>{{CANTIDAD}}</span>
   <br />
-  Precio:<span>{{PRECIO}}</span>
+  Price:<span>{{PRECIO}}</span>
   <br />
   <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{ID}}"
-    >Ver detalles</a
+    >See details</a
   >
   <br />
   <a href="#" class="aumentar_cantidad_producto" id-producto="{{ID}}"
-    >Aumentar cantidad</a
+    >Increase quantity</a
   >
   <a href="#" class="restar_cantidad_producto" id-producto="{{ID}}"
-    >Restar cantidad</a
+    >Decrease quantity</a
   >
   <button class="button_delete" id-producto="{{ID}}">
     <svg
@@ -125,6 +125,6 @@
 {{/.}} -->
 
 <br />
-Total productos: <span id="total_productos"></span> <br />
-Total precio: <span id="total_precio"></span>
-<div><a href="#" id="realizar-pedido">REALIZAR PEDIDO</a></div>
+Total of products: <span id="total_productos"></span> <br />
+Final Price: <span id="total_precio"></span>
+<div><a href="#" id="realizar-pedido">MAKE ORDER</a></div>

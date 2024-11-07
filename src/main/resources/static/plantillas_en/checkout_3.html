@@ -1,26 +1,26 @@
-<!-- Paso 3 del procedimiento de checkout/compra -->
-<h1>REALIZAR PEDIDO - PASO 3</h1>
-<h3>Resumen del pedido:</h3>
-<div>Datos de envio:</div>
+<!-- Step 3 of the checkout process -->
+<h1>PLACE ORDER</h1>
+<h3>Order Summary:</h3>
+<div>Shipping Information:</div>
 <div style="margin: 10px">
-  Nombre Completo: <span>{{nombreCompleto}}</span> <br />
-  Pais: <span> {{pais}}</span> <br />
-  Telefono: <span>{{telefono}}</span> <br />
-  Direccion: <span>{{direccion}}</span> <br />
-  Provincia: <span>{{provincia}}</span> <br />
-  Poblacion: <span>{{poblacion}}</span> <br />
+  Full Name: <span>{{nombreCompleto}}</span> <br />
+  Country: <span>{{pais}}</span> <br />
+  Phone Number: <span>{{telefono}}</span> <br />
+  Address: <span>{{direccion}}</span> <br />
+  State/Province: <span>{{provincia}}</span> <br />
+  City: <span>{{poblacion}}</span> <br />
 </div>
 <div id="forma_entrega">
-  <label for="entrega">Forma de entrega:</label><br />
+  <label for="entrega">Delivery Method:</label><br />
   <label
     ><input
       type="radio"
       name="entrega"
       id="entrega"
-      value="recogida"
+      value="Pick up"
       onchange="mostrarTextarea()"
     />
-    Recoger en la tienda</label
+    Pick up in store</label
   >
   <br />
   <label
@@ -28,16 +28,16 @@
       type="radio"
       name="entrega"
       id="envio"
-      value="envio"
+      value="Delivery"
       onchange="mostrarTextarea()"
     />
-    Entrega a domicilio</label
+    Home Delivery</label
   >
 </div>
 <div id="especificacion_entrega" style="display: none">
-  <label for="extra">¿Alguna especificacion de la entrega?</label><br />
+  <label for="extra">Any delivery specifications?</label><br />
   <textarea name="extra" id="extra" rows="5" cols="25"></textarea>
 </div>
 <div>
-  <button id="aceptar_paso_3" style="margin-top: 10px;">CONTINUAR</button>
+  <button id="aceptar_paso_3" style="margin-top: 10px">CONTINUE</button>
 </div>

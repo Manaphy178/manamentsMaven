@@ -9,18 +9,27 @@
   </head>
   <body>
     <div th:fragment="menu">
-     <div>
-      idioma: <a href="?idioma=es">ESPAÑOL</a> <a href="?idioma=en">ENGLISH</a>
-    </div>
-    <h1 th:text="#{titulo.bienvenida.admin}"></h1>
+      <div>
+        <span th:text="#{titulo.idioma}"></span>
+        <a href="?idioma=es">ESPAÑOL</a> <a href="?idioma=en">ENGLISH</a>
+      </div>
+      <h1 th:text="#{titulo.bienvenida.admin}"></h1>
       <header>
-        <div class="banner">ZONA DE ADMINISTRACION</div>
+        <div class="banner" th:text="#{titulo.banner.admin}"></div>
         <nav class="options">
-          <a href="usuarios">Gestionar Usuarios</a>
-          <a href="instrumentos">Gestionar Instrumentos</a>
-          <a href="categorias">Gestionar Categorias</a>
-          <a href="pedidos">Gestionar Pedidos</a>
-          <a href="../logout-admin">CERRAR SESION</a>
+          <a href="usuarios"
+            ><span th:text="#{titulo.banner.usuario}"></span
+          ></a>
+          <a href="instrumentos"
+            ><span th:text="#{titulo.banner.instrumento}"></span
+          ></a>
+          <a href="categorias"
+            ><span th:text="#{titulo.banner.categoria}"></span
+          ></a>
+          <a href="pedidos"><span th:text="#{titulo.banner.pedidos}"></span></a>
+          <a href="../logout-admin"
+            ><span th:text="#{titulo.banner.cerrar}"></span
+          ></a>
         </nav>
       </header>
     </div>

@@ -1,48 +1,46 @@
-<!-- Paso 3 del procedimiento de checkout/compra -->
-<h1>REALIZAR PEDIDO - PASO 4</h1>
-<h3>Resumen del pedido:</h3>
+<!-- Step 4 of the checkout process -->
+<h1>PLACE ORDER</h1>
+<h3>Order Summary:</h3>
 
-<div>Productos del pedido:</div>
+<div>Order Products:</div>
 <div id="productos_pedido">
   {{#instrumentos}}
   <div style="margin: 10px">
-    nombre: {{NOMBRE_INSTRUMENTO}} <br />
+    Name: {{NOMBRE_INSTRUMENTO}} <br />
     <img
       src="mostrar_imagen?id={{ID}}"
       height="40px"
-      alt="Imagen de producto"
+      alt="Product Image"
     /><br />
-    cantidad: {{CANTIDAD}} <br />
-    precio/unidad: {{PRECIO}} €
+    Quantity: {{CANTIDAD}} <br />
+    Price/unit: {{PRECIO}} €
   </div>
   {{/instrumentos}}
 </div>
 
-<div>Datos de pago:</div>
+<div>Payment Information:</div>
 <div style="margin: 10px">
-  Tipo de tarjeta: {{tipoTarjeta}} <br />
-  Titular: {{titularTarjeta}} <br />
-  Numero de tarjeta: {{numeroTarjeta}} <br />
+  Card Type: {{tipoTarjeta}} <br />
+  Cardholder: {{titularTarjeta}} <br />
+  Card Number: {{numeroTarjeta}} <br />
   CVV: {{cvv}} <br />
-  Caducidad de tarjeta: {{caducidadTarjeta}}
+  Card Expiration: {{caducidadTarjeta}}
 </div>
 
-<div>Datos de envio:</div>
+<div>Shipping Information:</div>
 <div style="margin: 10px">
-  Nombre Completo: {{nombreCompleto}} <br />
-  Pais: {{pais}} <br />
-  Telefono: {{telefono}} <br />
-  Direccion: {{direccion}} <br />
-  Provincia: {{provincia}} <br />
-  Poblacion: {{poblacion}} <br />
-  Forma de envio: <span id="envio">{{formaEntrega}}</span>  <br />
-  <div id="especificaciones" style="display: none;">
-    {{extra}}
-  </div>
+  Full Name: {{nombreCompleto}} <br />
+  Country: {{pais}} <br />
+  Phone Number: {{telefono}} <br />
+  Address: {{direccion}} <br />
+  State/Province: {{provincia}} <br />
+  City: {{poblacion}} <br />
+  Delivery Method: <span id="envio">{{formaEntrega}}</span> <br />
+  <div id="especificaciones" style="display: none">{{extra}}</div>
 </div>
 
 <div>
   <button style="padding: 10px" id="boton_confirmar_pedido">
-    CONFIRMAR PEDIDO
+    CONFIRM ORDER
   </button>
 </div>

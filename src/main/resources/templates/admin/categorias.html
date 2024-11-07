@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/portada.css">
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/portada.css" />
     <!-- HACER MEJOR LAS CATEGORIAS -->
     <title>Categorias</title>
   </head>
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
 
-    <h1>Listado de categorias</h1>
+    <h1 th:text="#{categorias.titulo.admin}"></h1>
     <table>
       <tr>
         <th>ID</th>
-        <th>Nombre</th>
-        <th>Descripcion</th>
+        <th th:text="#{categorias.nombre.admin}"></th>
+        <th th:text="#{categorias.descripcion.admin}"></th>
 
         <!-- <th>&nbsp;</th>
         <th>&nbsp;</th> -->

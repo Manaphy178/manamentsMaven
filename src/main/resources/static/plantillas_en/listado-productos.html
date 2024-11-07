@@ -1,28 +1,23 @@
-<!-- plantilla a usar por el js de index.html para 
-mostrar un listado de productos usando mustache -->
+<!-- Template to be used by the index.html JS to display a list of products using mustache -->
 <div style="margin: 10px">
-  <div>List of instruments</div>
+  <div>List of Instruments</div>
   <table>
     <tr>
       <th>&nbsp;</th>
-      <th>Nombre</th>
-      <th>Tipo</th>
-      <th>Marca</th>
-      <th>Descripcion</th>
-      <th>Gamma</th>
-      <th>Precio</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Brand</th>
+      <th>Description</th>
+      <th>Grade</th>
+      <th>Price</th>
       <th>&nbsp;</th>
     </tr>
 
-    <!-- Para h2 -->
+    <!-- For h2 -->
     {{#.}}
     <tr>
       <td>
-        <img
-          src="mostrar_imagen?id={{ID}}"
-          height="80px"
-          alt="Imagen de producto"
-        />
+        <img src="mostrar_imagen?id={{ID}}" height="80px" alt="Product Image" />
       </td>
       <td>{{NOMBRE_INSTRUMENTO}}</td>
       <td>{{TIPO}}</td>
@@ -32,34 +27,10 @@ mostrar un listado de productos usando mustache -->
       <td>{{PRECIO}}</td>
       <td>
         <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{ID}}"
-          >Ver detalles</a
+          >View Details</a
         >
       </td>
     </tr>
     {{/.}}
-
-    <!-- Esto es para cuando se quiere hacer por xampp las comprobaciones -->
-    <!-- {{#.}}
-    <tr>
-      <td>
-        <img
-          src="mostrar_imagen?id={{id}}"
-          height="80px"
-          alt="Imagen de producto"
-        />
-      </td>
-      <td>{{nombre_instrumento}}</td>
-      <td>{{tipo}}</td>
-      <td>{{marca}}</td>
-      <td>{{descripcion}}</td>
-      <td>{{gamma}}</td>
-      <td>{{precio}}</td>
-      <td>
-        <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{id}}"
-          >Ver detalles</a
-        >
-      </td>
-    </tr>
-    {{/.}} -->
   </table>
 </div>

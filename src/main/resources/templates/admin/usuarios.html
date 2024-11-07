@@ -3,23 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/portada.css">
-    <!-- HACER MAS ATRACTIVO EL LISTADO DE USUARIOS -->
-    <title>Usuarios</title>
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/portada.css" />
+    <title th:text="#{usuarios.titulo}">User List</title>
   </head>
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
 
-    <h1>Listado de Usuarios</h1>
+    <h1 th:text="#{usuarios.titulo}">Listado de Usuarios</h1>
     <table>
       <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Nombre Usuario</th>
-        <th>Email</th>
-        <th>Contraseña</th>
-        <th>Codigo Postal</th>
+        <th th:text="#{usuarios.nombre}">Nombre</th>
+        <th th:text="#{usuarios.apellido}">Apellido</th>
+        <th th:text="#{usuarios.nombre.usuario}">Nombre Usuario</th>
+        <th th:text="#{usuarios.email}">Email</th>
+        <th th:text="#{usuarios.contrasena}">Contraseña</th>
+        <th th:text="#{usuarios.codigo.postal}">Codigo Postal</th>
         <!-- <th>&nbsp;</th>
         <th>&nbsp;</th> -->
       </tr>

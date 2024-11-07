@@ -12,23 +12,34 @@
   </head>
   <body>
     <div>
-      idioma: <a href="?idioma=es">ESPAÑOL</a> <a href="?idioma=en">ENGLISH</a>
+      <span th:text="#{titulo.idioma}"></span> <a href="?idioma=es">ESPAÑOL</a>
+      <a href="?idioma=en">ENGLISH</a>
     </div>
-    <h1 th:text="#{titulo.bienvenida}"></h1>
-    <div>
-      Estamos en index usar plantillas en español de la carpeta plantillas
-    </div>
+    <h1 th:text="#{inicio.bienvenida}"></h1>
+
     <div class="adminBox">
-      <a href="admin/"> Acceder a administracion </a>
+      <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
     </div>
     <div style="margin: 10px">
-      <a href="#" id="menu-inicio">inicio</a>
-      <a href="#" id="menu-identificarme">identificarme</a>
-      <a href="#" id="menu-registrarme">registrarme</a>
-      <a href="#" id="menu-carrito">carrito</a>
-      <a href="#" id="menu-mis-pedidos">mis pedidos</a>
-      <a href="#" id="menu-mis-datos">mis datos personales</a>
-      <a href="#" id="menu-cerrar-sesion" style="visibility: hidden"
+      <a href="#" id="menu-inicio" th:text="#{menu.inicio}">inicio</a>
+      <a href="#" id="menu-identificarme" th:text="#{menu.identificarme}"
+        >identificarme</a
+      >
+      <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
+        >registrarme</a
+      >
+      <a href="#" id="menu-carrito" th:text="#{menu.carrito}">carrito</a>
+      <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
+        >mis pedidos</a
+      >
+      <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
+        >mis datos personales</a
+      >
+      <a
+        href="#"
+        id="menu-cerrar-sesion"
+        style="visibility: hidden"
+        th:text="#{menu.cerrar.sesion}"
         >cerrar sesion</a
       >
     </div>

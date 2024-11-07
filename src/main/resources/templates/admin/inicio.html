@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,6 @@
   </head>
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
-    <h1>Bienvenido a la zona de administracion de la tienda</h1>
+    <h1 th:text="#{inicio.bienvenida.admin}"></h1>
   </body>
 </html>
