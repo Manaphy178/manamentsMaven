@@ -20,12 +20,32 @@
       <span th:text="${pedido.nombreCompleto}"></span>
     </div>
     <div>
+      <span th:text="#{pedido.pais}">Pais:</span>
+      <span th:text="${pedido.pais}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.telefono}">Telefono:</span>
+      <span th:text="${pedido.telefono}"></span>
+    </div>
+    <div>
       <span th:text="#{pedido.direccion}">Direccion:</span>
       <span th:text="${pedido.direccion}"></span>
     </div>
     <div>
       <span th:text="#{pedido.provincia}">Provincia:</span>
       <span th:text="${pedido.provincia}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.poblacion}">Poblacion:</span>
+      <span th:text="${pedido.poblacion}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.metodo.envio}">Metodo envio:</span>
+      <span th:text="${pedido.formaEnvio}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.poblacion}">Poblacion:</span>
+      <span th:text="${pedido.poblacion}"></span>
     </div>
 
     <!-- Añadir las especificaciones y la forma de envio -->
@@ -44,6 +64,14 @@
     <div>
       <span th:text="#{pedido.numero.tarjeta}">Numero de tarjeta:</span>
       <span th:text="${pedido.numeroTarjeta}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.cvv.tarjeta}">CVV:</span>
+      <span th:text="${pedido.cvv}"></span>
+    </div>
+    <div>
+      <span th:text="#{pedido.caducidad.tarjeta}">Caducidad tarjeta:</span>
+      <span th:text="${pedido.caducidadTarjeta}"></span>
     </div>
 
     <div style="text-align: center" th:text="#{pedido.productos.datos}">
