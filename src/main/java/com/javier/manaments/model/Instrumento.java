@@ -52,7 +52,7 @@ public class Instrumento {
 	@NotEmpty(message = "La marca no puede estar vacio")
 	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "La marca solo puede tener numeros,letras y espacios en blanco")
 	private String marca;
-	
+
 	@Column(length = 650)
 	private String descripcion;
 
@@ -67,12 +67,22 @@ public class Instrumento {
 	private String tipo;
 
 	private String gamma;
-//	Añadir Estado
+//	Añadir todas las cosas de validacion
+	private String estado;
+
+	private int ventas;
 
 	private Date ultimaModificacion;
 	private Date fechaCreacion;
 
 	public Instrumento() {
+	}
+
+	public Instrumento(String nombre, String descripcion, String marca, double precio) {
+		this.nombre = nombre;
+		this.marca = marca;
+		this.descripcion = descripcion;
+		this.precio = precio;
 	}
 
 	public Instrumento(String nombre, String tipo, String marca, String gamma, String descripcion, double precio,
@@ -97,84 +107,12 @@ public class Instrumento {
 		this.precio = precio;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public byte[] getImagenPortada() {
+		return imagenPortada;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getMarca() {
-		return marca;
-	}
-
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
-
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-	public String getGamma() {
-		return gamma;
-	}
-
-	public void setGamma(String gamma) {
-		this.gamma = gamma;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Date getUltimaModificacion() {
-		return ultimaModificacion;
-	}
-
-	public void setUltimaModificacion(Date ultimaModificacion) {
-		this.ultimaModificacion = ultimaModificacion;
-	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public Date getFechaCreacion() {
-		return fechaCreacion;
-	}
-
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	public void setImagenPortada(byte[] imagenPortada) {
+		this.imagenPortada = imagenPortada;
 	}
 
 	public int getIdCategoria() {
@@ -185,12 +123,52 @@ public class Instrumento {
 		this.idCategoria = idCategoria;
 	}
 
-	public byte[] getImagenPortada() {
-		return imagenPortada;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setImagenPortada(byte[] imagenPortada) {
-		this.imagenPortada = imagenPortada;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
 
 	public MultipartFile getArchivoSubido() {
@@ -199,6 +177,54 @@ public class Instrumento {
 
 	public void setArchivoSubido(MultipartFile archivoSubido) {
 		this.archivoSubido = archivoSubido;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getGamma() {
+		return gamma;
+	}
+
+	public void setGamma(String gamma) {
+		this.gamma = gamma;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public int getVentas() {
+		return ventas;
+	}
+
+	public void setVentas(int ventas) {
+		this.ventas = ventas;
+	}
+
+	public Date getUltimaModificacion() {
+		return ultimaModificacion;
+	}
+
+	public void setUltimaModificacion(Date ultimaModificacion) {
+		this.ultimaModificacion = ultimaModificacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 
 	@Override

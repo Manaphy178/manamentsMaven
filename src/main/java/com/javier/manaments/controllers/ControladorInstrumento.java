@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javier.manaments.model.Categoria;
 import com.javier.manaments.model.Instrumento;
@@ -30,16 +31,23 @@ public class ControladorInstrumento {
 	private ServicioCategoria servicioCategoria;
 
 	@RequestMapping("instrumentos")
-	public String obtenerInstrumentos(Model model) {
-		List<Instrumento> instrumentos = servicioInstrumento.obtenerInstrumentos();
+	public String obtenerInstrumentos(@RequestParam(name = "nombre", defaultValue = "") String nombre,
+			@RequestParam(name = "comienzo", defaultValue = "0") Integer comienzo, Model model) {
+		List<Instrumento> instrumentos = servicioInstrumento.obtenerInstrumentos(nombre, comienzo, 10);
+		int totalLibros = servicioInstrumento.obtenerTotalInstrumentos(nombre);
 		model.addAttribute("instrumentos", instrumentos);
+		model.addAttribute("nombre", nombre);
+		model.addAttribute("siguiente", comienzo + 10);
+		model.addAttribute("anterior", comienzo - 10);
+		model.addAttribute("total", totalLibros);
+		
 		return "admin/instrumentos";
 	}
 
 	@RequestMapping("instrumentos-borrar")
 	public String borrarInstrumento(String id, Model model) {
 		servicioInstrumento.borrarInstrumento(Integer.parseInt(id));
-		return obtenerInstrumentos(model);
+		return obtenerInstrumentos("", 0, model);
 	}
 
 	@RequestMapping("instrumentos-nuevo")
@@ -69,7 +77,7 @@ public class ControladorInstrumento {
 		nuevoInstrumento.setFechaCreacion(new Date(System.currentTimeMillis()));
 		servicioInstrumento.registrarInstrumento(nuevoInstrumento);
 
-		return obtenerInstrumentos(model);
+		return obtenerInstrumentos("", 0, model);
 	}
 
 	@RequestMapping("instrumentos-editar")
@@ -99,6 +107,6 @@ public class ControladorInstrumento {
 		instrumentoEditar.setCategoria(categoria);
 		instrumentoEditar.setUltimaModificacion(new Date(System.currentTimeMillis()));
 		servicioInstrumento.actualizarInstrumento(instrumentoEditar);
-		return obtenerInstrumentos(model);
+		return obtenerInstrumentos("", 0, model);
 	}
 }

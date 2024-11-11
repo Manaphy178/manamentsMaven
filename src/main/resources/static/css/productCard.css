@@ -1,0 +1,79 @@
+.productCard {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.productCard .imagenProducto {
+  width: auto;
+  border-radius: 1rem;
+  height: auto;
+}
+.productCard .nombre {
+  width: 100%;
+  text-align: justify;
+  padding: 0.5rem;
+  margin: 0.5rem 0.5rem 0rem 0.5rem;
+  border-radius: 1rem;
+}
+.productCard .precio {
+  width: 100%;
+  padding-left: 0.5rem;
+  font-size: 2rem;
+}
+.productCard .estado {
+  width: 100%;
+  padding-left: 0.5rem;
+}
+.productCard .marca {
+  width: 100%;
+  padding-left: 0.5rem;
+}
+.addCartButton {
+  width: 100%;
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #1a1a1a;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 3.75em;
+  min-width: 0;
+  outline: none;
+  padding: 1em 2.3em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+.addCartButton:disabled {
+  pointer-events: none;
+}
+
+.addCartButton:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.addCartButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}

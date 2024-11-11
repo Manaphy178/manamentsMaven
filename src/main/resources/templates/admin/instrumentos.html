@@ -12,6 +12,30 @@
     <div th:insert="fragments/general.html :: menu"></div>
 
     <h1 th:text="#{instrumento.titulo.admin}"></h1>
+
+    <div>
+      <form action="instrumentos">
+        buscador - nombre :
+        <input type="text" id="nombre" th:value="${nombre}" name="nombre" />
+        <input type="submit" value="BUSCAR" />
+      </form>
+    </div>
+
+    paginacion <br />
+    <div>
+      <a th:if="${anterior>=0}" th:href="@{${'instrumentos?comienzo='+anterior+'&nombre='+nombre}}"
+        >anterior</a
+      >
+      <a
+        th:if="${siguiente<total}"
+        th:href="@{${'instrumentos?comienzo='+siguiente+'&nombre='+nombre}}"
+        >siguiente</a
+      >
+    </div>
+
+    <div style="margin: 10px">
+      total de resultados: <span th:text="${total}"></span>
+    </div>
     <table>
       <tr>
         <th>&nbsp;</th>

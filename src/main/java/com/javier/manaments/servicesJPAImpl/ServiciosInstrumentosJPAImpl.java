@@ -81,4 +81,34 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		return nativeQuery.getResultList();
 	}
 
+	@Override
+	public List<Instrumento> obtenerInstrumentos(String nombre) {
+		List<Instrumento> i = entityManager.createQuery("SELECT i FROM Instrumento i where i.nombre like :nombre")
+				.setParameter("nombre", "%" + nombre + "%").getResultList();
+		return i;
+	}
+
+	@Override
+	public List<Instrumento> obtenerInstrumentos(String nombre, int comienzo, int resultadosPorPagina) {
+		List<Instrumento> i = entityManager.createQuery("SELECT i FROM Instrumento i where i.nombre like :nombre")
+				.setParameter("nombre", "%" + nombre + "%").setFirstResult(comienzo).setMaxResults(resultadosPorPagina)
+				.getResultList();
+		return i;
+	}
+
+	@Override
+	public int obtenerTotalInstrumentos() {
+		Query q = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOTAL_INSTRUMENTOS);
+		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
+		return totalInstrumentos;
+	}
+
+	@Override
+	public int obtenerTotalInstrumentos(String nombre) {
+		Query q = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOTAL_INSTRUMENTOS_POR_NOMBRE);
+		q.setParameter("nombre", "%" + nombre + "%");
+		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
+		return totalInstrumentos;
+	}
+
 }

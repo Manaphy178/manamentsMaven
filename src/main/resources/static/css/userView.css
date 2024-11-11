@@ -3,36 +3,242 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 :root {
-  /* Utilizado para texto y fondo de tarjeta de los productos */
   --claro: #d2d4d1;
-  /* Utilizado para el header y el footer y para el nombre y categoria de los productos */
   --oscuro: #827157;
-  /* Utilizado para el fondo de la pagina */
   --fondo: #c4bbaa;
-  /* Utilizado para el boton de los productos tanto para el precio como para añadir al carrito como para los productos  */
   --producto_detalles: #9f755d;
 }
-body {
+
+.body {
   font-family: Arial, sans-serif;
-  background-color: #c4bbaa;
-  color: #827157;
+  background-color: var(--fondo);
 }
-header {
+
+/* .header * {
+  border: 1px solid black;
+} */
+
+.header {
   background-color: var(--oscuro);
   color: var(--claro);
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Parte superior del header */
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  border: 1px solid black;
 }
-nav .opciones {
-  list-style-type: none;
-  padding: 0;
+.logo {
   display: flex;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.titulo {
+  text-align: center;
+  cursor: pointer;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.userThings {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.userThings img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+/* Dropdown de idioma */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.translator-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.language-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: var(--claro);
+  color: var(--oscuro);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--oscuro);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+}
+.language-menu.show {
+  display: block;
+}
+
+.language-menu li {
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+
+.language-menu li a {
+  text-decoration: none;
+  color: var(--oscuro);
+  display: block;
+}
+
+.language-menu li:hover {
+  background-color: rgba(130, 113, 87, 0.2);
+}
+
+/* Mostrar menú al hacer hover */
+.language-dropdown:hover .language-menu {
+  display: block;
+}
+
+/* Parte inferior del header (opciones) */
+.header-bottom {
+  background-color: rgba(138, 109, 67, 0.8);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 1rem;
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+/* Ajustar el espacio usando flex-grow y flex-basis */
+.buscador {
+  flex-grow: 2;
+  flex-basis: 0;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+
+.more {
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+  justify-content: center;
   gap: 1rem;
 }
-nav ul li a {
-    color: #D2D4D1;
-    text-decoration: none;
+.more a {
+  color: var(--claro);
+  text-decoration: none;
+}
+.more a:hover {
+  color: var(--claro);
+}
+.hamburguesa {
+  padding: 1rem;
+  flex-basis: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+/* Menú hamburguesa */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--claro);
+  color: var(--oscuro);
+  position: absolute;
+  top: 100%; /* Justo debajo del icono */
+  right: 0;
+  width: max-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--oscuro);
+  border-radius: 0.5rem;
+  z-index: 100;
+}
+
+.menu li {
+  padding: 0.5rem 1rem;
+}
+
+.menu li a {
+  color: var(--oscuro);
+  text-decoration: none;
+  display: block;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-btn:checked ~ .menu {
+  max-height: 200px; /* Espacio suficiente para mostrar todas las opciones */
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Alineación a la derecha */
+}
+
+.navicon {
+  width: 18px;
+  height: 2px;
+  background-color: #333;
+  position: relative;
+}
+
+.navicon:before,
+.navicon:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.navicon:before {
+  top: -6px;
+}
+
+.navicon:after {
+  top: 6px;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon {
+  background-color: transparent;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+  top: 0;
 }

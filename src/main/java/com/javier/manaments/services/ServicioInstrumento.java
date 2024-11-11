@@ -11,6 +11,10 @@ public interface ServicioInstrumento {
 
 	List<Instrumento> obtenerInstrumentos();
 
+	List<Instrumento> obtenerInstrumentos(String nombre);
+
+	List<Instrumento> obtenerInstrumentos(String nombre, int comienzo, int resultadosPorPagina);
+
 	void borrarInstrumento(int id);
 
 	Instrumento obtenerInstrumentoPorId(int id);
@@ -20,5 +24,9 @@ public interface ServicioInstrumento {
 	Map<String, Object> obtenerInstrumentoVerDetallesPorId(long id);
 
 	List<Map<String, Object>> obtenerInstrumentosParaListado();
+
+	int obtenerTotalInstrumentos();
+
+	int obtenerTotalInstrumentos(String nombre);
 
 }

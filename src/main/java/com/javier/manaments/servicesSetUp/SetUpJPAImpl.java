@@ -260,6 +260,23 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(pp5);
 			entityManager.persist(pp6);
 
+			/**
+			 * Antes de finalizar el setup
+			 * 
+			 * vamos a registrar 100 instrumentos para poder hacer unas pruebas con la
+			 * paginacion
+			 */
+			String nombre = "Bateria";
+			double precio = 1;
+			String descripcion = "Instrumento que le pegas y hace ruido";
+			String marca = "Lenovo";
+			for (int i = 0; i < 100; i++) {
+				Instrumento nuevo = new Instrumento(nombre + i, descripcion + i,marca+i, precio + i);
+				nuevo.setCategoria(percusion);
+				entityManager.persist(nuevo);
+
+			}
+
 			com.javier.manaments.model.SetUp setUp = new com.javier.manaments.model.SetUp();
 			setUp.setCompleto(true);
 			entityManager.persist(setUp);
