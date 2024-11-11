@@ -5,44 +5,62 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="../css/portada.css" />
     <link rel="stylesheet" href="../css/boton_borrar.css" />
+    <link rel="stylesheet" href="../static/css/userView.css" />
     <!-- HACER MAS ATRACTIVO EL INDEX, TANTO EL MENU COMO LOS PRODUCTOS.
       LA IDENTIFICACION DE USUARIO, EL REGISTRO Y HACER ALGO CON LOS DATOS PERSONALES 
       Y LOS PEDIDOS DEL USUARIO REGISTRADO.
       SOBRETODO HACER ESTILOS NUEVOS-->
   </head>
   <body>
-    <div>
-      <span th:text="#{titulo.idioma}"></span> <a href="?idioma=es">ESPAÑOL</a>
-      <a href="?idioma=en">ENGLISH</a>
-    </div>
-    <h1 th:text="#{inicio.bienvenida}"></h1>
+    <header>
+      <h1 id="menu-inicio">Manaments</h1>
 
-    <div class="adminBox">
-      <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
-    </div>
-    <div style="margin: 10px">
-      <a href="#" id="menu-inicio" th:text="#{menu.inicio}">inicio</a>
-      <a href="#" id="menu-identificarme" th:text="#{menu.identificarme}"
-        >identificarme</a
-      >
-      <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
-        >registrarme</a
-      >
-      <a href="#" id="menu-carrito" th:text="#{menu.carrito}">carrito</a>
-      <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
-        >mis pedidos</a
-      >
-      <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
-        >mis datos personales</a
-      >
-      <a
-        href="#"
-        id="menu-cerrar-sesion"
-        style="visibility: hidden"
-        th:text="#{menu.cerrar.sesion}"
-        >cerrar sesion</a
-      >
-    </div>
+      <div class="adminBox">
+        <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
+      </div>
+      <nav>
+        <ul class="opciones">
+          <li>
+            <a href="#" id="menu-identificarme" th:text="#{menu.identificarme}"
+              >identificarme</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
+              >registrarme</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menu-carrito" th:text="#{menu.carrito}">carrito</a>
+          </li>
+          <li>
+            <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
+              >mis pedidos</a
+            >
+          </li>
+          <li>
+            <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
+              >mis datos personales</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              id="menu-cerrar-sesion"
+              style="visibility: hidden"
+              th:text="#{menu.cerrar.sesion}"
+              >cerrar sesion</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <span th:text="#{titulo.idioma}"></span>
+        <a href="?idioma=es">ESPAÑOL</a>
+        <a href="?idioma=en">ENGLISH</a>
+      </div>
+    </header>
     <div id="contenedor"></div>
     <script src="librerias_js/js.cookie.min.js"></script>
     <script src="librerias_js/jquery.js"></script>

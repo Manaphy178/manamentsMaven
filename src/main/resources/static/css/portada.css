@@ -7,13 +7,6 @@
   --verde: #04aa6d;
   --blancoTabla: #f2f2f2;
 }
-body{
-  margin: 0 auto;
-}
-h1 {
-  margin: 1rem auto;
-  text-align: center;
-}
 .adminBox {
   /* border: 1px solid; */
   text-align: center;

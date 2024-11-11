@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* Utilizado para texto y fondo de tarjeta de los productos */
+  --claro: #d2d4d1;
+  /* Utilizado para el header y el footer y para el nombre y categoria de los productos */
+  --oscuro: #827157;
+  /* Utilizado para el fondo de la pagina */
+  --fondo: #c4bbaa;
+  /* Utilizado para el boton de los productos tanto para el precio como para añadir al carrito como para los productos  */
+  --producto_detalles: #9f755d;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c4bbaa;
+  color: #827157;
+}
+header {
+  background-color: var(--oscuro);
+  color: var(--claro);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .opciones {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+nav ul li a {
+    color: #D2D4D1;
+    text-decoration: none;
+}
