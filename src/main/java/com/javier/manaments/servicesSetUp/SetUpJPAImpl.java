@@ -87,6 +87,13 @@ public class SetUpJPAImpl implements SetUp {
 			i5.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/5.jpg"));
 			i6.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/6.jpg"));
 			i7.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/7.jpg"));
+			i1.setVentas(20);
+			i2.setVentas(15);
+			i3.setVentas(10);
+			i4.setVentas(5);
+			i5.setVentas(30);
+			i6.setVentas(55);
+			i7.setVentas(20);
 			entityManager.persist(i1);
 			entityManager.persist(i2);
 			entityManager.persist(i3);
@@ -271,7 +278,7 @@ public class SetUpJPAImpl implements SetUp {
 			String descripcion = "Instrumento que le pegas y hace ruido";
 			String marca = "Lenovo";
 			for (int i = 0; i < 100; i++) {
-				Instrumento nuevo = new Instrumento(nombre + i, descripcion + i,marca+i, precio + i);
+				Instrumento nuevo = new Instrumento(nombre + i, descripcion + i, marca + i, precio + i);
 				nuevo.setCategoria(percusion);
 				entityManager.persist(nuevo);
 

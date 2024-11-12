@@ -12,3 +12,4 @@ document.addEventListener("click", (event) => {
     userMenu.classList.remove("show");
   }
 });
+

@@ -17,6 +17,8 @@ public class MostrarImagenProducto {
 
 	@RequestMapping("mostrar_imagen")
 	public void mostrarImagen(String id, HttpServletResponse response) throws IOException {
+		System.err.println("controladorMostrarImagen");
+		 
 		byte[] info = servicioInstrumento.obtenerInstrumentoPorId(Integer.parseInt(id)).getImagenPortada();
 		if (info == null) {
 			return;

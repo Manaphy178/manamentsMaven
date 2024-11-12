@@ -1,0 +1,51 @@
+<section class="topProducts">
+  <h2>Productos mas comprados</h2>
+  <!-- Slider main container -->
+  <div class="containerProductsCarrousel">
+    <div class="swiper mySwiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {{#.}}
+        <div class="swiper-slide">
+          <div class="productCard">
+            <img
+              class="imagenProducto"
+              src="mostrar_imagen?id={{id}}"
+              alt="Product"
+            />
+            <p class="nombre">{{nombre}}</p>
+            <p class="estado">{{estado}}</p>
+
+            <p class="marca">{{marca}}</p>
+            <h3 class="precio">{{precio}}€</h3>
+            <a href="#" style="width: 100%" id-producto="{{id}}">
+              <button class="addCartButton">View product</button>
+            </a>
+          </div>
+        </div>
+        {{/.}}
+
+        <!-- {{#.}}
+        <div class="swiper-slide">
+          <div class="productCard">
+            <img
+              class="imagenProducto"
+              src="mostrar_imagen?id={{ID}}"
+              alt="Product"
+            />
+            <p class="nombre">{{NOMBRE_INSTRUMENTO}}</p>
+            <p class="estado">{{ESTADO}}</p>
+
+            <p class="marca">{{MARCA}}</p>
+            <h3 class="precio">{{PRECIO}}€</h3>
+            <a href="#" style="width: 100%" id-producto="{{ID}}">
+              <button class="addCartButton">View product</button>
+            </a>
+          </div>
+        </div>
+        {{/.}} -->
+      </div>
+    </div>
+  </div>
+</section>

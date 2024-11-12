@@ -16,4 +16,5 @@ public class ConstantesSQL {
 //			+ " FROM tabla_instrumentos AS tl, producto_carrito AS pc"
 //			+ " WHERE pc.instrumento_id = tl.id AND pc.carrito_id = :carrito_id "
 //			+ " ORDER BY tl.precio DESC;";
+	public static final String SQL_OBTENER_TOP_CINCO_INSTRUMENTOS = "SELECT i.nombre_instrumento,i.id,i.descripcion,i.gamma,i.precio,i.tipo,i.categoria_id,i.marca,i.estado,i.ventas FROM tabla_instrumentos AS i WHERE i.ventas > 0 ORDER BY i.ventas DESC LIMIT 5";
 }

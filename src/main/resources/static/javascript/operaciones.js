@@ -1,6 +1,21 @@
+
 /**
  * PRODUCTOS
  */
+function obtenerTopCinco() {
+  
+  $.ajax("obtener-mas-vendidos").done(function (res) {
+    let cinco = JSON.parse(res);
+    console.log(cinco);
+    let texto_html = "";
+    texto_html = Mustache.render(html_mejores_cinco, cinco);
+    $("#contenedor").html(texto_html);
+
+   
+    $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+  });
+}
+
 
 function obtenerProductos() {
   $.ajax("obtener-productos-json").done(function (respuesta) {
@@ -40,7 +55,7 @@ function enviarInfoUsuarioAlServidor() {
   let email = $("#email").val();
   let pass = $("#pass").val();
   let codPostal = $("#codPostal").val();
-  
+
   if (
     !validarNombre(nombre) ||
     !validarApellidos(apellido) ||
@@ -120,13 +135,12 @@ function mostrarFormularioLogin() {
           alert(
             "bienvenido " + nombre_login + " ya puedes comprar instrumentos"
           );
-          obtenerProductos();
           $("#menuIdentificarme").toggleClass("ocultar");
           $("#menuRegistrarme").toggleClass("ocultar");
           $("#menuMisPedido").toggleClass("ocultar");
           $("#menuMisDatos").toggleClass("ocultar");
           $("#menuCerrarSesion").toggleClass("ocultar");
-
+          obtenerProductos();
         } else {
           alert("email o pass incorrecto");
         }
@@ -145,9 +159,11 @@ function cerrarSesionUsuario() {
     if (res == "ok") {
       alert("hasta pronto " + nombre_login);
       nombre_login = "";
-      $("#menu-cerrar-sesion").css("visibility", "hidden");
-      $("#menu-identificarme").show();
-      $("#menu-registrarme").show();
+      $("#menuIdentificarme").toggleClass("ocultar");
+      $("#menuRegistrarme").toggleClass("ocultar");
+      $("#menuMisPedido").toggleClass("ocultar");
+      $("#menuMisDatos").toggleClass("ocultar");
+      $("#menuCerrarSesion").toggleClass("ocultar");
       obtenerProductos();
     }
   });

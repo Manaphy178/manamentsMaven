@@ -3,13 +3,12 @@
   <head xmlns="http://www.thymeleaf.org">
     <meta charset="UTF-8" />
     <title>Manaments</title>
-    <link rel="stylesheet" href="../css/portada.css" />
-    <link rel="stylesheet" href="../css/boton_borrar.css" />
-    <link rel="stylesheet" href="../css/userView.css" />
-    <link rel="stylesheet" href="../css/carrusel.css" />
-    <link rel="stylesheet" href="../css/productCard.css" />
-    <script defer src="../javascript/carrousel.js"></script>
-    <script defer src="../javascript/funcionalidades.js"></script>
+    <link rel="stylesheet" href="css/portada.css" />
+    <link rel="stylesheet" href="css/boton_borrar.css" />
+    <link rel="stylesheet" href="css/userView.css" />
+    <link rel="stylesheet" href="css/carrusel.css" />
+    <link rel="stylesheet" href="css/productCard.css" />
+
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -23,10 +22,7 @@
       defer
       src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+
     <!-- HACER MAS ATRACTIVO EL INDEX, TANTO EL MENU COMO LOS PRODUCTOS.
       LA IDENTIFICACION DE USUARIO, EL REGISTRO Y HACER ALGO CON LOS DATOS PERSONALES 
       Y LOS PEDIDOS DEL USUARIO REGISTRADO.
@@ -36,7 +32,7 @@
     <header class="header">
       <!-- Parte superior del header -->
       <div class="header-top">
-        <a href="" class="logo">
+        <a href="#" class="logo" id="menu-inicio">
           <img
             src="../img/language.png"
             alt="Icono"
@@ -61,7 +57,7 @@
               <li><a href="#">Deutsch</a></li>
             </ul>
           </div>
-          <a href="#" id="menu-carrito" >
+          <a href="#" id="menu-carrito">
             <img
               src="../img/carrito-de-compras.png"
               alt="Shopping cart"
@@ -122,12 +118,17 @@
           <div><a href="#" id="menu-categorias">Categorías</a></div>
         </div>
         <div class="hamburguesa">
-          <input class="menu-btn" type="checkbox" id="menu-btn" />
+          <input
+            class="menu-btn"
+            type="checkbox"
+            id="menu-btn"
+            name="menu-btn"
+          />
           <label class="menu-icon" for="menu-btn">
             <span class="navicon"></span>
           </label>
           <ul class="menu">
-            <!-- El menu antes de activarlo se ve una linea, ocultar por completo el menu hasta este se clique -->
+            <!-- Al hacer click en otro lugar que no sea el menu hamburguesa que este se cierre -->
             <li><a href="">Products</a></li>
             <li><a href="">Clients</a></li>
             <li><a href="">Sales line</a></li>
@@ -139,33 +140,14 @@
     <div class="adminBox">
       <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
     </div>
-    <div style="margin: 10px">
-      <a href="#" id="menu-inicio" th:text="#{menu.inicio}">inicio</a>
-      <a href="#" id="menu-identificarme" th:text="#{menu.identificarme}"
-        >identificarme</a
-      >
-      <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
-        >registrarme</a
-      >
-
-      <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
-        >mis pedidos</a
-      >
-      <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
-        >mis datos personales</a
-      >
-      <a
-        href="#"
-        id="menu-cerrar-sesion"
-        style="visibility: hidden"
-        th:text="#{menu.cerrar.sesion}"
-        >cerrar sesion</a
-      >
-    </div>
     <div id="contenedor"></div>
     <script src="librerias_js/js.cookie.min.js"></script>
     <script src="librerias_js/jquery.js"></script>
     <script src="librerias_js/mustache.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
     <script src="javascript/globales.js"></script>
 
@@ -178,9 +160,26 @@
     <script src="javascript/validacionesUsuario.js"></script>
 
     <script src="javascript/menu.js"></script>
+    <script src="javascript/funcionalidades.js"></script>
+    <script type="module" src="javascript/carrousel.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Cuando se haga clic en cualquier parte del documento
+        $(document).click(function (event) {
+          // Si el menú está abierto y se hace clic fuera de él
+          if (
+            $("#menu-btn").is(":checked") && // El menú está abierto
+            !$(event.target).closest(".hamburguesa, .menu").length
+          ) {
+            $("#menu-btn").prop("checked", false); // Cerrar el menú
+          }
+        });
+      });
+    </script>
     <script>
       // Por defecto cuando se carga la pagina listamos los productos
-      obtenerProductos();
+      obtenerTopCinco();
     </script>
   </body>
 </html>

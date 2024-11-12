@@ -42,6 +42,14 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 	}
 
 	@Override
+	public List<Instrumento> obtenerInstrumentosMasVendidos() {
+		List<Instrumento> i = entityManager.createQuery(
+				"select i from Instrumento i where i.ventas > 0 order by i.ventas DESC").setMaxResults(5)
+				.getResultList();
+		return i;
+	}
+
+	@Override
 	public void actualizarInstrumento(Instrumento i) {
 		entityManager.merge(i);
 	}

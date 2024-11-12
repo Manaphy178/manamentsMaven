@@ -8,6 +8,7 @@ let html_checkout_1 = "";
 let html_checkout_2 = "";
 let html_checkout_3 = "";
 let html_resumen_pedido = "";
+let html_mejores_cinco = "";
 
 // Vamos a descargar todas las plantillas
 $.get("plantillas" + sufijo_idioma + "/formulario-registro-usuario.html").done(
@@ -52,3 +53,8 @@ $.get("plantillas" + sufijo_idioma + "/resumen_pedido.html").done(function (
 ) {
   html_resumen_pedido = res;
 });
+$.get("plantillas" + sufijo_idioma + "/listado-cinco-mejores.html").done(
+  function (res) {
+    html_mejores_cinco = res;
+  }
+);

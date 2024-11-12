@@ -25,4 +25,9 @@ public class ServicioRESTProductos {
 	public String obtenerDetallesInstrumento(@RequestParam("id") Integer id) {
 		return new Gson().toJson(servicioInstrumento.obtenerInstrumentoVerDetallesPorId(id));
 	}
+	
+	@RequestMapping("obtener-mas-vendidos")
+	public String obtenerMasVendidos() {
+			return new Gson().toJson(servicioInstrumento.obtenerInstrumentosMasVendidos());
+	}
 }

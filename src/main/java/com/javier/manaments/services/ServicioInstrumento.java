@@ -3,6 +3,7 @@ package com.javier.manaments.services;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.JsonElement;
 import com.javier.manaments.model.Instrumento;
 
 public interface ServicioInstrumento {
@@ -28,5 +29,7 @@ public interface ServicioInstrumento {
 	int obtenerTotalInstrumentos();
 
 	int obtenerTotalInstrumentos(String nombre);
+
+	List<Instrumento> obtenerInstrumentosMasVendidos();
 
 }
