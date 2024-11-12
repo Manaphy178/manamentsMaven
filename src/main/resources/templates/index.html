@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/carrusel.css" />
     <link rel="stylesheet" href="../css/productCard.css" />
     <script defer src="../javascript/carrousel.js"></script>
+    <script defer src="../javascript/funcionalidades.js"></script>
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -60,12 +61,56 @@
               <li><a href="#">Deutsch</a></li>
             </ul>
           </div>
-          <img
-            src="../img/carrito-de-compras.png"
-            alt="Shopping cart"
-            class="shopCart"
-          />
-          <img src="../img/usuario.png" alt="User icon" class="userInfo" />
+          <a href="#" id="menu-carrito" >
+            <img
+              src="../img/carrito-de-compras.png"
+              alt="Shopping cart"
+              class="shopCart"
+            />
+          </a>
+          <!-- User Icon with Dropdown Menu -->
+          <div class="user-dropdown">
+            <img
+              src="../img/usuario.png"
+              alt="User icon"
+              class="userInfo"
+              id="userIcon"
+            />
+            <ul class="user-menu" id="userMenu">
+              <li id="menuIdentificarme">
+                <a
+                  href="#"
+                  id="menu-identificarme"
+                  th:text="#{menu.identificarme}"
+                  >Identificarme</a
+                >
+              </li>
+              <li id="menuRegistrarme">
+                <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
+                  >Registrarme</a
+                >
+              </li>
+              <li id="menuMisPedido" class="ocultar">
+                <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
+                  >Mis pedidos</a
+                >
+              </li>
+              <li id="menuMisDatos" class="ocultar">
+                <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
+                  >Mis datos personales</a
+                >
+              </li>
+              <li id="menuCerrarSesion" class="ocultar">
+                <a
+                  href="#"
+                  id="menu-cerrar-sesion"
+                  th:text="#{menu.cerrar.sesion}"
+                >
+                  Cerrar sesión
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -82,6 +127,7 @@
             <span class="navicon"></span>
           </label>
           <ul class="menu">
+            <!-- El menu antes de activarlo se ve una linea, ocultar por completo el menu hasta este se clique -->
             <li><a href="">Products</a></li>
             <li><a href="">Clients</a></li>
             <li><a href="">Sales line</a></li>
@@ -101,7 +147,7 @@
       <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
         >registrarme</a
       >
-      <a href="#" id="menu-carrito" th:text="#{menu.carrito}">carrito</a>
+
       <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
         >mis pedidos</a
       >

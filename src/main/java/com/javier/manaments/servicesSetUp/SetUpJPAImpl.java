@@ -113,7 +113,7 @@ public class SetUpJPAImpl implements SetUp {
 			servicioCarrito.agregarProducto(i3.getId(), u1.getId(), 1);
 			servicioCarrito.agregarProducto(i5.getId(), u2.getId(), 2);
 			servicioCarrito.agregarProducto(i7.getId(), u3.getId(), 10);
-			System.out.println("registros iniciales realizados correctamente");
+			System.err.println("Registros iniciales realizados correctamente");
 
 //			meter unos pedidos:
 			Pedido p1 = new Pedido();

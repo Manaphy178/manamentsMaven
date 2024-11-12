@@ -121,9 +121,12 @@ function mostrarFormularioLogin() {
             "bienvenido " + nombre_login + " ya puedes comprar instrumentos"
           );
           obtenerProductos();
-          $("#menu-cerrar-sesion").css("visibility", "visible");
-          $("#menu-identificarme").hide();
-          $("#menu-registrarme").hide();
+          $("#menuIdentificarme").toggleClass("ocultar");
+          $("#menuRegistrarme").toggleClass("ocultar");
+          $("#menuMisPedido").toggleClass("ocultar");
+          $("#menuMisDatos").toggleClass("ocultar");
+          $("#menuCerrarSesion").toggleClass("ocultar");
+
         } else {
           alert("email o pass incorrecto");
         }

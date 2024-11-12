@@ -19,7 +19,7 @@ public class ControladorCategoria {
 
 	@RequestMapping("categorias")
 	public String obtenerCategorias(Model model) {
-		System.out.println("Controlador categoria");
+		System.err.println("Controlador categoria");
 		List<Categoria> categorias = servicioCategoria.obtenerCategorias();
 		model.addAttribute("categorias", categorias);
 		return "admin/categorias";
