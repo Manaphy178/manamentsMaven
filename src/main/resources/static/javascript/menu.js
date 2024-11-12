@@ -1,5 +1,5 @@
 //operaciones del menu:
-$("#menu-inicio").click(obtenerProductos);
+$("#menu-inicio").click(inicio);
 $("#menu-registrarme").click(mostrarFormularioRegistroUsuario);
 $("#menu-identificarme").click(mostrarFormularioLogin);
 $("#menu-cerrar-sesion").click(cerrarSesionUsuario);

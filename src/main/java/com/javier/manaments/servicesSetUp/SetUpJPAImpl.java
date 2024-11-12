@@ -94,6 +94,13 @@ public class SetUpJPAImpl implements SetUp {
 			i5.setVentas(30);
 			i6.setVentas(55);
 			i7.setVentas(20);
+			i1.setEstado("nuevo");
+			i2.setEstado("nuevo");
+			i3.setEstado("nuevo");
+			i4.setEstado("nuevo");
+			i5.setEstado("nuevo");
+			i6.setEstado("nuevo");
+			i7.setEstado("nuevo");
 			entityManager.persist(i1);
 			entityManager.persist(i2);
 			entityManager.persist(i3);

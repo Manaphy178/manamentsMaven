@@ -1,65 +1,50 @@
-<!-- plantilla a usar por el js de index.html para 
-mostrar un listado de productos usando mustache -->
-<div style="margin: 10px">
-  <div>Listado de instumentos de la tienda</div>
-  <table>
-    <tr>
-      <th>&nbsp;</th>
-      <th>Nombre</th>
-      <th>Tipo</th>
-      <th>Marca</th>
-      <th>Descripcion</th>
-      <th>Gamma</th>
-      <th>Precio</th>
-      <th>&nbsp;</th>
-    </tr>
+<section id="productos" class="productos">
+  <div>
+    <h2 class="section-title text-center">Nuestros Productos</h2>
+    <!-- Swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Producto 1 -->
+        {{#.}}
+        <div class="swiper-slide">
+          <div class="productCard">
+            <img
+              src="mostrar_imagen?id={{id}}"
+              class="imagenProducto"
+              alt="Producto 1"
+            />
 
-    <!-- Para h2 -->
-    <!-- {{#.}}
-    <tr>
-      <td>
-        <img
-          src="mostrar_imagen?id={{ID}}"
-          height="80px"
-          alt="Imagen de producto"
-        />
-      </td>
-      <td>{{NOMBRE_INSTRUMENTO}}</td>
-      <td>{{TIPO}}</td>
-      <td>{{MARCA}}</td>
-      <td>{{DESCRIPCION}}</td>
-      <td>{{GAMMA}}</td>
-      <td>{{PRECIO}}</td>
-      <td>
-        <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{ID}}"
-          >Ver detalles</a
-        >
-      </td>
-    </tr>
-    {{/.}} -->
+            <p class="nombre">{{nombre_instrumento}}</p>
+            <p class="estado">{{estado}}</p>
+            <p class="marca">{{marca}}</p>
 
-    <!-- Esto es para cuando se quiere hacer por xampp las comprobaciones -->
-    {{#.}}
-    <tr>
-      <td>
-        <img
-          src="mostrar_imagen?id={{id}}"
-          height="80px"
-          alt="Imagen de producto"
-        />
-      </td>
-      <td>{{nombre_instrumento}}</td>
-      <td>{{tipo}}</td>
-      <td>{{marca}}</td>
-      <td>{{descripcion}}</td>
-      <td>{{gamma}}</td>
-      <td>{{precio}}</td>
-      <td>
-        <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{id}}"
-          >Ver detalles</a
-        >
-      </td>
-    </tr>
-    {{/.}}
-  </table>
-</div>
+            <span class="precio">{{precio}}€</span>
+            <a
+              href="#"
+              style="width: 100%"
+              id-producto="{{id}}"
+              class="enlace_ver_detalles_instrumento"
+            >
+              <button class="addCartButton">View product</button>
+            </a>
+          </div>
+        </div>
+        {{/.}}
+        <div class="swiper-slide">
+          <div class="productCard">
+            <img src="" class="imagenProducto" alt="Producto 1" />
+
+            <h1 class="nombre">VER MAS</h1>
+            <p class="estado">estado</p>
+            <p class="marca">marca</p>
+
+            <span class="precio">€</span>
+            <a href="#" style="width: 100%">
+              <button class="addCartButton">View product</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

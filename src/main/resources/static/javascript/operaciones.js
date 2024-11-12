@@ -1,28 +1,22 @@
-
 /**
  * PRODUCTOS
  */
 function obtenerTopCinco() {
-  
   $.ajax("obtener-mas-vendidos").done(function (res) {
     let cinco = JSON.parse(res);
     console.log(cinco);
-    let texto_html = "";
-    texto_html = Mustache.render(html_mejores_cinco, cinco);
+    let texto_html = Mustache.render(html_mejores_cinco, cinco);
     $("#contenedor").html(texto_html);
-
-   
     $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
   });
 }
-
 
 function obtenerProductos() {
   $.ajax("obtener-productos-json").done(function (respuesta) {
     let instrumento = JSON.parse(respuesta);
     let texto_html = "";
     texto_html = Mustache.render(html_listado_productos, instrumento);
-    $("#contenedor").html(texto_html);
+    $("#contenedor2").html(texto_html);
     // una vez volcado el listado, decimos que tiene que hacer
     // el enlace ver detalles
     $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
@@ -261,3 +255,8 @@ function borrarProductoCarrito() {
 /**
  *    FIN CARRITO
  */
+
+
+function obtenerCategorias(){
+  
+}

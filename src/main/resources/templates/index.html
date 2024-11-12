@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/userView.css" />
     <link rel="stylesheet" href="css/carrusel.css" />
     <link rel="stylesheet" href="css/productCard.css" />
-
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,6 +21,13 @@
       defer
       src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="librerias_js/js.cookie.min.js"></script>
+    <script src="librerias_js/jquery.js"></script>
+    <script src="librerias_js/mustache.js"></script>
 
     <!-- HACER MAS ATRACTIVO EL INDEX, TANTO EL MENU COMO LOS PRODUCTOS.
       LA IDENTIFICACION DE USUARIO, EL REGISTRO Y HACER ALGO CON LOS DATOS PERSONALES 
@@ -141,13 +147,7 @@
       <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
     </div>
     <div id="contenedor"></div>
-    <script src="librerias_js/js.cookie.min.js"></script>
-    <script src="librerias_js/jquery.js"></script>
-    <script src="librerias_js/mustache.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <div id="contenedor2"></div>
 
     <script src="javascript/globales.js"></script>
 
@@ -159,9 +159,8 @@
     <script src="javascript/validacionesPedido.js"></script>
     <script src="javascript/validacionesUsuario.js"></script>
 
-    <script src="javascript/menu.js"></script>
+    <script defer src="javascript/menu.js"></script>
     <script src="javascript/funcionalidades.js"></script>
-    <script type="module" src="javascript/carrousel.js"></script>
 
     <script>
       $(document).ready(function () {
@@ -177,9 +176,50 @@
         });
       });
     </script>
+
     <script>
-      // Por defecto cuando se carga la pagina listamos los productos
-      obtenerTopCinco();
+      function inicio() {
+        obtenerTopCinco();
+        obtenerProductos();
+        // obtenerCategorias();
+        // obtenerMarcas();
+      }
+      inicio();
+    </script>
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      let topCinco; // Variable global para la instancia de Swiper
+
+      topCinco = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000,
+        },
+        slidesPerView: "3",
+        loop: true,
+        coverflowEffect: {
+          depth: 500,
+          modifier: 1,
+          slideShadows: true,
+        },
+      });
+    </script>
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      const todosProductos = new Swiper(".swiper-container", {
+        slidesPerView: "auto", // Muestra los productos según el tamaño de la pantalla
+        spaceBetween: 20, // Espacio entre las tarjetas
+        grabCursor: true,
+        loop: false, // Habilita el bucle de productos
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
     </script>
   </body>
 </html>
