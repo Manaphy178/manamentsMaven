@@ -1,0 +1,16 @@
+<div>
+  buscador - nombre <input type="text" name="buscador" id="nombre_buscador" />
+</div>
+<div>
+  paginacion <a href="#" id="enlace_anterior">Anterior</a>
+  <a href="#" id="enlace_siguiente"> Siguiente</a>
+</div>
+<div>total resultados: <span id="total_resultados"></span></div>
+{{#.}}
+<div>
+  <div>{{nombre_instrumento}}</div>
+  <div>{{estado}}</div>
+  <div>{{nombre_marca}}</div>
+</div>
+<hr>
+{{/.}}

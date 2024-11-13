@@ -2,6 +2,12 @@
   <div>
     <h2 class="section-title text-center">Nuestros Productos</h2>
     <!-- Swiper -->
+    
+
+
+	
+
+
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <!-- Producto 1 -->
@@ -25,7 +31,7 @@
               id-producto="{{id}}"
               class="enlace_ver_detalles_instrumento"
             >
-              <button class="addCartButton">View product</button>
+              <button class="addCartButton">Ver producto</button>
             </a>
           </div>
         </div>
@@ -39,8 +45,10 @@
             <p class="marca">marca</p>
 
             <span class="precio">€</span>
-            <a href="#" style="width: 100%">
-              <button class="addCartButton">View product</button>
+            <a href="#" style="width: 100%" id="ver-todos-productos">
+              <button class="addCartButton" id="ver-todos-productos">
+                View product
+              </button>
             </a>
           </div>
         </div>
@@ -48,3 +56,15 @@
     </div>
   </div>
 </section>
+<script type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  const todosProductos = new Swiper(".swiper-container", {
+    slidesPerView: "auto", // Muestra los productos según el tamaño de la pantalla
+    spaceBetween: 20, // Espacio entre las tarjetas
+    grabCursor: true,
+    loop: false, // Habilita el bucle de productos
+    slidesPerView: "5",
+    
+  });
+</script>

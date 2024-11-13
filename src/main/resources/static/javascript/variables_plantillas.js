@@ -1,5 +1,6 @@
 let html_formulario_registro_usuario = "";
 let html_listado_productos = "";
+let html_listado_todos_productos = "";
 let html_formulario_identificacion_usuario = "";
 let html_detalles_instrumento = "";
 let html_carrito = "";
@@ -21,6 +22,11 @@ $.get("plantillas" + sufijo_idioma + "/listado-productos.html").done(function (
 ) {
   html_listado_productos = res;
 });
+$.get("plantillas" + sufijo_idioma + "/listado_todos_instrumentos.html").done(
+  function (res) {
+    html_listado_todos_productos = res;
+  }
+);
 $.get(
   "plantillas" + sufijo_idioma + "/formulario-identificacion-usuario.html"
 ).done(function (res) {

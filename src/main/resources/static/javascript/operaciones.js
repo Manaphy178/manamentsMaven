@@ -1,13 +1,19 @@
+/**
+ * Funcion para reiniciar los contenedores si es que tiene algo en ellos
+ */
 function reiniciarContainers() {
   let texto_html = "";
-  $("#contenedor").html(texto_html);
   $("#contenedor2").html(texto_html);
   $("#contenedor3").html(texto_html);
   $("#contenedor4").html(texto_html);
 }
 
-/**
+/*
  * PRODUCTOS
+ */
+
+/**
+ * Funcion para obtener los 5 productos mas vendidos y mostrarlos
  */
 function obtenerTopCinco() {
   $.ajax("obtener-mas-vendidos").done(function (res) {
@@ -19,6 +25,10 @@ function obtenerTopCinco() {
   });
 }
 
+/**
+ * Obtener productos predeterminado
+ * Unica modificacion es que da 12 productos y enseñarlo en el contenedor2
+ */
 function obtenerProductos() {
   $.ajax("obtener-productos-json").done(function (respuesta) {
     let instrumento = JSON.parse(respuesta);
@@ -28,7 +38,63 @@ function obtenerProductos() {
     // una vez volcado el listado, decimos que tiene que hacer
     // el enlace ver detalles
     $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+    $("#ver-todos-productos").click(obtenerTodosProductos);
   }); //end ajax
+}
+
+let nombre_a_buscar = "";
+let comienzo_resultado =0;
+
+/**
+ * FUncion para obtener todos los productos 
+ * pero da error
+ */
+function obtenerTodosProductos() {
+  reiniciarContainers();
+  $.ajax("obtener-todos-productos-json", {
+    nombre: nombre_a_buscar,
+    comienzo: comienzo_resultado,
+  }).done(function (respuesta) {
+    let instrumento = respuesta.instrumentos;
+    let texto_html = "";
+    texto_html = Mustache.render(html_listado_todos_productos, instrumento);
+    $("#contenedor").html(texto_html);
+    // una vez volcado el listado, decimos que tiene que hacer
+    // el enlace ver detalles
+    $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+    // Total resultados
+    $("#total_resultados").html(respuesta.totalInstrumentos);
+
+    // Buscador
+    $("#titulo_buscador").val(nombre_a_buscar);
+    $("#titulo_buscador").focus();
+    $("#titulo_buscador").keyup(function () {
+      nombre_a_buscar = $(this).val();
+      comienzo_resultado = 0;
+      obtenerTodosProductos();
+    });
+
+    // Paginacion
+    if (comienzo_resultado + 10 < respuesta.totalInstrumentos) {
+      $("#enlace_siguiente").show();
+    } else {
+      $("#enlace_siguiente").hide();
+    }
+    $("#enlace_siguiente").click(function () {
+      comienzo_resultado += 10;
+      obtenerTodosProductos();
+    });
+
+    if (comienzo_resultado <= 0) {
+      $("#enlace_anterior").hide();
+    } else {
+      $("#enlace_anterior").show();
+    }
+    $("#enlace_anterior").click(function () {
+      comienzo_resultado -= 10;
+      obtenerTodosProductos();
+    });
+  });
 }
 function mostrarDetallesProducto() {
   reiniciarContainers();

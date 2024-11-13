@@ -1,12 +1,12 @@
 package com.javier.manaments.servicesREST;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.javier.manaments.model.tiposExtra.InfoInstrumentosListado;
 import com.javier.manaments.services.ServicioInstrumento;
 
 @RestController
@@ -17,17 +17,28 @@ public class ServicioRESTProductos {
 
 	@RequestMapping("obtener-productos-json")
 	public String obtenerProductos() {
-		return new Gson().toJson(servicioInstrumento.obtenerInstrumentosParaListado());
+		return new Gson().toJson(servicioInstrumento.obtenerInstrumentosParaListadoPrincipal());
 	}
 
-//	@RequestParam("id") Integer id -> es para recibir directamente como entero el id
+	@RequestMapping("obtener-todos-productos-json")
+	public InfoInstrumentosListado obtenerTodosProductos(
+			@RequestParam(name = "nombre", defaultValue = "") String nombre,
+			@RequestParam(name = "comienzo", defaultValue = "0") Integer comienzo) {
+		InfoInstrumentosListado info = new InfoInstrumentosListado();
+		info.setInstrumentos(servicioInstrumento.obtenerTodosInstrumentosParaListado(nombre, comienzo));
+		info.setTotalInstrumentos(servicioInstrumento.obtenerTotalInstrumentos(nombre));
+		return info;
+	}
+
+	// @RequestParam("id") Integer id -> es para recibir directamente como entero el
+	// id
 	@RequestMapping("obtener-detalles-instrumento")
 	public String obtenerDetallesInstrumento(@RequestParam("id") Integer id) {
 		return new Gson().toJson(servicioInstrumento.obtenerInstrumentoVerDetallesPorId(id));
 	}
-	
+
 	@RequestMapping("obtener-mas-vendidos")
 	public String obtenerMasVendidos() {
-			return new Gson().toJson(servicioInstrumento.obtenerInstrumentosMasVendidos());
+		return new Gson().toJson(servicioInstrumento.obtenerInstrumentosMasVendidos());
 	}
 }

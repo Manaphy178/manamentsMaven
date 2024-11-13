@@ -41,8 +41,6 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		return i;
 	}
 
-
-
 	@Override
 	public void actualizarInstrumento(Instrumento i) {
 		entityManager.merge(i);
@@ -76,20 +74,31 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 	}
 
 	@Override
-	public List<Map<String, Object>> obtenerInstrumentosParaListado() {
+	public List<Map<String, Object>> obtenerInstrumentosParaListadoPrincipal() {
 		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS).setMaxResults(12);
 		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
 		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
 		return nativeQuery.getResultList();
 	}
-	
 	@Override
-	public List<Map<String, Object>> obtenerInstrumentosMasVendidos() {
-		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOP_CINCO_INSTRUMENTOS).setMaxResults(5);
+	public List<Map<String, Object>> obtenerTodosInstrumentosParaListado(String nombre, int comienzo) {
+		Query query = entityManager
+				.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS_INCLUYENDO_NOMBRE_COMIENZO);
+		query.setParameter("nombre", "%" + nombre + "%");
+		query.setParameter("comienzo", comienzo);
 		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
 		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
 		return nativeQuery.getResultList();
-	
+
+	}
+	@Override
+	public List<Map<String, Object>> obtenerInstrumentosMasVendidos() {
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOP_CINCO_INSTRUMENTOS)
+				.setMaxResults(5);
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return nativeQuery.getResultList();
+
 	}
 
 	@Override
@@ -121,5 +130,7 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
 		return totalInstrumentos;
 	}
+
+
 
 }

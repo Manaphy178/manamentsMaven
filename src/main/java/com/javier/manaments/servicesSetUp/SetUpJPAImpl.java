@@ -64,14 +64,14 @@ public class SetUpJPAImpl implements SetUp {
 					"Instrumentos que producen sonido a través de la vibración de aire");
 			Categoria percusion = new Categoria("Percusión",
 					"Instrumentos que producen sonido a través de membranas o superficies que se golpean");
-			Categoria electrico = new Categoria("Electrónico", "Instrumentos electrónicos o digitales");
+			
 			Categoria piano = new Categoria("Pianos", "Instrumento clasico de teclas");
 			Categoria sintetizadores = new Categoria("Sintetizadores",
 					"Instrumento electronico capaz de producir sonidos a cualquier frecuencia");
 			entityManager.persist(cuerda);
 			entityManager.persist(viento);
 			entityManager.persist(percusion);
-			entityManager.persist(electrico);
+			
 			entityManager.persist(piano);
 			entityManager.persist(sintetizadores);
 			entityManager.persist(guitarra);
@@ -91,7 +91,7 @@ public class SetUpJPAImpl implements SetUp {
 			yamaha.addCategoria(piano);
 			yamaha.addCategoria(viento);
 			yamaha.addCategoria(percusion);
-			yamaha.addCategoria(electrico);
+
 			yamaha.addCategoria(sintetizadores);
 			yamaha.addCategoria(guitarra);
 			yamaha.addCategoria(bajo);
@@ -99,18 +99,15 @@ public class SetUpJPAImpl implements SetUp {
 
 			Marca roland = new Marca("Roland");
 			roland.addCategoria(percusion);
-			roland.addCategoria(electrico);
 			roland.addCategoria(sintetizadores);
 			roland.addCategoria(bateria);
 
 			Marca korg = new Marca("Korg");
 			korg.addCategoria(piano);
-			korg.addCategoria(electrico);
 			korg.addCategoria(sintetizadores);
 
 			Marca casio = new Marca("Casio");
 			casio.addCategoria(piano);
-			casio.addCategoria(electrico);
 			casio.addCategoria(sintetizadores);
 
 			Marca fender = new Marca("Fender");

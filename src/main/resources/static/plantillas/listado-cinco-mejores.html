@@ -26,7 +26,7 @@
               id-producto="{{id}}"
               class="enlace_ver_detalles_instrumento"
             >
-              <button class="addCartButton">View product</button>
+              <button class="addCartButton">Ver producto</button>
             </a>
           </div>
         </div>
@@ -55,3 +55,24 @@
     </div>
   </div>
 </section>
+<script type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  let topCinco; // Variable global para la instancia de Swiper
+
+  topCinco = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+    },
+    slidesPerView: "4",
+    loop: true,
+    coverflowEffect: {
+      depth: 500,
+      modifier: 1,
+      slideShadows: true,
+    },
+  });
+</script>
