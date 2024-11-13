@@ -1,3 +1,11 @@
+function reiniciarContainers() {
+  let texto_html = "";
+  $("#contenedor").html(texto_html);
+  $("#contenedor2").html(texto_html);
+  $("#contenedor3").html(texto_html);
+  $("#contenedor4").html(texto_html);
+}
+
 /**
  * PRODUCTOS
  */
@@ -23,6 +31,7 @@ function obtenerProductos() {
   }); //end ajax
 }
 function mostrarDetallesProducto() {
+  reiniciarContainers();
   // this en js para eventos, en este caso un click de raton
   // indica el elemento sobre el que se ha hecho click
   let idProducto = $(this).attr("id-producto");
@@ -74,6 +83,7 @@ function enviarInfoUsuarioAlServidor() {
 } //end enviarInfoUsuarioAlServidor
 
 function mostrarFormularioLogin() {
+  reiniciarContainers();
   $("#contenedor").html(html_formulario_identificacion_usuario);
 
   if (typeof Cookies.get("email") != "undefined") {
@@ -144,6 +154,7 @@ function mostrarFormularioLogin() {
 } //end mostrarFormularioLogin
 
 function mostrarFormularioRegistroUsuario() {
+  reiniciarContainers();
   $("#contenedor").html(html_formulario_registro_usuario);
   $("#boton_registro_usuario").click(enviarInfoUsuarioAlServidor);
 } //end mostrarFormularioRegistroUsuario
@@ -158,7 +169,7 @@ function cerrarSesionUsuario() {
       $("#menuMisPedido").toggleClass("ocultar");
       $("#menuMisDatos").toggleClass("ocultar");
       $("#menuCerrarSesion").toggleClass("ocultar");
-      obtenerProductos();
+      inicio();
     }
   });
 } //end cerrarSesionUsuario
@@ -173,6 +184,7 @@ function cerrarSesionUsuario() {
 function agregarProductoAlCarrito() {
   if (nombre_login == "") {
     alert("tienes que identificarte para poder comprar productos");
+    mostrarFormularioLogin();
     return;
   }
   let idProducto = $(this).attr("id-producto");
@@ -188,10 +200,12 @@ function agregarProductoAlCarrito() {
 function obtenerProductosCarrito() {
   if (nombre_login == "") {
     alert("Tienes que identificarte para acceder a tu carrito");
+
     mostrarFormularioLogin();
     return;
   }
   $.getJSON("obtener-productos-carrito").done(function (res) {
+    reiniciarContainers();
     console.log("producto del carrito:");
     console.log(res);
     if (res.length < 1) {
@@ -256,7 +270,4 @@ function borrarProductoCarrito() {
  *    FIN CARRITO
  */
 
-
-function obtenerCategorias(){
-  
-}
+function obtenerCategorias() {}
