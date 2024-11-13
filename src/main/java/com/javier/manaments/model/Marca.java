@@ -1,5 +1,6 @@
 package com.javier.manaments.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -28,7 +29,7 @@ public class Marca {
 
 	@ManyToMany
 	@JoinTable(name = "marca_categoria", joinColumns = @JoinColumn(name = "marca_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	private List<Categoria> categorias;
+	private List<Categoria> categorias= new ArrayList<Categoria>();
 
 	@Size(min = 3, max = 40, message = "El nombre de la marca")
 	@NotEmpty(message = "El nombre no puede estar vacio")

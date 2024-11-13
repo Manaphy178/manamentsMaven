@@ -30,6 +30,6 @@ public interface ServicioInstrumento {
 
 	int obtenerTotalInstrumentos(String nombre);
 
-	List<Instrumento> obtenerInstrumentosMasVendidos();
+	List<Map<String, Object>> obtenerInstrumentosMasVendidos();
 
 }

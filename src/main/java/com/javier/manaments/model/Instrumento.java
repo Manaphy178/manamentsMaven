@@ -44,9 +44,9 @@ public class Instrumento {
 	@GeneratedValue
 	private int id;
 
-	@Size(min = 3, max = 40, message = "El nombre del intrumento tiene que tener entre 3 y 40 caracteres")
+	@Size(min = 3, max = 80, message = "El nombre del instrumento tiene que tener entre 3 y 80 caracteres")
 	@NotEmpty(message = "El nombre no puede estar vacio")
-	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "El nombre solo puede tener numeros,letras y espacios en blanco")
+	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ-]+$", message = "El nombre solo puede tener números, letras, espacios y guiones")
 	@Column(name = "nombre_instrumento", length = 120)
 	private String nombre;
 
@@ -90,7 +90,7 @@ public class Instrumento {
 	}
 
 	public Instrumento(Categoria categoria,
-			@Size(min = 3, max = 40, message = "El nombre del intrumento tiene que tener entre 3 y 40 caracteres") @NotEmpty(message = "El nombre no puede estar vacio") @Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "El nombre solo puede tener numeros,letras y espacios en blanco") String nombre,
+			@Size(min = 3, max = 80, message = "El nombre del intrumento tiene que tener entre 3 y 80 caracteres") @NotEmpty(message = "El nombre no puede estar vacio") @Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ-]{3,80}$", message = "El nombre solo puede tener numeros,letras y espacios en blanco") String nombre,
 			Marca marca, String descripcion,
 			@NotNull(message = "debes insertar un precio") @Min(value = 1, message = "el precio minimo es 1 euro") @Max(value = 1000000, message = "el precio maximo es 1000000 euros") double precio,
 			String tipo, String gamma, String estado, Date fechaCreacion) {

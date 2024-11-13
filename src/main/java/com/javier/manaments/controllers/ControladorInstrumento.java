@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javier.manaments.model.Categoria;
 import com.javier.manaments.model.Instrumento;
+import com.javier.manaments.model.Marca;
 import com.javier.manaments.services.ServicioCategoria;
 import com.javier.manaments.services.ServicioInstrumento;
+import com.javier.manaments.services.ServicioMarca;
 
 @Controller
 @RequestMapping("admin/")
@@ -29,6 +31,8 @@ public class ControladorInstrumento {
 
 	@Autowired
 	private ServicioCategoria servicioCategoria;
+	@Autowired
+	private ServicioMarca servicioMarca;
 
 	@RequestMapping("instrumentos")
 	public String obtenerInstrumentos(@RequestParam(name = "nombre", defaultValue = "") String nombre,
@@ -56,6 +60,7 @@ public class ControladorInstrumento {
 		i.setPrecio(1);
 		model.addAttribute("nuevoInstrumento", i);
 		model.addAttribute("categorias", servicioCategoria.obtenerCategorias());
+		model.addAttribute("marcas",servicioMarca.obtenerMarcas());
 		return "admin/instrumentos-nuevo";
 
 	}
@@ -65,6 +70,7 @@ public class ControladorInstrumento {
 			BindingResult br, Model model, HttpServletRequest request) {
 		if (br.hasErrors()) {
 			model.addAttribute("categorias", servicioCategoria.obtenerCategorias());
+			model.addAttribute("marcas",servicioMarca.obtenerMarcas());
 			return "admin/instrumentos-nuevo";
 		}
 		// vamos a asignarle el archivo subido
@@ -85,6 +91,7 @@ public class ControladorInstrumento {
 		Instrumento i = servicioInstrumento.obtenerInstrumentoPorId(Integer.parseInt(id));
 		model.addAttribute("instrumentoEditar", i);
 		model.addAttribute("categorias", servicioCategoria.obtenerCategorias());
+		model.addAttribute("marcas",servicioMarca.obtenerMarcas());
 		return "admin/instrumentos-editar";
 	}
 
@@ -104,7 +111,9 @@ public class ControladorInstrumento {
 			}
 		}
 		Categoria categoria = servicioCategoria.obtenerCategoriaPorId(instrumentoEditar.getIdCategoria());
+		Marca marca = servicioMarca.obtenerMarcaPorId(instrumentoEditar.getIdMarca());
 		instrumentoEditar.setCategoria(categoria);
+		instrumentoEditar.setMarca(marca);
 		instrumentoEditar.setUltimaModificacion(new Date(System.currentTimeMillis()));
 		servicioInstrumento.actualizarInstrumento(instrumentoEditar);
 		return obtenerInstrumentos("", 0, model);

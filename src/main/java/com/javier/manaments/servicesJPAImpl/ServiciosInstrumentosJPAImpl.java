@@ -41,13 +41,7 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		return i;
 	}
 
-	@Override
-	public List<Instrumento> obtenerInstrumentosMasVendidos() {
-		List<Instrumento> i = entityManager
-				.createQuery("select i from Instrumento i where i.ventas > 0 order by i.ventas DESC").setMaxResults(5)
-				.getResultList();
-		return i;
-	}
+
 
 	@Override
 	public void actualizarInstrumento(Instrumento i) {
@@ -87,6 +81,15 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
 		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
 		return nativeQuery.getResultList();
+	}
+	
+	@Override
+	public List<Map<String, Object>> obtenerInstrumentosMasVendidos() {
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOP_CINCO_INSTRUMENTOS).setMaxResults(5);
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return nativeQuery.getResultList();
+	
 	}
 
 	@Override
