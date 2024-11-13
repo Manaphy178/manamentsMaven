@@ -16,8 +16,8 @@ public class MostrarImagenProducto {
 	private ServicioInstrumento servicioInstrumento;
 
 	@RequestMapping("mostrar_imagen")
-	public void mostrarImagen(String id, HttpServletResponse response) throws IOException {
-		System.err.println("controladorMostrarImagen");
+	public void mostrarImagenProducto(String id, HttpServletResponse response) throws IOException {
+		System.err.println("controladorMostrarImagenProducto");
 		 
 		byte[] info = servicioInstrumento.obtenerInstrumentoPorId(Integer.parseInt(id)).getImagenPortada();
 		if (info == null) {
@@ -27,5 +27,16 @@ public class MostrarImagenProducto {
 		response.getOutputStream().write(info);
 		response.getOutputStream().close();
 	}
-
+	
+//	@RequestMapping("logo_marca")
+//	public void mostrarLogoMarca(String id, HttpServletResponse response)throws IOException {
+//		System.err.println("controladorMostrarLogoMarca");
+//		byte[] info = servicioMarca.obtenerMarcaPorId(Integer.parseInt(id)).getImagenPortada();
+//		if (info == null) {
+//			return;
+//		}
+//		response.setContentType("image/jpge, image/jpg, image/png, image/gif");
+//		response.getOutputStream().write(info);
+//		response.getOutputStream().close();
+//	}
 }
