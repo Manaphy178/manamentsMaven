@@ -1,21 +1,26 @@
 .productCard {
   margin: 1rem;
   padding: 1rem;
+  /* width: 300px; Ancho fijo */
+  height: 550px; /* Alto fijo */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between; /* Asegura que los elementos ocupen todo el espacio vertical */
   background: rgb(236, 236, 236);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /* overflow: hidden;  */
 }
 .productCard .imagenProducto {
   width: auto;
   border-radius: 1rem;
-  height: auto;
+  height: 180px; /* Altura fija para la imagen */
+  object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin distorsionarse */
+
 }
 .productCard .nombre {
   width: 100%;
-  text-align: justify;
   padding: 0.5rem;
   margin: 0.5rem 0.5rem 0rem 0.5rem;
   border-radius: 1rem;

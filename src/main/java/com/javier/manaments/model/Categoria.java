@@ -12,7 +12,7 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private int idCategoria;
 	private String nombre;
 	private String descripcion;
 
@@ -29,7 +29,7 @@ public class Categoria {
 	}
 
 	public int getId() {
-		return id;
+		return idCategoria;
 	}
 
 	public String getNombre() {
@@ -45,7 +45,7 @@ public class Categoria {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idCategoria = id;
 	}
 
 	public void setNombre(String nombre) {
@@ -62,7 +62,7 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria [nombre=" + nombre + ", descripcion=" + descripcion + ", id=" + id + "]";
+		return "Categoria [nombre=" + nombre + ", descripcion=" + descripcion + ", id=" + idCategoria + "]";
 	}
 
 }

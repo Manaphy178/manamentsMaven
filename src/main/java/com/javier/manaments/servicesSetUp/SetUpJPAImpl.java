@@ -64,14 +64,12 @@ public class SetUpJPAImpl implements SetUp {
 					"Instrumentos que producen sonido a través de la vibración de aire");
 			Categoria percusion = new Categoria("Percusión",
 					"Instrumentos que producen sonido a través de membranas o superficies que se golpean");
-			
 			Categoria piano = new Categoria("Pianos", "Instrumento clasico de teclas");
 			Categoria sintetizadores = new Categoria("Sintetizadores",
 					"Instrumento electronico capaz de producir sonidos a cualquier frecuencia");
 			entityManager.persist(cuerda);
 			entityManager.persist(viento);
 			entityManager.persist(percusion);
-			
 			entityManager.persist(piano);
 			entityManager.persist(sintetizadores);
 			entityManager.persist(guitarra);
@@ -91,13 +89,14 @@ public class SetUpJPAImpl implements SetUp {
 			yamaha.addCategoria(piano);
 			yamaha.addCategoria(viento);
 			yamaha.addCategoria(percusion);
-
 			yamaha.addCategoria(sintetizadores);
 			yamaha.addCategoria(guitarra);
 			yamaha.addCategoria(bajo);
 			yamaha.addCategoria(bateria);
 
 			Marca roland = new Marca("Roland");
+			roland.addCategoria(viento);
+			roland.addCategoria(piano);
 			roland.addCategoria(percusion);
 			roland.addCategoria(sintetizadores);
 			roland.addCategoria(bateria);
@@ -214,6 +213,13 @@ public class SetUpJPAImpl implements SetUp {
 			Instrumento yamahaI13 = new Instrumento(sintetizadores, "Sintetizador MONTAGE M", yamaha,
 					"Sintetizador MONTAGE M, con capacidades avanzadas para la creación de sonidos complejos y manipulaciones en tiempo real.",
 					2000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento yamahaI14 = new Instrumento(percusion, "Timbales Serie TP-8300R", yamaha,
+					"Timbales de la serie TP-8300R de Yamaha, conocidos por su resonancia excepcional y diseño robusto, ideales para orquestas y bandas sinfónicas.",
+					1500.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis())
+
+			);
+
 			yamahaI1.setImagenPortada(
 					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/yamaha/instrumentos/yamahaI1.png"));
 			yamahaI2.setImagenPortada(
@@ -240,6 +246,8 @@ public class SetUpJPAImpl implements SetUp {
 					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/yamaha/instrumentos/yamahaI12.png"));
 			yamahaI13.setImagenPortada(
 					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/yamaha/instrumentos/yamahaI13.png"));
+			yamahaI14.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/yamaha/instrumentos/yamahaI14.png"));
 
 			yamahaI1.setVentas(random.nextInt(101));
 			yamahaI2.setVentas(random.nextInt(101));
@@ -254,6 +262,7 @@ public class SetUpJPAImpl implements SetUp {
 			yamahaI11.setVentas(random.nextInt(101));
 			yamahaI12.setVentas(random.nextInt(101));
 			yamahaI13.setVentas(random.nextInt(101));
+			yamahaI14.setVentas(random.nextInt(101));
 
 			entityManager.persist(yamahaI1);
 			entityManager.persist(yamahaI2);
@@ -268,55 +277,73 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(yamahaI11);
 			entityManager.persist(yamahaI12);
 			entityManager.persist(yamahaI13);
+			entityManager.persist(yamahaI14);
+
 			/**
 			 * END instrumentos yamaha
 			 */
-//			Instrumento i2 = new Instrumento("Guitarra Eléctrica", "Eléctrico", "Fender", "Media",
-//					"Guitarra eléctrica con pastillas dobles", 1200, new Date(System.currentTimeMillis()));
-//			Instrumento i3 = new Instrumento("Saxofón", "Acústico", "Selmer", "Alta", "Saxofón alto de latón", 2500,
-//					new Date(System.currentTimeMillis()));
-//			Instrumento i4 = new Instrumento("Batería Acústica", "Acústico", "Tama", "Media",
-//					"Batería acústica de 5 piezas", 800, new Date(System.currentTimeMillis()));
-//			Instrumento i5 = new Instrumento("Teclado Electrónico", "Eléctrico", "Casio", "Media",
-//					"Teclado electrónico con 61 teclas y efectos", 300, new Date(System.currentTimeMillis()));
-//			Instrumento i6 = new Instrumento("Trompeta", "Acústico", "Bach", "Alta", "Trompeta en Sib, cuerpo de latón",
-//					1800, new Date(System.currentTimeMillis()));
-//			Instrumento i7 = new Instrumento("Bajo Eléctrico", "Eléctrico", "Ibanez", "Media",
-//					"Bajo eléctrico de 4 cuerdas", 950, new Date(System.currentTimeMillis()));
-//			i2.setCategoria(cuerda);
-//			i3.setCategoria(viento);
-//			i4.setCategoria(percusion);
-//			i5.setCategoria(electrico);
-//			i6.setCategoria(viento);
-//			i7.setCategoria(cuerda);
-//
-//			i2.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/2.jpg"));
-//			i3.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/3.jpg"));
-//			i4.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/4.jpg"));
-//			i5.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/5.jpg"));
-//			i6.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/6.jpg"));
-//			i7.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/instrumentos/7.jpg"));
-//
-//			i2.setVentas(15);
-//			i3.setVentas(10);
-//			i4.setVentas(5);
-//			i5.setVentas(30);
-//			i6.setVentas(55);
-//			i7.setVentas(20);
-//
-//			i2.setEstado("nuevo");
-//			i3.setEstado("nuevo");
-//			i4.setEstado("nuevo");
-//			i5.setEstado("nuevo");
-//			i6.setEstado("nuevo");
-//			i7.setEstado("nuevo");
-//
-//			entityManager.persist(i2);
-//			entityManager.persist(i3);
-//			entityManager.persist(i4);
-//			entityManager.persist(i5);
-//			entityManager.persist(i6);
-//			entityManager.persist(i7);
+
+			/**
+			 * Instrumentos Roland
+			 */
+
+			Instrumento rolandI1 = new Instrumento(piano, "Kiyola KF-10", roland,
+					"Piano digital Kiyola (Made in Japan series KF-10) de Roland, con diseño elegante y calidad de sonido excepcional.",
+					4500.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento rolandI2 = new Instrumento(sintetizadores, "GAIA 2", roland,
+					"Sintetizador GAIA 2 de Roland, ideal para modelado sonoro con un potente motor de síntesis.",
+					800.0, "Electrónico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento rolandI3 = new Instrumento(sintetizadores, "GR-55", roland,
+					"Sintetizador de guitarra GR-55 de Roland, ofrece una amplia gama de sonidos y efectos.", 1200.0,
+					"Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento rolandI4 = new Instrumento(sintetizadores, "Katana Artist Gen 3", roland,
+					"Sintetizador de bajo Katana Artist Gen 3 de Roland, ideal para músicos que buscan un sonido potente.",
+					1100.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento rolandI5 = new Instrumento(bateria, "VAD507 V-Drums Acoustic Design", roland,
+					"Batería electrónica VAD507 de Roland con diseño acústico para una experiencia de toque realista.",
+					3500.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento rolandI6 = new Instrumento(percusion, "SPD-SX PRO Sampling Pad", roland,
+					"Pad de percusión SPD-SX PRO de Roland, ideal para la creación de ritmos y muestras en vivo.",
+					1000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			Instrumento rolandI7 = new Instrumento(viento, "Aerophone AE-20", roland,
+					"Instrumento de viento digital Aerophone AE-20 de Roland, ofrece sonidos expresivos para músicos versátiles.",
+					900.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+
+			rolandI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI1.png"));
+			rolandI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI2.png"));
+			rolandI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI3.png"));
+			rolandI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI4.png"));
+			rolandI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI5.png"));
+			rolandI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI6.png"));
+			rolandI7.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI7.png"));
+			rolandI1.setVentas(random.nextInt(101));
+			rolandI2.setVentas(random.nextInt(101));
+			rolandI3.setVentas(random.nextInt(101));
+			rolandI4.setVentas(random.nextInt(101));
+			rolandI5.setVentas(random.nextInt(101));
+			rolandI6.setVentas(random.nextInt(101));
+			rolandI7.setVentas(random.nextInt(101));
+			entityManager.persist(rolandI1);
+			entityManager.persist(rolandI2);
+			entityManager.persist(rolandI3);
+			entityManager.persist(rolandI4);
+			entityManager.persist(rolandI5);
+			entityManager.persist(rolandI6);
+			entityManager.persist(rolandI7);
+
 			Usuario u1 = new Usuario("Javier", "Gonzalez", "mana", "jgonzalez@centronelson.org", "123", 28440);
 			Usuario u2 = new Usuario("Sergio", "Prados", "prapra", "sprados@centronelson.org", "123", 28440);
 			Usuario u3 = new Usuario("Alba", "Rueda", "albitagambita", "alba@gmail.com", "123", 28440);
@@ -333,7 +360,7 @@ public class SetUpJPAImpl implements SetUp {
 
 			// Metemos algunos productos en el carrito del primer y segundo usuario
 			servicioCarrito.agregarProducto(yamahaI1.getId(), u1.getId(), 5);
-			servicioCarrito.agregarProducto(yamahaI5.getId(), u1.getId(), 1);
+			servicioCarrito.agregarProducto(rolandI5.getId(), u1.getId(), 1);
 			servicioCarrito.agregarProducto(yamahaI3.getId(), u2.getId(), 2);
 			servicioCarrito.agregarProducto(yamahaI11.getId(), u3.getId(), 10);
 			System.err.println("Registros iniciales realizados correctamente");
@@ -504,11 +531,7 @@ public class SetUpJPAImpl implements SetUp {
 				Marca marcaAleatoria = marcas.get(random.nextInt(marcas.size()));
 
 				// Crea un nuevo instrumento con la marca aleatoria
-				Instrumento nuevo = new Instrumento(nombre + i, // Nombre del instrumento
-						descripcion + i, // Descripción del instrumento
-						marcaAleatoria, // Marca aleatoria seleccionada
-						precio + i // Precio (puedes ajustar la lógica si lo prefieres)
-				);
+				Instrumento nuevo = new Instrumento(nombre + i, descripcion + i, marcaAleatoria, precio + i);
 
 				// Asigna la categoría al instrumento
 				nuevo.setCategoria(percusion);
