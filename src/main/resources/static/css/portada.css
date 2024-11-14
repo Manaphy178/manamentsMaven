@@ -23,10 +23,10 @@
   background-color: red;
   transition: all 1s ease-in-out;
 }
-h2{
+/* h2{
   text-align: center;
   margin: 3rem 0 0 0;
-}
+} */
 table {
   margin: 2rem auto;
   width: 100vh;

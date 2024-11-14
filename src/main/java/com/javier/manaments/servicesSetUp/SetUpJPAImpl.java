@@ -163,62 +163,60 @@ public class SetUpJPAImpl implements SetUp {
 
 			// Instrumentos
 			Instrumento yamahaI1 = new Instrumento(piano, "Piano SU", yamaha,
-					"Piano acústico de la serie SU de Yamaha, conocido por su sonido resonante y su calidad de construcción.",
+					"Piano acústico de la serie SU de Yamaha, fabricado a mano con materiales de alta calidad, ofreciendo un sonido resonante, claridad de tonos graves y agudos, y una acción de teclas excepcional que proporciona una experiencia interpretativa de primer nivel. Ideal para estudios profesionales y salas de conciertos.",
 					5000.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI2 = new Instrumento(guitarra, "Guitarra Acústica FG", yamaha,
-					"Guitarra acústica de la serie FG de Yamaha, famosa por su tono cálido y construcción duradera.",
+					"Guitarra acústica de la serie FG de Yamaha, famosa por su tono cálido, proyección equilibrada y una construcción duradera con tapa de abeto macizo, ofreciendo un sonido lleno y resonante ideal tanto para principiantes como para guitarristas avanzados.",
 					350.0, "Acústico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI3 = new Instrumento(bajo, "Bajo BB", yamaha,
-					"Bajo eléctrico de la serie BB, reconocido por su tono profundo y gran versatilidad.", 700.0,
-					"Eléctrico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					"Bajo eléctrico de la serie BB, reconocido por su tono profundo, sustain prolongado, y una gran versatilidad sonora que lo hace adecuado para diversos estilos musicales, desde rock hasta jazz, con una construcción robusta y cómoda para tocar en escenarios o en el estudio.",
+					700.0, "Eléctrico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI4 = new Instrumento(guitarra, "Guitarra Eléctrica Revstar", yamaha,
-					"Guitarra eléctrica Revstar de Yamaha, con un diseño moderno y un sonido dinámico ideal para rock y metal.",
+					"Guitarra eléctrica Revstar de Yamaha, caracterizada por su diseño moderno inspirado en motocicletas clásicas, un sonido dinámico y potente ideal para géneros como rock y metal, con pastillas humbucker de alta salida y un cuerpo ergonómico para mayor confort durante largas sesiones de interpretación.",
 					800.0, "Eléctrico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI5 = new Instrumento(bateria, "Batería Live Custom Hybrid Oak", yamaha,
-					"Batería acústica Live Custom Hybrid Oak, con un sonido robusto y una excelente respuesta de tono.",
+					"Batería acústica Live Custom Hybrid Oak de Yamaha, construida con capas de roble y un núcleo de phenol para un sonido más robusto y con mayor proyección. Ideal para actuaciones en vivo, esta batería destaca por su ataque potente y una excelente respuesta de tono que se adapta a múltiples géneros musicales.",
 					4000.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI6 = new Instrumento(bateria, "Batería Electrónica DTX10 Series", yamaha,
-					"Batería electrónica DTX10, diseñada para ofrecer una experiencia de percusión más realista y profesional.",
+					"Batería electrónica DTX10 Series de Yamaha, diseñada para ofrecer una experiencia de percusión extremadamente realista gracias a sus pads de silicona y su módulo de sonido avanzado, permitiendo una amplia gama de sonidos y funcionalidades, ideal para bateristas profesionales y estudios de grabación.",
 					3000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI7 = new Instrumento(viento, "Trompeta YTR-9335CHS", yamaha,
-					"Trompeta de la serie YTR-9335CHS, conocida por su facilidad de ejecución y sonido cálido.", 2500.0,
-					"Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					"Trompeta de la serie YTR-9335CHS, conocida por su facilidad de ejecución, proyección impresionante, y un sonido cálido con una excelente afinación en todos los registros. Construida con precisión para músicos de orquestas y solistas exigentes.",
+					2500.0, "Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI8 = new Instrumento(viento, "Saxofón YAS-875EX", yamaha,
-					"Saxofón alto YAS-875EX, de alto rendimiento con un sonido brillante y potente.", 4500.0, "Viento",
-					"Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					"Saxofón alto de la serie YAS-875EX de Yamaha, diseñado para ofrecer un rendimiento superior con un sonido brillante y potente, respuesta rápida y una excelente proyección. Ideal para intérpretes profesionales que buscan versatilidad en jazz, clásico y otros estilos.",
+					4500.0, "Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI9 = new Instrumento(viento, "Flauta Serie 900", yamaha,
-					"Flauta de la serie 900, con una respuesta rápida y un tono cálido ideal para el músico profesional.",
+					"Flauta de la serie 900 de Yamaha, con una respuesta rápida, construcción en plata maciza para un tono cálido y proyectado, diseñada para músicos profesionales que requieren una precisión excepcional y expresividad en sus interpretaciones.",
 					2000.0, "Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI10 = new Instrumento(cuerda, "Violín YVN500S", yamaha,
-					"Violín de nivel intermedio YVN500S, conocido por su excelente tono y facilidad de interpretación.",
+					"Violín de nivel intermedio YVN500S de Yamaha, reconocido por su tono claro y resonante, con maderas seleccionadas que brindan una proyección óptima. Ideal para estudiantes avanzados y músicos que buscan un sonido refinado y una ejecución cómoda.",
 					800.0, "Cuerda", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI11 = new Instrumento(cuerda, "Viola VA7SG", yamaha,
-					"Viola VA7SG, instrumento de cuerda con una rica sonoridad, ideal para músicos avanzados.", 1000.0,
-					"Cuerda", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					"Viola VA7SG de Yamaha, un instrumento de cuerda de calidad superior con un tono rico y cálido, ideal para músicos avanzados y profesionales que requieren una respuesta tonal precisa y una construcción duradera.",
+					1000.0, "Cuerda", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI12 = new Instrumento(sintetizadores, "Teclado Portátil PSR-EW425", yamaha,
-					"Teclado portátil PSR-EW425, con una amplia gama de sonidos y características educativas para principiantes.",
+					"Teclado portátil PSR-EW425 de Yamaha, equipado con 76 teclas sensibles al tacto, más de 800 sonidos, y características educativas avanzadas como lecciones integradas y conectividad USB, ideal para principiantes y músicos en desarrollo.",
 					350.0, "Electrónico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI13 = new Instrumento(sintetizadores, "Sintetizador MONTAGE M", yamaha,
-					"Sintetizador MONTAGE M, con capacidades avanzadas para la creación de sonidos complejos y manipulaciones en tiempo real.",
+					"Sintetizador MONTAGE M de Yamaha, con un motor de síntesis híbrido que combina AWM2 y FM-X, permitiendo la creación de sonidos complejos y manipulaciones en tiempo real gracias a su Super Knob y funciones avanzadas de control en vivo. Ideal para músicos y productores que buscan un sintetizador de alto rendimiento.",
 					2000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento yamahaI14 = new Instrumento(percusion, "Timbales Serie TP-8300R", yamaha,
-					"Timbales de la serie TP-8300R de Yamaha, conocidos por su resonancia excepcional y diseño robusto, ideales para orquestas y bandas sinfónicas.",
-					1500.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis())
-
-			);
+					"Timbales de la serie TP-8300R de Yamaha, con una construcción de cobre martillado a mano para un tono rico y resonante, diseñado para músicos de orquestas sinfónicas y bandas que requieren una resonancia excepcional y durabilidad en cada presentación.",
+					1500.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			yamahaI1.setImagenPortada(
 					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/yamaha/instrumentos/yamahaI1.png"));
@@ -288,31 +286,31 @@ public class SetUpJPAImpl implements SetUp {
 			 */
 
 			Instrumento rolandI1 = new Instrumento(piano, "Kiyola KF-10", roland,
-					"Piano digital Kiyola (Made in Japan series KF-10) de Roland, con diseño elegante y calidad de sonido excepcional.",
+					"Piano digital Kiyola (Made in Japan series KF-10) de Roland, combina un diseño elegante de inspiración escandinava con tecnología de sonido de última generación. Este piano digital cuenta con un mueble artesanal de madera maciza, fabricado por artesanos de la renombrada empresa Karimoku, y un motor de sonido SuperNATURAL que reproduce con gran fidelidad la resonancia y el tono de un piano acústico. Con teclas de madera PHA-50 y un sistema de altavoces integrados, ofrece una experiencia musical envolvente y auténtica, ideal tanto para decoración de interiores modernos como para músicos exigentes.",
 					4500.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento rolandI2 = new Instrumento(sintetizadores, "GAIA 2", roland,
-					"Sintetizador GAIA 2 de Roland, ideal para modelado sonoro con un potente motor de síntesis.",
+					"Sintetizador GAIA 2 de Roland, una potente herramienta para el diseño de sonido y la experimentación musical. Equipado con un motor de síntesis avanzado, este sintetizador es capaz de crear una amplia gama de sonidos, desde texturas ambientales hasta leads agresivos. Cuenta con un panel de control intuitivo con faders, perillas y botones iluminados para un flujo de trabajo rápido y creativo. Además, incluye polifonía mejorada, efectos integrados, y un teclado de 49 teclas sensibles al tacto, lo que lo convierte en una excelente opción tanto para estudios como para presentaciones en vivo.",
 					800.0, "Electrónico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento rolandI3 = new Instrumento(sintetizadores, "GR-55", roland,
-					"Sintetizador de guitarra GR-55 de Roland, ofrece una amplia gama de sonidos y efectos.", 1200.0,
-					"Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					"Sintetizador de guitarra GR-55 de Roland, un revolucionario procesador de guitarra que combina sintetización avanzada y modelado de amplificadores. Equipado con la tecnología COSM, este dispositivo permite transformar el sonido de tu guitarra en una amplia gama de timbres, desde emulaciones de instrumentos acústicos hasta complejos pads de sintetizador. Con 910 tonos diferentes, MIDI integrado, y capacidad para conectar una pastilla GK, es ideal tanto para guitarristas que desean expandir su paleta sonora como para músicos de estudio en busca de versatilidad.",
+					1200.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento rolandI4 = new Instrumento(sintetizadores, "Katana Artist Gen 3", roland,
-					"Sintetizador de bajo Katana Artist Gen 3 de Roland, ideal para músicos que buscan un sonido potente.",
+					"Sintetizador de bajo Katana Artist Gen 3 de Roland, diseñado específicamente para bajistas que buscan un sonido potente y personalizado. Este sintetizador combina modelado de amplificadores con efectos premium, y ofrece un motor de sonido completamente ajustable con control de tono preciso. Incluye 5 tipos de amplificadores, efectos integrados, y un altavoz especial Waza de 12 pulgadas que proporciona un rendimiento inigualable tanto en el escenario como en el estudio.",
 					1100.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento rolandI5 = new Instrumento(bateria, "VAD507 V-Drums Acoustic Design", roland,
-					"Batería electrónica VAD507 de Roland con diseño acústico para una experiencia de toque realista.",
+					"Batería electrónica VAD507 de Roland, perteneciente a la serie V-Drums Acoustic Design, combina la estética clásica de un set acústico con la tecnología digital avanzada de Roland. Ofrece pads con parches de malla de doble capa para una sensación realista y un sistema de sonido dinámico que incluye el módulo TD-27, proporcionando una extensa biblioteca de kits personalizables. Con un chasis de madera real y herrajes de alta calidad, esta batería está diseñada para brindar una experiencia de interpretación auténtica, ideal para bateristas profesionales que buscan versatilidad tanto en el estudio como en el escenario.",
 					3500.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento rolandI6 = new Instrumento(percusion, "SPD-SX PRO Sampling Pad", roland,
-					"Pad de percusión SPD-SX PRO de Roland, ideal para la creación de ritmos y muestras en vivo.",
+					"Pad de percusión SPD-SX PRO de Roland, el estándar para músicos que necesitan llevar su creatividad a nuevos niveles en el escenario y en el estudio. Este pad de muestras avanzado permite cargar y manipular hasta 4 GB de muestras, ofreciendo 9 pads sensibles al tacto con retroalimentación LED para una mejor visualización en escenarios oscuros. Con funciones como Multi-Pad Sampling, efectos integrados, y conectividad avanzada, es una herramienta esencial para bateristas, DJs y productores que desean integrar elementos electrónicos en sus actuaciones en vivo.",
 					1000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			Instrumento rolandI7 = new Instrumento(viento, "Aerophone AE-20", roland,
-					"Instrumento de viento digital Aerophone AE-20 de Roland, ofrece sonidos expresivos para músicos versátiles.",
+					"Instrumento de viento digital Aerophone AE-20 de Roland, diseñado para músicos versátiles que buscan la expresividad de un instrumento de viento tradicional combinado con la flexibilidad digital. Equipado con un sensor de respiración y teclas sensibles, el AE-20 permite interpretar sonidos de saxofón, flauta, clarinete y otros instrumentos de viento con gran realismo. Además, incluye una extensa librería de sonidos electrónicos, conectividad Bluetooth para aplicaciones de música móvil, y un diseño ergonómico que lo hace perfecto tanto para el estudio como para presentaciones en vivo.",
 					900.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
 
 			rolandI1.setImagenPortada(

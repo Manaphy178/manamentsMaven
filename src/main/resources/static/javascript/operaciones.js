@@ -43,45 +43,57 @@ function obtenerProductos() {
 }
 
 let nombre_a_buscar = "";
-let comienzo_resultado =0;
+let comienzo_resultado = 0;
+let pagina = 1;
 
 /**
- * FUncion para obtener todos los productos 
+ * FUncion para obtener todos los productos
  * pero da error
  */
 function obtenerTodosProductos() {
+  console.log(comienzo_resultado);
   reiniciarContainers();
-  $.ajax("obtener-todos-productos-json", {
-    nombre: nombre_a_buscar,
-    comienzo: comienzo_resultado,
+  $.ajax({
+    url: "obtener-todos-productos-json",
+    data: {
+      nombre: nombre_a_buscar,
+      comienzo: comienzo_resultado,
+    },
   }).done(function (respuesta) {
+    // console.log(comienzo_resultado);
+    console.log(respuesta);
     let instrumento = respuesta.instrumentos;
     let texto_html = "";
+
     texto_html = Mustache.render(html_listado_todos_productos, instrumento);
     $("#contenedor").html(texto_html);
     // una vez volcado el listado, decimos que tiene que hacer
     // el enlace ver detalles
     $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
     // Total resultados
+    $("#pagina").html(pagina);
     $("#total_resultados").html(respuesta.totalInstrumentos);
 
     // Buscador
-    $("#titulo_buscador").val(nombre_a_buscar);
-    $("#titulo_buscador").focus();
-    $("#titulo_buscador").keyup(function () {
+    $("#nombre_buscador").val(nombre_a_buscar);
+    $("#nombre_buscador").focus();
+    $("#nombre_buscador").keyup(function () {
+      pagina = 1;
       nombre_a_buscar = $(this).val();
       comienzo_resultado = 0;
       obtenerTodosProductos();
     });
 
     // Paginacion
-    if (comienzo_resultado + 10 < respuesta.totalInstrumentos) {
+    if (comienzo_resultado + 12 < respuesta.totalInstrumentos) {
       $("#enlace_siguiente").show();
     } else {
       $("#enlace_siguiente").hide();
     }
     $("#enlace_siguiente").click(function () {
-      comienzo_resultado += 10;
+      pagina++;
+      comienzo_resultado += 12;
+      // console.log(comienzo_resultado);
       obtenerTodosProductos();
     });
 
@@ -91,7 +103,9 @@ function obtenerTodosProductos() {
       $("#enlace_anterior").show();
     }
     $("#enlace_anterior").click(function () {
-      comienzo_resultado -= 10;
+      pagina--;
+      comienzo_resultado -= 12;
+      // console.log(comienzo_resultado);
       obtenerTodosProductos();
     });
   });
@@ -104,6 +118,8 @@ function mostrarDetallesProducto() {
   $.getJSON("obtener-detalles-instrumento", {
     id: idProducto,
   }).done(function (res) {
+    console.log("detalles del producto: ");
+    console.log(res);
     let html = Mustache.render(html_detalles_instrumento, res);
     $("#contenedor").html(html);
     $("#enlace_agregar_al_carrito").click(agregarProductoAlCarrito);
@@ -146,6 +162,7 @@ function enviarInfoUsuarioAlServidor() {
   }).done(function (res) {
     console.log(res);
   });
+  inicio();
 } //end enviarInfoUsuarioAlServidor
 
 function mostrarFormularioLogin() {
@@ -210,7 +227,7 @@ function mostrarFormularioLogin() {
           $("#menuMisPedido").toggleClass("ocultar");
           $("#menuMisDatos").toggleClass("ocultar");
           $("#menuCerrarSesion").toggleClass("ocultar");
-          obtenerProductos();
+          inicio();
         } else {
           alert("email o pass incorrecto");
         }

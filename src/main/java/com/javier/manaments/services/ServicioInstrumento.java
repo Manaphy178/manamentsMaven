@@ -26,6 +26,7 @@ public interface ServicioInstrumento {
 
 	List<Map<String, Object>> obtenerInstrumentosParaListadoPrincipal();
 
+	List<Map<String, Object>> obtenerTodosInstrumentosParaListado();
 	List<Map<String, Object>> obtenerTodosInstrumentosParaListado(String nombre, int comienzo);
 
 	int obtenerTotalInstrumentos();

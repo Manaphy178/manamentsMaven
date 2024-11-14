@@ -80,6 +80,7 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
 		return nativeQuery.getResultList();
 	}
+
 	@Override
 	public List<Map<String, Object>> obtenerTodosInstrumentosParaListado(String nombre, int comienzo) {
 		Query query = entityManager
@@ -91,6 +92,15 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		return nativeQuery.getResultList();
 
 	}
+
+	@Override
+	public List<Map<String, Object>> obtenerTodosInstrumentosParaListado() {
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS);
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return nativeQuery.getResultList();
+	}
+
 	@Override
 	public List<Map<String, Object>> obtenerInstrumentosMasVendidos() {
 		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOP_CINCO_INSTRUMENTOS)
@@ -130,7 +140,5 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
 		return totalInstrumentos;
 	}
-
-
 
 }

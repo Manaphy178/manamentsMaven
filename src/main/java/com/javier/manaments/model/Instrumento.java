@@ -57,7 +57,7 @@ public class Instrumento {
 	@JoinColumn(name = "marca_id")
 	private Marca marca;
 
-	@Column(length = 650)
+	@Column(length = 2000)
 	private String descripcion;
 
 	@NotNull(message = "debes insertar un precio")

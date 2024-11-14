@@ -1,12 +1,7 @@
 <section id="productos" class="productos">
   <div>
-    <h2 class="section-title text-center">Nuestros Productos</h2>
+    <h2 class="section-title text-center titulo">Nuestros Productos</h2>
     <!-- Swiper -->
-    
-
-
-	
-
 
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -37,20 +32,12 @@
         </div>
         {{/.}}
         <div class="swiper-slide">
-          <div class="productCard">
-            <img src="" class="imagenProducto" alt="Producto 1" />
-
-            <h1 class="nombre">VER MAS</h1>
-            <p class="estado">estado</p>
-            <p class="marca">marca</p>
-
-            <span class="precio">€</span>
-            <a href="#" style="width: 100%" id="ver-todos-productos">
-              <button class="addCartButton" id="ver-todos-productos">
-                View product
-              </button>
-            </a>
-          </div>
+          <a href="#" id="ver-todos-productos">
+            <div class="productCardMas">
+              <p>poner flecha</p>
+              <h1 class="nombre">VER MAS</h1>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -65,6 +52,5 @@
     grabCursor: true,
     loop: false, // Habilita el bucle de productos
     slidesPerView: "5",
-    
   });
 </script>

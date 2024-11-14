@@ -1,4 +1,3 @@
-
 <!-- Para h2 -->
 <!-- <div style="text-align: center">
   <b>{{NOMBRE_INSTRUMENTO}}</b>
@@ -17,7 +16,7 @@
 </div> -->
 
 <!-- Para pruebas con xampp -->
-<div style="text-align: center">
+<!-- <div style="text-align: center">
   <b>{{nombre_instrumento}}</b>
   <br />
   <img src="mostrar_imagen?id={{id}}" alt="imagen" style="height: 220px" />
@@ -28,4 +27,43 @@
   <a href="#" id="enlace_agregar_al_carrito" id-producto="{{id}}">
     Agregar al carrito
   </a>
+</div> -->
+<div class="containerSingleProduct">
+  <h1 class="titulo">DETALLES DEL PRODUCTO</h1>
+  <!-- Columna izquierda: Galería de imágenes y descripción -->
+  <div class="left-column">
+    <div class="image-gallery">
+      <img
+        src="mostrar_imagen?id={{id}}"
+        alt="Imagen principal"
+        class="main-image"
+      />
+    </div>
+
+    <div class="description">
+      <h2>Descripción</h2>
+      <p>{{descripcion}}</p>
+    </div>
+  </div>
+
+  <!-- Columna derecha: Información del producto y botones -->
+  <div class="right-column">
+    <div class="sticky-info">
+      <h1>{{nombre_instrumento}}</h1>
+      <h2>{{precio}} €</h2>
+      <p><strong>Estado: {{estado}}</strong></p>
+
+      <button class="buy-button">Comprar ahora (por hacer)</button>
+      <a href="#" id="enlace_agregar_al_carrito" id-producto="{{id}}">
+        <button class="cart-button">Agregar al carrito</button></a
+      >
+
+      <div class="seller-info">
+        <p>Gamma: {{gamma}}</p>
+        <p>Tipo de instrumento: {{tipo}}</p>
+        <p>Categoria: {{nombre_categoria}}</p>
+        <p>Marca: {{nombre_marca}}</p>
+      </div>
+    </div>
+  </div>
 </div>

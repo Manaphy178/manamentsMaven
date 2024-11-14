@@ -1,9 +1,9 @@
-:root {
+/* :root {
   --claro: #d2d4d1;
   --oscuro: #827157;
   --fondo: #c4bbaa;
   --producto_detalles: #9f755d;
-}
+} */
 .topProducts {
   width: 100%;
   display: flex;
@@ -29,11 +29,24 @@
     rgba(0, 0, 0, 0.15) 0px 7px 13px -3px;
   border-radius: 1rem;
 }
-
+.productCardMas{
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--claro);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px,
+    rgba(0, 0, 0, 0.15) 0px 7px 13px -3px;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: black;
+}
 .imagenProducto {
   width: 100%;
   max-height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 1rem;
 }
 
@@ -55,10 +68,15 @@
 
 #productos {
   padding: 60px 0;
-  background-color: var(--fondo);
-  height: fit-content;
+  background-color: var(--fondo-our-products);
+  height: 700px;
 }
+
 #productos .productCard {
+  height: 85%;
+}
+
+#productos .productCardMas {
   height: 85%;
 }
 #productos .swiper-container {

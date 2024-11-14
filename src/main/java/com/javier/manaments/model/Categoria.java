@@ -2,6 +2,7 @@ package com.javier.manaments.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ public class Categoria {
 	@Id
 	@GeneratedValue
 	private int idCategoria;
+	
+	@Column(name="nombre_categoria")
 	private String nombre;
 	private String descripcion;
 

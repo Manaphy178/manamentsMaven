@@ -13,11 +13,10 @@
   /* overflow: hidden;  */
 }
 .productCard .imagenProducto {
-  width: auto;
-  border-radius: 1rem;
-  height: 180px; /* Altura fija para la imagen */
-  object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin distorsionarse */
-
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 200px; /* Altura fija para todas las imágenes */
+  object-fit: contain; /* Escala la imagen para que llene el área, recortando si es necesario */
+  border-radius: 10px; /* Bordes redondeados opcionales */
 }
 .productCard .nombre {
   width: 100%;

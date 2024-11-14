@@ -6,14 +6,21 @@
 
 :root {
   --claro: #d2d4d1;
-  --oscuro: #827157;
-  --fondo: #c4bbaa;
+  --oscuro: #554835;
+  --fondo: #d7d3cd;
+  --fondo-our-products: #c9beae;
   --producto_detalles: #9f755d;
+  --fondo-all-products: #c9beae;
+  --fondo-single-product:#c0ab8a;
 }
-
+@font-face {
+  font-family: Nunito; /*Ponemos el nombre que nos de la gana y despues la llamaremos en el font-family que queramos*/
+  src: url(../fonts/Nunito/Nunito-VariableFont_wght.ttf);
+}
 .body {
-  font-family: Arial, sans-serif;
-  background-color: var(--fondo);
+  font-family: Nunito;
+
+  background-color: #d7d3cd;
 }
 
 /* .header * {
@@ -21,7 +28,8 @@
 } */
 
 .header {
-  background-color: var(--oscuro);
+  font-family: Nunito;
+  background-color:var(--oscuro);
   color: var(--claro);
   display: flex;
   flex-direction: column;
@@ -167,7 +175,7 @@
 
 /* Parte inferior del header (opciones) */
 .header-bottom {
-  background-color: rgba(138, 109, 67, 0.8);
+  background-color: rgba(166, 138, 100, 0.8);
   display: flex;
   align-items: center;
   padding: 0.5rem;
