@@ -10,6 +10,9 @@ let html_checkout_2 = "";
 let html_checkout_3 = "";
 let html_resumen_pedido = "";
 let html_mejores_cinco = "";
+let html_listado_marca = "";
+let html_listado_categoria = "";
+let html_instrumentos_categoria = "";
 
 // Vamos a descargar todas las plantillas
 $.get("plantillas" + sufijo_idioma + "/formulario-registro-usuario.html").done(
@@ -17,6 +20,21 @@ $.get("plantillas" + sufijo_idioma + "/formulario-registro-usuario.html").done(
     html_formulario_registro_usuario = res;
   }
 );
+$.get("plantillas" + sufijo_idioma + "/listado_marcas.html").done(function (
+  res
+) {
+  html_listado_marca = res;
+});
+$.get("plantillas" + sufijo_idioma + "/listado_categoria.html").done(function (
+  res
+) {
+  html_listado_categoria = res;
+});
+$.get(
+  "plantillas" + sufijo_idioma + "/listado_instrumentos_categoria.html"
+).done(function (res) {
+  html_instrumentos_categoria = res;
+});
 $.get("plantillas" + sufijo_idioma + "/listado-productos.html").done(function (
   res
 ) {

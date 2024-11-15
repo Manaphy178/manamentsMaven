@@ -1,1 +1,61 @@
-<!-- Si clican aqui hacer una vista para las categorias -->
+<div class="container">
+    <h1 class="titulo">TODOS LOS PRODUCTOS</h1>
+    <!-- Buscador -->
+    <div class="search-bar">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 96 960 960"
+        width="24"
+      >
+        <path
+          d="M795 929 525 659q-28 26-62.5 39T390 711q-108 0-184-76t-76-184q0-108 76-184t184-76q108 0 184 76t76 184q0 42-13 80.5T659 658l270 270-53 53ZM390 621q83 0 141.5-58.5T590 421q0-83-58.5-141.5T390 221q-83 0-141.5 58.5T190 421q0 83 58.5 141.5T390 621Z"
+        />
+      </svg>
+      <input
+        type="text"
+        placeholder="Buscador"
+        name="buscador"
+        id="nombre_buscador"
+      />
+    </div>
+  
+    <!-- Paginación -->
+    <div class="pagination">
+      <a href="#" id="enlace_anterior"><button>&lt;</button></a>
+      <span id="pagina">1</span>
+      <a href="#" id="enlace_siguiente"><button>&gt;</button></a>
+    </div>
+  
+    <!-- Total productos -->
+    <div class="total-products">
+      Total productos: <span id="total_resultados"></span>
+    </div>
+    <div class="productContainer">
+      {{#.}}
+      <div class="productCard" id="">
+        <img
+          class="imagenProducto"
+          src="mostrar_imagen?id={{id}}"
+          alt="Product"
+        />
+  
+        <h2 class="nombre">{{nombre_instrumento}}</h2>
+        <h5 class="estado">{{estado}}</h5>
+  
+        <h5 class="marca">{{nombre_marca}}</h5>
+        <h3 class="precio">{{precio}}€</h3>
+        <a
+          href="#"
+          style="width: 100%"
+          id-producto="{{id}}"
+          class="enlace_ver_detalles_instrumento"
+        >
+          <button class="addCartButton">Ver producto</button>
+        </a>
+      </div>
+  
+      {{/.}}
+    </div>
+  </div>
+  

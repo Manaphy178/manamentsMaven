@@ -1,0 +1,119 @@
+.containerBrand {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--fondo-our-products);
+}
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.brand-card {
+  position: relative;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--claro);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco más claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.brand-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(85, 72, 53, 0.3); /* Usando --oscuro con menos opacidad */
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+.brand-card:hover::before {
+    background-color: rgba(85, 72, 53, 0.2); /* Color más claro al hacer hover */
+}
+.brand-card span {
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 1rem;
+  background-color: rgba(210, 212, 209, 0.1); /* Usando --claro con menos opacidad */
+  color: #000; /* Texto negro */
+  border-radius: 5px;
+  visibility: hidden;
+  transition: background-color 0.3s ease;
+}
+.brand-card:hover span {
+    visibility: visible;
+    background-color: rgba(255, 255, 255, 0.818);
+}
+.yamaha {
+  background-image: url("../img/marcas/yamaha/yamaha.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.roland {
+  background-image: url("../img/marcas/roland/roland.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.korg {
+  background-image: url("../img/marcas/korg/korg.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.casio {
+  background-image: url("../img/marcas/casio/casio.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fender {
+  background-image: url("../img/marcas/fender/fender.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.gibson {
+  background-image: url("../img/marcas/gibson/gibson.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ibanez {
+  background-image: url("../img/marcas/ibanez/ibanez.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pearl {
+  background-image: url("../img/marcas/pearl/pearl.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dw {
+  background-image: url("../img/marcas/dw/dw.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.meinl {
+  background-image: url("../img/marcas/meinl/meinl.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

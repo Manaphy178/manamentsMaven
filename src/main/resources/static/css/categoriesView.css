@@ -1,0 +1,89 @@
+.containerCategorias {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.instruments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.instrument-card {
+  position: relative;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--claro);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+.instrument-card:hover {
+  transform: scale(1.05);
+}
+.instrument-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.instrument-card span {
+  position: relative;
+  z-index: 2;
+}
+.Guitarra {
+  background-image: url("../img/categorias/guitarra.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Bajo {
+  background-image: url("../img/categorias/bajo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Bateria {
+  background-image: url("../img/categorias/bateria.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Cuerda {
+  background-image: url("../img/categorias/cuerda.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Viento {
+  background-image: url("../img/categorias/viento.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Percusion {
+  background-image: url("../img/categorias/percusion.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Pianos {
+  background-image: url("../img/categorias/piano.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Sintetizadores {
+  background-image: url("../img/categorias/sintetizador.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

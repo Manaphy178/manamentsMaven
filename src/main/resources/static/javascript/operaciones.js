@@ -352,5 +352,70 @@ function borrarProductoCarrito() {
 /**
  *    FIN CARRITO
  */
+/**
+ * Categorias
+ */
+function obtenerCategorias() {
+  $.ajax("obtener-categorias-json").done(function (res) {
+    let categoria = JSON.parse(res);
+    console.log(categoria);
+    let texto_html = Mustache.render(html_listado_categoria, categoria);
+    $("#contenedor3").html(texto_html);
+    $(".listado-producto-categoria").click(mostrarProductosCategoria);
+  });
+}
+function mostrarProductosCategoria() {
+  reiniciarContainers();
+  alert("si");
+  let idCategoria = $(this).attr("id-categoria");
+  $.getJSON({
+    url: "obtener-instrumentos-categoria",
+    data: {
+      id: idCategoria,
+      nombre: nombre_a_buscar,
+      comienzo: comienzo_resultado,
+    },
+  }).done(function (respuesta) {
+    console.log(respuesta);
 
-function obtenerCategorias() {}
+    let html = Mustache.render(html_instrumentos_categoria, respuesta);
+    $("#contenedor").html(html);
+    $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+    $("#pagina").html(pagina);
+    $("#total_resultados").html(respuesta.totalInstrumentos);
+
+    // Buscador
+    $("#nombre_buscador").val(nombre_a_buscar);
+    $("#nombre_buscador").focus();
+    $("#nombre_buscador").keyup(function () {
+      pagina = 1;
+      nombre_a_buscar = $(this).val();
+      comienzo_resultado = 0;
+      mostrarProductosCategoria();
+    });
+
+    // Paginacion
+    if (comienzo_resultado + 12 < respuesta.totalInstrumentos) {
+      $("#enlace_siguiente").show();
+    } else {
+      $("#enlace_siguiente").hide();
+    }
+    $("#enlace_siguiente").click(function () {
+      pagina++;
+      comienzo_resultado += 12;
+      // console.log(comienzo_resultado);
+      mostrarProductosCategoria();
+    });
+    if (comienzo_resultado <= 0) {
+      $("#enlace_anterior").hide();
+    } else {
+      $("#enlace_anterior").show();
+    }
+    $("#enlace_anterior").click(function () {
+      pagina--;
+      comienzo_resultado -= 12;
+      // console.log(comienzo_resultado);
+      mostrarProductosCategoria();
+    });
+  });
+}

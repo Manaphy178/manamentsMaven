@@ -56,13 +56,13 @@ public class SetUpJPAImpl implements SetUp {
 					"Instrumentos de cuerda que se tocan con los dedos o una púa, conocidos por su versatilidad en géneros como rock, jazz y flamenco.");
 			Categoria bajo = new Categoria("Bajo",
 					"Instrumentos de cuerda que producen tonos bajos y graves, esenciales en la música para proporcionar ritmo y profundidad.");
-			Categoria bateria = new Categoria("Batería",
+			Categoria bateria = new Categoria("Bateria",
 					"Conjunto de instrumentos de percusión, como tambores y platillos, utilizados para crear ritmos y marcar el tiempo en una canción.");
 			Categoria cuerda = new Categoria("Cuerda",
 					"Instrumentos que producen sonido a través de cuerdas vibrantes");
 			Categoria viento = new Categoria("Viento",
 					"Instrumentos que producen sonido a través de la vibración de aire");
-			Categoria percusion = new Categoria("Percusión",
+			Categoria percusion = new Categoria("Percusion",
 					"Instrumentos que producen sonido a través de membranas o superficies que se golpean");
 			Categoria piano = new Categoria("Pianos", "Instrumento clasico de teclas");
 			Categoria sintetizadores = new Categoria("Sintetizadores",

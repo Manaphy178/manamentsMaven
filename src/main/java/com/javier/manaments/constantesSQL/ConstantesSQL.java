@@ -19,5 +19,6 @@ public class ConstantesSQL {
 	// + " FROM tabla_instrumentos AS tl, producto_carrito AS pc"
 	// + " WHERE pc.instrumento_id = tl.id AND pc.carrito_id = :carrito_id "
 	// + " ORDER BY tl.precio DESC;";
+	public static final String SQL_OBTENER_CATEGORIAS_LISTADO = "select id_categoria ,descripcion ,nombre_categoria from categoria";
 
 }
