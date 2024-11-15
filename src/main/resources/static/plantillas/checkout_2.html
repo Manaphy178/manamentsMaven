@@ -1,44 +1,57 @@
-<!-- Paso 2 del procedimiento de checkout/compra -->
-<h1>REALIZAR PEDIDO - PASO 2</h1>
-<h3>Introduce tus datos de pago:</h3>
-<div>(no introducir datos reales, aplicacion en pruebas)</div>
-
-<div>
-  <label for="tipo_tarjeta"> Tipo de tarjeta:</label>
-  <select name="tipo_tarjeta" id="tipo_tarjeta">
-    <option value="0" id="nula">Elegir tipo</option>
-    <option value="VISA">VISA</option>
-    <option value="MASTER_CARD">MASTER CARD</option>
-  </select>
-</div>
-<div>
-  <label for="numero_tarjeta">Numero de tarjeta:</label>
-  <input type="text" name="numero_tarjeta" id="numero_tarjeta" />
-</div>
-<div>
-  <label for="titular_tarjeta">Titular de la tarjeta:</label>
-  <input type="text" name="titular_tarjeta" id="titular_tarjeta" />
-</div>
-<div>
-  <label for="fecha_caducidad">Fecha de caducidad</label>
-  <input
-    id="fecha_caducidad"
-    type="text"
-    pattern="[0-9]*"
-    inputmode="numeric"
-    name="fecha_caducidad"
-  />
-</div>
-<div>
-  <label for="codigo_seguridad">Codigo de seguridad</label>
-  <input
-    name="codigo_seguridad"
-    id="codigo_seguridad"
-    type="text"
-    pattern="[0-9]*"
-    inputmode="numeric"
-  />
-</div>
-<div>
-  <button style="padding: 10px" id="aceptar_paso_2">Aceptar</button>
+<div id="check2">
+  <h1>REALIZAR PEDIDO - PASO 2</h1>
+  <h3>Introduce tus datos de pago:</h3>
+  <p class="warning">(no introducir datos reales, aplicación en pruebas)</p>
+  <form>
+    <div>
+      <label for="tipo_tarjeta">Tipo de tarjeta:</label>
+      <select name="tipo_tarjeta" id="tipo_tarjeta" required>
+        <option value="0">Elegir tipo</option>
+        <option value="VISA">VISA</option>
+        <option value="MASTER_CARD">MASTER CARD</option>
+      </select>
+    </div>
+    <div>
+      <label for="numero_tarjeta">Número de tarjeta:</label>
+      <input
+        type="text"
+        name="numero_tarjeta"
+        id="numero_tarjeta"
+        required
+        pattern="\d{16}"
+        title="Debe contener 16 dígitos"
+      />
+    </div>
+    <div>
+      <label for="titular_tarjeta">Titular de la tarjeta:</label>
+      <input type="text" name="titular_tarjeta" id="titular_tarjeta" required />
+    </div>
+    <div>
+      <label for="fecha_caducidad">Fecha de caducidad (MM/AA):</label>
+      <input
+        id="fecha_caducidad"
+        type="text"
+        pattern="(0[1-9]|1[0-2])\/\d{2}"
+        inputmode="numeric"
+        name="fecha_caducidad"
+        required
+        title="Formato: MM/AA"
+      />
+    </div>
+    <div>
+      <label for="codigo_seguridad">Código de seguridad:</label>
+      <input
+        name="codigo_seguridad"
+        id="codigo_seguridad"
+        type="text"
+        pattern="\d{3,4}"
+        inputmode="numeric"
+        required
+        title="3 o 4 dígitos"
+      />
+    </div>
+    <div>
+      <button type="submit" id="aceptar_paso_2">Aceptar</button>
+    </div>
+  </form>
 </div>

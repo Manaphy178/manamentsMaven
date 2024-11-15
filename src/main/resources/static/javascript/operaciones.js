@@ -305,8 +305,8 @@ function obtenerProductosCarrito() {
       let total_productos = 0;
       let precio_total = 0;
       for (i in res) {
-        total_productos += res[i].CANTIDAD;
-        precio_total += res[i].PRECIO * res[i].CANTIDAD;
+        total_productos += res[i].cantidad;
+        precio_total += res[i].precio * res[i].cantidad;
       }
       $("#total_productos").html(total_productos);
       $("#total_precio").html(precio_total);
@@ -317,24 +317,48 @@ function obtenerProductosCarrito() {
 
 function restarCantidadProducto() {
   let idProducto = $(this).attr("id-producto");
-  $.post("restar-producto-carrito", {
-    id: idProducto,
-    cantidad: 1,
-  }).done(function (res) {
-    if (res == "ok") {
-      obtenerProductosCarrito();
+  $.getJSON("obtener-productos-carrito").done(function (res) {
+    for (i in res) {
+      if (res[i].id == idProducto && res[i].cantidad > 1) {
+        $.post("restar-producto-carrito", {
+          id: idProducto,
+          cantidad: 1,
+        }).done(function (res) {
+          if (res == "ok") {
+            obtenerProductosCarrito();
+          }
+        });
+      } else if (res[i].id == idProducto && res[i].cantidad == 1) {
+        $.post("borrar-producto-carrito", {
+          id: idProducto,
+        }).done(function (res) {
+          if (res == "ok") {
+            obtenerProductosCarrito();
+          }
+        });
+      }
     }
   });
 } //End restarCantidadProducto
 
 function aumentarCantidadProducto() {
   let idProducto = $(this).attr("id-producto");
-  $.post("aumentar-producto-carrito", {
-    id: idProducto,
-    cantidad: 1,
-  }).done(function (res) {
-    if (res == "ok") {
-      obtenerProductosCarrito();
+  $.getJSON("obtener-productos-carrito").done(function (res) {
+    for (i in res) {
+      if (res[i].id == idProducto && res[i].cantidad == 20) {
+        alert(
+          "Operacion no valida, solo puedes comprar 20 unidades del mismo producto"
+        );
+      } else {
+        $.post("aumentar-producto-carrito", {
+          id: idProducto,
+          cantidad: 1,
+        }).done(function (res) {
+          if (res == "ok") {
+            obtenerProductosCarrito();
+          }
+        });
+      }
     }
   });
 } //End restarCantidadProducto
@@ -394,12 +418,14 @@ function mostrarProductosCategoria() {
     // Buscador
     $("#nombre_buscador").val(nombre_a_buscar);
     $("#nombre_buscador").focus();
-    $("#nombre_buscador").off("keyup").on("keyup", function () {
-      pagina = 1;
-      nombre_a_buscar = $(this).val();
-      comienzo_resultado = 0;
-      mostrarProductosCategoria();
-    });
+    $("#nombre_buscador")
+      .off("keyup")
+      .on("keyup", function () {
+        pagina = 1;
+        nombre_a_buscar = $(this).val();
+        comienzo_resultado = 0;
+        mostrarProductosCategoria();
+      });
 
     // Paginación
     if (comienzo_resultado + 12 < respuesta.totalInstrumentos) {
@@ -407,22 +433,26 @@ function mostrarProductosCategoria() {
     } else {
       $("#enlace_siguiente").hide();
     }
-    $("#enlace_siguiente").off("click").on("click", function () {
-      pagina++;
-      comienzo_resultado += 12;
-      mostrarProductosCategoria();
-    });
+    $("#enlace_siguiente")
+      .off("click")
+      .on("click", function () {
+        pagina++;
+        comienzo_resultado += 12;
+        mostrarProductosCategoria();
+      });
 
     if (comienzo_resultado <= 0) {
       $("#enlace_anterior").hide();
     } else {
       $("#enlace_anterior").show();
     }
-    $("#enlace_anterior").off("click").on("click", function () {
-      pagina--;
-      comienzo_resultado -= 12;
-      mostrarProductosCategoria();
-    });
+    $("#enlace_anterior")
+      .off("click")
+      .on("click", function () {
+        pagina--;
+        comienzo_resultado -= 12;
+        mostrarProductosCategoria();
+      });
   });
 }
 

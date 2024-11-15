@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>Manaments</title>
     <link rel="stylesheet" href="css/portada.css" />
-    <link rel="stylesheet" href="css/boton_borrar.css" />
     <link rel="stylesheet" href="css/userView.css" />
     <link rel="stylesheet" href="css/carrusel.css" />
     <link rel="stylesheet" href="css/productCard.css" />
@@ -12,6 +11,10 @@
     <link rel="stylesheet" href="css/singleProduct.css" />
     <link rel="stylesheet" href="css/categoriesView.css" />
     <link rel="stylesheet" href="css/brandsView.css" />
+    <link rel="stylesheet" href="css/carrito.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/registrar.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -119,37 +122,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Parte inferior del header (opciones) -->
-      <div class="header-bottom">
-        <div class="buscador">Buscador</div>
-        <div class="more">
-          <div><a href="#" id="menu-productos">Productos</a></div>
-          <div><a href="#" id="menu-categorias">Categorías</a></div>
-        </div>
-        <div class="hamburguesa">
-          <input
-            class="menu-btn"
-            type="checkbox"
-            id="menu-btn"
-            name="menu-btn"
-          />
-          <label class="menu-icon" for="menu-btn">
-            <span class="navicon"></span>
-          </label>
-          <ul class="menu">
-            <!-- Al hacer click en otro lugar que no sea el menu hamburguesa que este se cierre -->
-            <li><a href="">Products</a></li>
-            <li><a href="">Clients</a></li>
-            <li><a href="">Sales line</a></li>
-          </ul>
-        </div>
-      </div>
     </header>
 
-    <div class="adminBox">
-      <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
-    </div>
     <div id="contenedor"></div>
     <div id="contenedor2"></div>
     <div id="contenedor3"></div>
@@ -185,7 +159,6 @@
 
     <script>
       function inicio() {
-        
         obtenerTopCinco();
         obtenerProductos();
         obtenerCategorias();

@@ -4,21 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Admin</title>
+    <style>
+      :root {
+        --claro: #d2d4d1;
+        --oscuro: #554835;
+        --fondo: #d7d3cd;
+        --fondo-our-products: #c9beae;
+        --producto_detalles: #9f755d;
+        --fondo-all-products: #c9beae;
+        --fondo-single-product: #c0ab8a;
+      }
+
+      body {
+        background-color: var(--fondo);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: var(--oscuro);
+      }
+      .login-container {
+        background-color: var(--claro);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--oscuro);
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--oscuro);
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-bottom: 0.5rem;
+      }
+      input[type="password"] {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--oscuro);
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      input[type="submit"] {
+        background-color: var(--oscuro);
+        color: var(--claro);
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: var(--producto_detalles);
+      }
+    </style>
   </head>
   <body>
-    <h2 th:text="#{login.admin.aviso}"></h2>
-    <form action="admin/instrumentos">
-      <label for="pass-login-admin" th:text="#{login.admin.password}"
-        >Contraseña</label
-      >
-      <input
-        type="password"
-        name="pass-login-admin"
-        id="pass-login-admin"
-        value="123"
-      />
-      <br />
-      <input type="submit" value="ACEPTAR" th:text="#{login.admin.aceptar}" />
-    </form>
+    <div class="login-container">
+      <h1 th:text="#{login.admin.texto}">Acceso Administrador</h1>
+      <h2 th:text="#{login.admin.aviso}">Acceso Administrador</h2>
+      <form action="admin/instrumentos" method="POST">
+        <label for="pass-login-admin" th:text="#{login.admin.password}"
+          >Contraseña:</label
+        >
+        <input
+          type="password"
+          name="pass-login-admin"
+          id="pass-login-admin"
+          required
+        />
+        <input type="submit" value="LOG IN" />
+      </form>
+    </div>
   </body>
 </html>

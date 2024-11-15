@@ -1,50 +1,53 @@
-<!-- Paso 3 del procedimiento de checkout/compra -->
-<h1>REALIZAR PEDIDO - PASO 4</h1>
-<h3>Resumen del pedido:</h3>
+<div id="summary">
+  <h1>REALIZAR PEDIDO - RESUMEN</h1>
+  <h3>Resumen del pedido:</h3>
 
-<div>Productos del pedido:</div>
-<div id="productos_pedido">
-  {{#instrumentos}}
-  <div style="margin: 10px">
-    nombre: {{NOMBRE_INSTRUMENTO}} <br />
-    <img
-      src="mostrar_imagen?id={{ID}}"
-      height="40px"
-      alt="Imagen de producto"
-    /><br />
-    cantidad: {{CANTIDAD}} <br />
-    precio/unidad: {{PRECIO}} €
+  <div class="summary-section">
+    <h4>Productos del pedido:</h4>
+    <div id="productos_pedido">
+      {{#instrumentos}}
+      <div class="product-item">
+        <img src="mostrar_imagen?id={{id}}" alt="{{nombre_instrumento}}" />
+        <div>
+          Nombre: {{nombre_instrumento}} <br />
+          Cantidad: {{cantidad}} <br />
+          Precio/unidad: {{precio}} €
+        </div>
+      </div>
+      {{/instrumentos}}
+    </div>
   </div>
-  {{/instrumentos}}
-</div>
 
-<div>Datos de pago:</div>
-<div style="margin: 10px">
-  Tipo de tarjeta: {{tipoTarjeta}} <br />
-  Titular: {{titularTarjeta}} <br />
-  Numero de tarjeta: {{numeroTarjeta}} <br />
-  CVV: {{cvv}} <br />
-  Caducidad de tarjeta: {{caducidadTarjeta}}
-</div>
-
-<div>Datos de envio:</div>
-<div style="margin: 10px">
-  Nombre Completo: {{nombreCompleto}} <br />
-  Pais: {{pais}} <br />
-  Telefono: {{telefono}} <br />
-  Direccion: {{direccion}} <br />
-  Provincia: {{provincia}} <br />
-  Poblacion: {{poblacion}} <br />
-  Forma de envio: <span id="envio">{{formaEntrega}}</span>  <br />
-  <div id="especificaciones" style="display: none;">
-    Especificaciones del envio:
-    <div>{{extra}}</div>
-    
+  <div class="summary-section">
+    <h4>Datos de pago:</h4>
+    <div>
+      Tipo de tarjeta: <span id="tipoTarjeta">{{tipoTarjeta}}</span> <br />
+      Titular: <span id="titularTarjeta">{{titularTarjeta}}</span> <br />
+      Número de tarjeta: <span id="numeroTarjeta">{{numeroTarjeta}}</span>
+      <br />
+      CVV: <span id="cvv">{{cvv}}</span> <br />
+      Caducidad de tarjeta:
+      <span id="caducidadTarjeta">{{caducidadTarjeta}}</span>
+    </div>
   </div>
-</div>
 
-<div>
-  <button style="padding: 10px" id="boton_confirmar_pedido">
-    CONFIRMAR PEDIDO
-  </button>
+  <div class="summary-section">
+    <h4>Datos de envío:</h4>
+    <div>
+      Nombre Completo: <span id="nombreCompleto">{{nombreCompleto}}</span>
+      <br />
+      País: <span id="pais">{{pais}}</span> <br />
+      Teléfono: <span id="telefono">{{telefono}}</span> <br />
+      Dirección: <span id="direccion"> {{direccion}}</span> <br />
+      Provincia: <span id="provincia">{{provincia}}</span> <br />
+      Población: <span id="poblacion">{{poblacion}}</span> <br />
+      Forma de envío: <span id="envio">{{formaEntrega}}</span> <br />
+      <div id="especificaciones" style="display: none">
+        Especificaciones del envío:
+        <div id="extra">{{extra}}</div>
+      </div>
+    </div>
+  </div>
+
+  <button id="boton_confirmar_pedido">CONFIRMAR PEDIDO</button>
 </div>

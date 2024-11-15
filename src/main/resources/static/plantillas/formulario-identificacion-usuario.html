@@ -1,15 +1,20 @@
-<div>Introduce tus datos para identificarte</div>
-<form action="" id="form_login">
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email" /><br />
-  <label for="pass">Contraseña:</label>
-  <input type="password" name="pass" id="pass" /><br />
-  <label for="recordar_datos">Recordar datos</label>
-  <input
-    type="checkbox"
-    checked="checked"
-    name="recordar_datos"
-    id="recordar_datos"
-  /><br />
-  <input type="submit" value="Identificarme" />
-</form>
+<div class="login-container">
+  <h1>Iniciar Sesión</h1>
+  <form action="" id="form_login">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+      
+      <label for="pass">Contraseña:</label>
+      <input type="password" name="pass" id="pass" required>
+      
+      <div class="remember-me">
+          <input type="checkbox" name="recordar_datos" id="recordar_datos" checked>
+          <label for="recordar_datos">Recordar datos</label>
+      </div>
+      
+      <input type="submit" value="Identificarme">
+  </form>
+    <div class="contLink">
+      <a href="admin/" class="link">Administrador</a>
+    </div>
+</div>
