@@ -30,6 +30,29 @@ public class ServicioRESTProductos {
 		return info;
 	}
 
+	@RequestMapping("obtener-todos-productos-categoria-json")
+	public InfoInstrumentosListado obtenerTodosProductosCategoria(
+			@RequestParam(name = "nombre", defaultValue = "") String nombre,
+			@RequestParam(name = "comienzo", defaultValue = "0") Integer comienzo,
+			@RequestParam(name = "idcat") Integer categoria) {
+		InfoInstrumentosListado info = new InfoInstrumentosListado();
+		info.setInstrumentos(
+				servicioInstrumento.obtenerTodosInstrumentosParaListadoCategoria(nombre, comienzo, categoria));
+		info.setTotalInstrumentos(servicioInstrumento.obtenerTotalInstrumentosCategoria(nombre, categoria));
+		return info;
+	}
+	@RequestMapping("obtener-todos-productos-marca-json")
+	public InfoInstrumentosListado obtenerTodosProductosMarca(
+			@RequestParam(name = "nombre", defaultValue = "") String nombre,
+			@RequestParam(name = "comienzo", defaultValue = "0") Integer comienzo,
+			@RequestParam(name = "idmar") Integer marca) {
+		InfoInstrumentosListado info = new InfoInstrumentosListado();
+		info.setInstrumentos(
+				servicioInstrumento.obtenerTodosInstrumentosParaListadoMarca(nombre, comienzo, marca));
+		info.setTotalInstrumentos(servicioInstrumento.obtenerTotalInstrumentosMarca(nombre, marca));
+		return info;
+	}
+
 	// @RequestParam("id") Integer id -> es para recibir directamente como entero el
 	// id
 	@RequestMapping("obtener-detalles-instrumento")

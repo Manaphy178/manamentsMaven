@@ -125,7 +125,7 @@ public class SetUpJPAImpl implements SetUp {
 			pearl.addCategoria(percusion);
 			pearl.addCategoria(bateria);
 
-			Marca dw = new Marca("Drum Workshop");
+			Marca dw = new Marca("DrumWorkshop");
 			dw.addCategoria(percusion);
 			dw.addCategoria(bateria);
 

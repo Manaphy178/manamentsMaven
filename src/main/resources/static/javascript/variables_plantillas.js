@@ -11,6 +11,7 @@ let html_checkout_3 = "";
 let html_resumen_pedido = "";
 let html_mejores_cinco = "";
 let html_listado_marca = "";
+let html_instrumentos_marca = "";
 let html_listado_categoria = "";
 let html_instrumentos_categoria = "";
 
@@ -24,6 +25,11 @@ $.get("plantillas" + sufijo_idioma + "/listado_marcas.html").done(function (
   res
 ) {
   html_listado_marca = res;
+});
+$.get(
+  "plantillas" + sufijo_idioma + "/listado_instrumentos_marcas.html"
+).done(function (res) {
+  html_instrumentos_marca = res;
 });
 $.get("plantillas" + sufijo_idioma + "/listado_categoria.html").done(function (
   res

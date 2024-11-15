@@ -5,17 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.javier.manaments.services.ServicioCategoria;
+import com.javier.manaments.services.ServicioMarca;
 
 @RestController
-public class ServicioRESTCategoria {
-
+public class ServicioRESTMarca {
 	@Autowired
-	private ServicioCategoria servicioCategoria;
+	private ServicioMarca servicioMarca;
 
-	@RequestMapping("obtener-categorias-json")
-	public String obtenerCategorias() {
-		return new Gson().toJson(servicioCategoria.obtenerCategoriaListado());
+	@RequestMapping("obtener-marcas-json")
+	public String obtenerMarcas() {
+		return new Gson().toJson(servicioMarca.obtenerMarcaListado());
 	}
-
 }

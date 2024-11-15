@@ -13,12 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Marca {
-	@Lob
-	@Column(name = "imagen_logo")
-	private byte[] logo;
 
 	@Id
 	@GeneratedValue
+	@Column(name="id_marca")
 	private int id;
 
 	/**
@@ -29,16 +27,13 @@ public class Marca {
 
 	@ManyToMany
 	@JoinTable(name = "marca_categoria", joinColumns = @JoinColumn(name = "marca_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	private List<Categoria> categorias= new ArrayList<Categoria>();
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 
 	@Size(min = 3, max = 40, message = "El nombre de la marca")
 	@NotEmpty(message = "El nombre no puede estar vacio")
 	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "El nombre solo puede tener numeros,letras y espacios en blanco")
 	@Column(name = "nombre_marca", length = 120)
 	private String nombre;
-
-	@Transient
-	private MultipartFile archivoSubido;
 
 	public Marca() {
 	}
@@ -47,10 +42,6 @@ public class Marca {
 			@Size(min = 3, max = 40, message = "El nombre de la marca") @NotEmpty(message = "El nombre no puede estar vacio") @Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ]{3,40}$", message = "El nombre solo puede tener numeros,letras y espacios en blanco") String nombre) {
 		super();
 		this.nombre = nombre;
-	}
-
-	public byte[] getLogo() {
-		return logo;
 	}
 
 	public int getId() {
@@ -64,19 +55,13 @@ public class Marca {
 	public List<Categoria> getCategorias() {
 		return categorias;
 	}
-    public void addCategoria(Categoria categoria) {
-        categorias.add(categoria);
-    }
+
+	public void addCategoria(Categoria categoria) {
+		categorias.add(categoria);
+	}
+
 	public String getNombre() {
 		return nombre;
-	}
-
-	public MultipartFile getArchivoSubido() {
-		return archivoSubido;
-	}
-
-	public void setLogo(byte[] logo) {
-		this.logo = logo;
 	}
 
 	public void setId(int id) {
@@ -93,10 +78,6 @@ public class Marca {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public void setArchivoSubido(MultipartFile archivoSubido) {
-		this.archivoSubido = archivoSubido;
 	}
 
 }

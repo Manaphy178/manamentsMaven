@@ -1,5 +1,8 @@
+.containerBrand a {
+  text-decoration: none;
+}
 .containerBrand {
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   background-color: var(--fondo-our-products);
@@ -36,82 +39,92 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(85, 72, 53, 0.3); /* Usando --oscuro con menos opacidad */
+  background-color: rgba(
+    85,
+    72,
+    53,
+    0.3
+  ); /* Usando --oscuro con menos opacidad */
   z-index: 1;
   transition: background-color 0.3s ease;
 }
 .brand-card:hover::before {
-    background-color: rgba(85, 72, 53, 0.2); /* Color más claro al hacer hover */
+  background-color: rgba(85, 72, 53, 0.2); /* Color más claro al hacer hover */
 }
 .brand-card span {
   position: relative;
   z-index: 2;
   padding: 0.5rem 1rem;
-  background-color: rgba(210, 212, 209, 0.1); /* Usando --claro con menos opacidad */
+  background-color: rgba(
+    210,
+    212,
+    209,
+    0.1
+  ); /* Usando --claro con menos opacidad */
   color: #000; /* Texto negro */
   border-radius: 5px;
   visibility: hidden;
   transition: background-color 0.3s ease;
 }
 .brand-card:hover span {
-    visibility: visible;
-    background-color: rgba(255, 255, 255, 0.818);
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.818);
 }
-.yamaha {
+.Yamaha {
   background-image: url("../img/marcas/yamaha/yamaha.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.roland {
+.Roland {
   background-image: url("../img/marcas/roland/roland.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.korg {
+.Korg {
   background-image: url("../img/marcas/korg/korg.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.casio {
+.Casio {
   background-image: url("../img/marcas/casio/casio.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.fender {
+.Fender {
   background-image: url("../img/marcas/fender/fender.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.gibson {
+.Gibson {
   background-image: url("../img/marcas/gibson/gibson.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.ibanez {
+.Ibanez {
   background-image: url("../img/marcas/ibanez/ibanez.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.pearl {
+.Pearl {
   background-image: url("../img/marcas/pearl/pearl.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.dw {
+.DrumWorkshop {
   background-image: url("../img/marcas/dw/dw.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.meinl {
+.Meinl {
   background-image: url("../img/marcas/meinl/meinl.png");
   background-size: contain;
   background-position: center;

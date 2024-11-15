@@ -1,15 +1,12 @@
 <div class="containerBrand">
   <h1 class="titulo">Marcas</h1>
   <section class="brands-grid">
-    <div class="brand-card yamaha"><span>Yamaha</span></div>
-    <div class="brand-card roland"><span>Roland</span></div>
-    <div class="brand-card korg"><span>Korg</span></div>
-    <div class="brand-card casio"><span>Casio</span></div>
-    <div class="brand-card fender"><span>Fender</span></div>
-    <div class="brand-card gibson"><span>Gibson</span></div>
-    <div class="brand-card ibanez"><span>Ibanez</span></div>
-    <div class="brand-card pearl"><span>Pearl</span></div>
-    <div class="brand-card dw"><span>DW</span></div>
-    <div class="brand-card meinl"><span>Meinl</span></div>
+    {{#.}}
+    <a href="#" class="listado-producto-marca" id-marca="{{id_marca}}">
+      <div class="brand-card {{nombre_marca}}">
+        <span>{{nombre_marca}}</span>
+      </div>
+    </a>
+    {{/.}}
   </section>
 </div>

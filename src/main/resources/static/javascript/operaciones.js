@@ -364,14 +364,21 @@ function obtenerCategorias() {
     $(".listado-producto-categoria").click(mostrarProductosCategoria);
   });
 }
+let idCategoria = 0;
 function mostrarProductosCategoria() {
   reiniciarContainers();
-  alert("si");
-  let idCategoria = $(this).attr("id-categoria");
+  idCategoria = $(this).attr("id-categoria") || 0;
+
+  // Verifica si idCategoria es válido antes de continuar
+  if (idCategoria === 0) {
+    console.error("ID de categoría no encontrado");
+    return;
+  }
+
   $.getJSON({
-    url: "obtener-instrumentos-categoria",
+    url: "obtener-todos-productos-categoria-json",
     data: {
-      id: idCategoria,
+      idcat: idCategoria,
       nombre: nombre_a_buscar,
       comienzo: comienzo_resultado,
     },
@@ -387,11 +394,81 @@ function mostrarProductosCategoria() {
     // Buscador
     $("#nombre_buscador").val(nombre_a_buscar);
     $("#nombre_buscador").focus();
-    $("#nombre_buscador").keyup(function () {
+    $("#nombre_buscador").off("keyup").on("keyup", function () {
       pagina = 1;
       nombre_a_buscar = $(this).val();
       comienzo_resultado = 0;
       mostrarProductosCategoria();
+    });
+
+    // Paginación
+    if (comienzo_resultado + 12 < respuesta.totalInstrumentos) {
+      $("#enlace_siguiente").show();
+    } else {
+      $("#enlace_siguiente").hide();
+    }
+    $("#enlace_siguiente").off("click").on("click", function () {
+      pagina++;
+      comienzo_resultado += 12;
+      mostrarProductosCategoria();
+    });
+
+    if (comienzo_resultado <= 0) {
+      $("#enlace_anterior").hide();
+    } else {
+      $("#enlace_anterior").show();
+    }
+    $("#enlace_anterior").off("click").on("click", function () {
+      pagina--;
+      comienzo_resultado -= 12;
+      mostrarProductosCategoria();
+    });
+  });
+}
+
+/**
+ * FIN Categorias
+ */
+/**
+ * Marcas
+ */
+function obtenerMarcas() {
+  $.ajax("obtener-marcas-json").done(function (res) {
+    let marca = JSON.parse(res);
+    console.log(marca);
+    let texto_html = Mustache.render(html_listado_marca, marca);
+    $("#contenedor4").html(texto_html);
+    $(".listado-producto-marca").click(mostrarProductosMarca);
+  });
+}
+let idMarca = 0;
+function mostrarProductosMarca() {
+  reiniciarContainers();
+  idMarca = $(this).attr("id-marca");
+  $.getJSON({
+    url: "obtener-todos-productos-marca-json",
+    data: {
+      idmar: idMarca,
+      nombre: nombre_a_buscar,
+      comienzo: comienzo_resultado,
+    },
+  }).done(function (respuesta) {
+    console.log(respuesta);
+
+    let html = Mustache.render(html_instrumentos_marca, respuesta);
+    $("#contenedor").html(html);
+    $(".enlace_ver_detalles_instrumento").click(mostrarDetallesProducto);
+    $("#pagina").html(pagina);
+    $("#total_resultados").html(respuesta.totalInstrumentos);
+
+    // Buscador
+    $("#nombre_buscador").val(nombre_a_buscar);
+    $("#nombre_buscador").focus();
+    $("#nombre_buscador").keyup(function () {
+      pagina = 1;
+      nombre_a_buscar = $(this).val();
+      comienzo_resultado = 0;
+      mostrarProductosMarca();
     });
 
     // Paginacion
@@ -404,7 +481,7 @@ function mostrarProductosCategoria() {
       pagina++;
       comienzo_resultado += 12;
       // console.log(comienzo_resultado);
-      mostrarProductosCategoria();
+      mostrarProductosMarca();
     });
     if (comienzo_resultado <= 0) {
       $("#enlace_anterior").hide();
@@ -415,7 +492,7 @@ function mostrarProductosCategoria() {
       pagina--;
       comienzo_resultado -= 12;
       // console.log(comienzo_resultado);
-      mostrarProductosCategoria();
+      mostrarProductosMarca();
     });
   });
 }

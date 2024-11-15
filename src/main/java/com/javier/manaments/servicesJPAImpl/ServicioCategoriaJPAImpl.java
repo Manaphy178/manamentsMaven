@@ -35,12 +35,11 @@ public class ServicioCategoriaJPAImpl implements ServicioCategoria {
 
 	@Override
 	public List<Map<String, Object>> obtenerCategoriaListado() {
-		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_CATEGORIAS_LISTADO)
-				;
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_CATEGORIAS_LISTADO);
 		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
 		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
 		return nativeQuery.getResultList();
-	
+
 	}
 
 }

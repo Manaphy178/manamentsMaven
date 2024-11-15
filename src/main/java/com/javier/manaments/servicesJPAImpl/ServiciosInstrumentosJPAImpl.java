@@ -141,4 +141,63 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		return totalInstrumentos;
 	}
 
+	@Override
+	public int obtenerTotalInstrumentosCategoria(int categoria) {
+		Query q = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOTAL_INSTRUMENTOS_POR_CATEGORIA);
+		q.setParameter("idcat", categoria);
+		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
+		return totalInstrumentos;
+	}
+
+	@Override
+	public int obtenerTotalInstrumentosCategoria(String nombre, int categoria) {
+		Query q = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOTAL_INSTRUMENTOS_POR_CATEGORIA_NOMBRE);
+		q.setParameter("nombre", "%" + nombre + "%");
+		q.setParameter("idcat", categoria);
+		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
+		return totalInstrumentos;
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerTodosInstrumentosParaListadoCategoria(String nombre, int comienzo,
+			int categoria) {
+		Query query = entityManager
+				.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS_INCLUYENDO_CATEGORIA);
+		query.setParameter("nombre", "%" + nombre + "%");
+		query.setParameter("idcat", categoria);
+		query.setParameter("comienzo", comienzo);
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return nativeQuery.getResultList();
+	}
+
+	@Override
+	public int obtenerTotalInstrumentosMarca(int marca) {
+		Query q = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOTAL_INSTRUMENTOS_POR_MARCA);
+		q.setParameter("idmar", marca);
+		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
+		return totalInstrumentos;
+	}
+
+	@Override
+	public int obtenerTotalInstrumentosMarca(String nombre, int marca) {
+		Query q = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_TOTAL_INSTRUMENTOS_POR_MARCA_NOMBRE);
+		q.setParameter("nombre", "%" + nombre + "%");
+		q.setParameter("idmar", marca);
+		int totalInstrumentos = Integer.parseInt(q.getSingleResult().toString());
+		return totalInstrumentos;
+	}
+
+	@Override
+	public List<Map<String, Object>> obtenerTodosInstrumentosParaListadoMarca(String nombre, int comienzo, int marca) {
+		Query query = entityManager
+				.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS_INCLUYENDO_MARCA);
+		query.setParameter("nombre", "%" + nombre + "%");
+		query.setParameter("idmar", marca);
+		query.setParameter("comienzo", comienzo);
+		NativeQueryImpl nativeQuery = (NativeQueryImpl) query;
+		nativeQuery.setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE);
+		return nativeQuery.getResultList();
+	}
+
 }
