@@ -1,15 +1,17 @@
-<div>Enter your login information</div>
-<form action="" id="form_login">
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email" /><br />
-  <label for="pass">Password:</label>
-  <input type="password" name="pass" id="pass" /><br />
-  <label for="recordar_datos">Remember me</label>
-  <input
-    type="checkbox"
-    checked="checked"
-    name="recordar_datos"
-    id="recordar_datos"
-  /><br />
-  <input type="submit" value="Log in" />
-</form>
+<div class="login-container">
+  <h1>Login</h1>
+  <form action="" id="form_login">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+      
+      <label for="pass">Password:</label>
+      <input type="password" name="pass" id="pass" required>
+      
+      <div class="remember-me">
+          <input type="checkbox" name="recordar_datos" id="recordar_datos" checked>
+          <label for="recordar_datos">Remember me</label>
+      </div>
+      
+      <input type="submit" value="Log in">
+  </form>
+</div>

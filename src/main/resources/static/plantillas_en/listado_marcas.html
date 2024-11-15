@@ -1,0 +1,12 @@
+<div class="containerBrand">
+  <h1 class="titulo">Brands</h1>
+  <section class="brands-grid">
+    {{#.}}
+    <a href="#" class="listado-producto-marca" id-marca="{{id_marca}}">
+      <div class="brand-card {{nombre_marca}}">
+        <span>{{nombre_marca}}</span>
+      </div>
+    </a>
+    {{/.}}
+  </section>
+</div>

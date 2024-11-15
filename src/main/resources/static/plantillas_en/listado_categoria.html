@@ -1,0 +1,16 @@
+<div class="containerCategorias">
+  <h1 class="titulo">Categories</h1>
+  <section class="instruments-grid">
+    {{#.}}
+    <a
+      href="#"
+      class="listado-producto-categoria"
+      id-categoria="{{id_categoria}}"
+    >
+      <div class="instrument-card {{nombre_categoria}}">
+        <span>{{nombre_categoria}}</span>
+      </div>
+    </a>
+    {{/.}}
+  </section>
+</div>

@@ -1,31 +1,33 @@
-<!-- Paso 1 del procedimiento de checkout/compra -->
-<h1>PLACE ORDER</h1>
-<h3>Enter your shipping information:</h3>
-<div>
-  <label for="campo_nombre">Full Name:</label>
-  <input type="text" name="campo_nombre" id="campo_nombre" />
-</div>
-<div>
-  <label for="campo_pais">Country:</label>
-  <input type="text" name="campo_pais" id="campo_pais" />
-</div>
-<div>
-  <label for="campo_telefono">Phone Number:</label>
-  <input type="text" name="campo_telefono" id="campo_telefono" />
-</div>
-<div>
-  <label for="campo_direccion">Address:</label>
-  <input type="text" name="campo_direccion" id="campo_direccion" />
-</div>
-<div>
-  <label for="campo_provincia">State/Province:</label>
-  <input type="text" name="campo_provincia" id="campo_provincia" />
-</div>
-<div>
-  <label for="campo_poblacion">City:</label>
-  <input type="text" name="campo_poblacion" id="campo_poblacion" />
-</div>
-
-<div>
-  <button style="padding: 10px" id="aceptar_paso_1">Submit</button>
+<div id="check1">
+  <h1>PLACE ORDER - STEP 1</h1>
+  <h3>Enter your shipping details:</h3>
+  <form>
+    <div>
+      <label for="campo_nombre">Full Name:</label>
+      <input type="text" name="campo_nombre" id="campo_nombre" required />
+    </div>
+    <div>
+      <label for="campo_pais">Country:</label>
+      <input type="text" name="campo_pais" id="campo_pais" required />
+    </div>
+    <div>
+      <label for="campo_telefono">Phone:</label>
+      <input type="text" name="campo_telefono" id="campo_telefono" required />
+    </div>
+    <div>
+      <label for="campo_direccion">Address:</label>
+      <input type="text" name="campo_direccion" id="campo_direccion" required />
+    </div>
+    <div>
+      <label for="campo_provincia">State/Province:</label>
+      <input type="text" name="campo_provincia" id="campo_provincia" required />
+    </div>
+    <div>
+      <label for="campo_poblacion">City:</label>
+      <input type="text" name="campo_poblacion" id="campo_poblacion" required />
+    </div>
+    <div>
+      <button type="submit" id="aceptar_paso_1">Submit</button>
+    </div>
+  </form>
 </div>

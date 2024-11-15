@@ -50,13 +50,13 @@
 .logo {
   display: flex;
   float: left;
-  font-size: 2em;
+  font-size: 3rem;
   padding: 10px 20px;
   text-decoration: none;
 }
 .logo img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .titulo {
@@ -73,8 +73,8 @@
 }
 
 .userThings img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
 }
 /* User Dropdown Styles */
 .user-dropdown {

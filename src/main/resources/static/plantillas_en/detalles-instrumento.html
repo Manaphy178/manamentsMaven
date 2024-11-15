@@ -1,16 +1,38 @@
-<!-- For h2 -->
-<div style="text-align: center">
-  <b>{{NOMBRE_INSTRUMENTO}}</b>
-  <br />
-  <img src="mostrar_imagen?id={{ID}}" alt="something" style="height: 220px" />
-</div>
-<div>Price: <b>{{PRECIO}}</b>€</div>
-<div>
-  Description: <br />
-  &nbsp; {{DESCRIPCION}}
-</div>
-<div>
-  <a href="#" id="enlace_agregar_al_carrito" id-producto="{{ID}}">
-    Add to cart
-  </a>
+<h1 class="titulo">PRODUCT DETAILS</h1>
+<div class="containerSingleProduct">
+  <!-- Left column: Image gallery and description -->
+  <div class="left-column">
+    <div class="image-gallery">
+      <img
+        src="mostrar_imagen?id={{id}}"
+        alt="Main Image"
+        class="main-image"
+      />
+    </div>
+
+    <div class="description">
+      <h2>Description</h2>
+      <p>{{descripcion}}</p>
+    </div>
+  </div>
+
+  <!-- Right column: Product information and buttons -->
+  <div class="right-column">
+    <div class="sticky-info">
+      <h1>{{nombre_instrumento}}</h1>
+      <h2>{{precio}} €</h2>
+      <p><strong>Condition: {{estado}}</strong></p>
+
+      <a href="#" id="enlace_agregar_al_carrito" id-producto="{{id}}">
+        <button class="cart-button">Add to Cart</button></a
+      >
+
+      <div class="seller-info">
+        <p>Range: {{gamma}}</p>
+        <p>Instrument Type: {{tipo}}</p>
+        <p>Category: {{nombre_categoria}}</p>
+        <p>Brand: {{nombre_marca}}</p>
+      </div>
+    </div>
+  </div>
 </div>

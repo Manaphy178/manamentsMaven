@@ -1,0 +1,59 @@
+<section class="topProducts">
+  <h2 class="titulo">Most Purchased Products</h2>
+  <!-- Slider main container -->
+  <div class="containerProductsCarrousel">
+    <div class="swiper mySwiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {{#.}}
+        <div class="swiper-slide">
+          <div class="productCard">
+            <img
+              class="imagenProducto"
+              src="mostrar_imagen?id={{id}}"
+              alt="Product"
+            />
+
+            <h2 class="nombre">{{nombre_instrumento}}</h2>
+            <h5 class="estado">{{estado}}</h5>
+
+            <h5 class="marca">{{nombre_marca}}</h5>
+            <h3 class="precio">{{precio}}€</h3>
+            <a
+              href="#"
+              style="width: 100%"
+              id-producto="{{id}}"
+              class="enlace_ver_detalles_instrumento"
+            >
+              <button class="addCartButton">View Product</button>
+            </a>
+          </div>
+        </div>
+        {{/.}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  let topCinco; // Variable global para la instancia de Swiper
+
+  topCinco = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3000,
+    },
+    slidesPerView: "4",
+    loop: true,
+    coverflowEffect: {
+      depth: 500,
+      modifier: 1,
+      slideShadows: true,
+    },
+  });
+</script>

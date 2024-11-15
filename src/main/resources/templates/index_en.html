@@ -2,57 +2,135 @@
 <html>
   <head xmlns="http://www.thymeleaf.org">
     <meta charset="UTF-8" />
-    <title>Inicio</title>
-    <link rel="stylesheet" href="../css/portada.css" />
-    <link rel="stylesheet" href="../css/boton_borrar.css" />
+    <title>Manaments</title>
+    <link rel="stylesheet" href="css/portada.css" />
+    <link rel="stylesheet" href="css/userView.css" />
+    <link rel="stylesheet" href="css/carrusel.css" />
+    <link rel="stylesheet" href="css/productCard.css" />
+    <link rel="stylesheet" href="css/listado_productos.css" />
+    <link rel="stylesheet" href="css/singleProduct.css" />
+    <link rel="stylesheet" href="css/categoriesView.css" />
+    <link rel="stylesheet" href="css/brandsView.css" />
+    <link rel="stylesheet" href="css/carrito.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/registrar.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script
+      defer
+      src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    ></script>
+    <script
+      defer
+      src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="librerias_js/js.cookie.min.js"></script>
+    <script src="librerias_js/jquery.js"></script>
+    <script src="librerias_js/mustache.js"></script>
+
     <!-- HACER MAS ATRACTIVO EL INDEX, TANTO EL MENU COMO LOS PRODUCTOS.
       LA IDENTIFICACION DE USUARIO, EL REGISTRO Y HACER ALGO CON LOS DATOS PERSONALES 
       Y LOS PEDIDOS DEL USUARIO REGISTRADO.
       SOBRETODO HACER ESTILOS NUEVOS-->
   </head>
-  <body>
-    <div>
-      <span th:text="#{titulo.idioma}"></span> <a href="?idioma=es">ESPAÑOL</a>
-      <a href="?idioma=en">ENGLISH</a>
-    </div>
-    <h1 th:text="#{inicio.bienvenida}"></h1>
-
-    <div class="adminBox">
-      <a href="admin/"> <span th:text="#{inicio.acceder.admin}"></span> </a>
-    </div>
-    <div style="margin: 10px">
-      <a href="#" id="menu-inicio" th:text="#{menu.inicio}">inicio</a>
-      <a href="#" id="menu-identificarme" th:text="#{menu.identificarme}"
-        >identificarme</a
-      >
-      <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
-        >registrarme</a
-      >
-      <a href="#" id="menu-carrito" th:text="#{menu.carrito}">carrito</a>
-      <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
-        >mis pedidos</a
-      >
-      <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
-        >mis datos personales</a
-      >
-      <a
-        href="#"
-        id="menu-cerrar-sesion"
-        style="visibility: hidden"
-        th:text="#{menu.cerrar.sesion}"
-        >cerrar sesion</a
-      >
-    </div>
+  <body class="body">
+    <header class="header">
+      <!-- Top part of the header -->
+      <div class="header-top">
+        <a href="#" class="logo" id="menu-inicio">
+          <img
+            src="../img/manaments.png"
+            alt="Icon"
+            class="icono"
+            id="menu-inicio"
+          />
+        </a>
+    
+        <h1 class="titulo" th:text="#{inicio.bienvenida}">
+          Welcome to Manaments
+        </h1>
+        <div class="userThings">
+          <div class="language-dropdown">
+            <img
+              src="../img/language.png"
+              alt="Translator"
+              class="translator-icon"
+            />
+            <ul class="language-menu">
+              <li><a href="?idioma=es">Spanish</a></li>
+              <li><a href="?idioma=en">English</a></li>
+              <li><a href="#">French</a></li>
+              <li><a href="#">German</a></li>
+            </ul>
+          </div>
+          <a href="#" id="menu-carrito">
+            <img
+              src="../img/carrito-de-compras.png"
+              alt="Shopping cart"
+              class="shopCart"
+            />
+          </a>
+          <!-- User Icon with Dropdown Menu -->
+          <div class="user-dropdown">
+            <img
+              src="../img/usuario.png"
+              alt="User icon"
+              class="userInfo"
+              id="userIcon"
+            />
+            <ul class="user-menu" id="userMenu">
+              <li id="menuIdentificarme">
+                <a
+                  href="#"
+                  id="menu-identificarme"
+                  th:text="#{menu.identificarme}"
+                  >Sign in</a
+                >
+              </li>
+              <li id="menuRegistrarme">
+                <a href="#" id="menu-registrarme" th:text="#{menu.registrarme}"
+                  >Sign up</a
+                >
+              </li>
+              <li id="menuMisPedido" class="ocultar">
+                <a href="#" id="menu-mis-pedidos" th:text="#{menu.mis.pedidos}"
+                  >My orders</a
+                >
+              </li>
+              <li id="menuMisDatos" class="ocultar">
+                <a href="#" id="menu-mis-datos" th:text="#{menu.mis.datos}"
+                  >My personal data</a
+                >
+              </li>
+              <li id="menuCerrarSesion" class="ocultar">
+                <a
+                  href="#"
+                  id="menu-cerrar-sesion"
+                  th:text="#{menu.cerrar.sesion}"
+                >
+                  Log out
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    
     <div id="contenedor"></div>
-    <script src="librerias_js/js.cookie.min.js"></script>
-    <script src="librerias_js/jquery.js"></script>
-    <script src="librerias_js/mustache.js"></script>
+    <div id="contenedor2"></div>
+    <div id="contenedor3"></div>
+    <div id="contenedor4"></div>
 
     <script src="javascript/globales.js"></script>
-
-    <script>
-      sufijo_idioma = "_en";
-    </script>
 
     <script src="javascript/variables_plantillas.js"></script>
 
@@ -62,10 +140,64 @@
     <script src="javascript/validacionesPedido.js"></script>
     <script src="javascript/validacionesUsuario.js"></script>
 
-    <script src="javascript/menu.js"></script>
+    <script defer src="javascript/menu.js"></script>
+    <script src="javascript/funcionalidades.js"></script>
+
     <script>
-      // Por defecto cuando se carga la pagina listamos los productos
-      obtenerProductos();
+      $(document).ready(function () {
+        // Cuando se haga clic en cualquier parte del documento
+        $(document).click(function (event) {
+          // Si el menú está abierto y se hace clic fuera de él
+          if (
+            $("#menu-btn").is(":checked") && // El menú está abierto
+            !$(event.target).closest(".hamburguesa, .menu").length
+          ) {
+            $("#menu-btn").prop("checked", false); // Cerrar el menú
+          }
+        });
+      });
+    </script>
+
+    <script>
+      function inicio() {
+        obtenerTopCinco();
+        obtenerProductos();
+        obtenerCategorias();
+        obtenerMarcas();
+      }
+      inicio();
+    </script>
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      let topCinco; // Variable global para la instancia de Swiper
+
+      topCinco = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000,
+        },
+        slidesPerView: "4",
+        loop: true,
+        coverflowEffect: {
+          depth: 500,
+          modifier: 1,
+          slideShadows: true,
+        },
+      });
+    </script>
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      const todosProductos = new Swiper(".swiper-container", {
+        slidesPerView: "auto", // Muestra los productos según el tamaño de la pantalla
+        spaceBetween: 20, // Espacio entre las tarjetas
+        grabCursor: true,
+        loop: false, // Habilita el bucle de productos
+        slidesPerView: "5",
+      });
     </script>
   </body>
 </html>

@@ -1,36 +1,57 @@
-<!-- Template to be used by the index.html JS to display a list of products using mustache -->
-<div style="margin: 10px">
-  <div>List of Instruments</div>
-  <table>
-    <tr>
-      <th>&nbsp;</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Brand</th>
-      <th>Description</th>
-      <th>Grade</th>
-      <th>Price</th>
-      <th>&nbsp;</th>
-    </tr>
+<section id="productos" class="productos">
+  <div>
+    <h2 class="section-title text-center titulo">Our Products</h2>
+    <!-- Swiper -->
 
-    <!-- For h2 -->
-    {{#.}}
-    <tr>
-      <td>
-        <img src="mostrar_imagen?id={{ID}}" height="80px" alt="Product Image" />
-      </td>
-      <td>{{NOMBRE_INSTRUMENTO}}</td>
-      <td>{{TIPO}}</td>
-      <td>{{MARCA}}</td>
-      <td>{{DESCRIPCION}}</td>
-      <td>{{GAMMA}}</td>
-      <td>{{PRECIO}}</td>
-      <td>
-        <a href="#" class="enlace_ver_detalles_instrumento" id-producto="{{ID}}"
-          >View Details</a
-        >
-      </td>
-    </tr>
-    {{/.}}
-  </table>
-</div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Product 1 -->
+        {{#.}}
+        <div class="swiper-slide">
+          <div class="productCard">
+            <img
+              src="mostrar_imagen?id={{id}}"
+              class="imagenProducto"
+              alt="Product 1"
+            />
+
+            <p class="nombre">{{nombre_instrumento}}</p>
+            <p class="estado">{{estado}}</p>
+            <p class="marca">{{nombre_marca}}</p>
+
+            <span class="precio">{{precio}}€</span>
+            <a
+              href="#"
+              style="width: 100%"
+              id-producto="{{id}}"
+              class="enlace_ver_detalles_instrumento"
+            >
+              <button class="addCartButton">View Product</button>
+            </a>
+          </div>
+        </div>
+        {{/.}}
+        <div class="swiper-slide">
+          <a href="#" id="ver-todos-productos">
+            <div class="productCardMas">
+              <p>add arrow</p>
+              <h1 class="nombre">SEE MORE</h1>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  const todosProductos = new Swiper(".swiper-container", {
+    slidesPerView: "auto", // Muestra los productos según el tamaño de la pantalla
+    spaceBetween: 20, // Espacio entre las tarjetas
+    grabCursor: true,
+    loop: false, // Habilita el bucle de productos
+    slidesPerView: "5",
+  });
+</script>

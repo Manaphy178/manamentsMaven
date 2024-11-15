@@ -1,43 +1,51 @@
-<!-- Step 3 of the checkout process -->
-<h1>PLACE ORDER</h1>
-<h3>Order Summary:</h3>
-<div>Shipping Information:</div>
-<div style="margin: 10px">
-  Full Name: <span>{{nombreCompleto}}</span> <br />
-  Country: <span>{{pais}}</span> <br />
-  Phone Number: <span>{{telefono}}</span> <br />
-  Address: <span>{{direccion}}</span> <br />
-  State/Province: <span>{{provincia}}</span> <br />
-  City: <span>{{poblacion}}</span> <br />
-</div>
-<div id="forma_entrega">
-  <label for="entrega">Delivery Method:</label><br />
-  <label
-    ><input
-      type="radio"
-      name="entrega"
-      id="entrega"
-      value="Pick up"
-      onchange="mostrarTextarea()"
-    />
-    Pick up in store</label
-  >
-  <br />
-  <label
-    ><input
-      type="radio"
-      name="entrega"
-      id="envio"
-      value="Delivery"
-      onchange="mostrarTextarea()"
-    />
-    Home Delivery</label
-  >
-</div>
-<div id="especificacion_entrega" style="display: none">
-  <label for="extra">Any delivery specifications?</label><br />
-  <textarea name="extra" id="extra" rows="5" cols="25"></textarea>
-</div>
-<div>
-  <button id="aceptar_paso_3" style="margin-top: 10px">CONTINUE</button>
+<div id="check3">
+  <h1>PLACE ORDER - STEP 3</h1>
+  <h3>Order Summary:</h3>
+  <div class="summary">
+    <div>Shipping Details:</div>
+    <div>
+      Full Name: <span id="nombreCompleto">{{nombreCompleto}}</span>
+      <br />
+      Country: <span id="pais">{{pais}}</span> <br />
+      Phone: <span id="telefono">{{telefono}}</span> <br />
+      Address: <span id="direccion">{{direccion}}</span> <br />
+      State/Province: <span id="provincia">{{provincia}}</span> <br />
+      City: <span id="poblacion">{{poblacion}}</span> <br />
+    </div>
+  </div>
+  <form>
+    <div id="forma_entrega">
+      <label>Delivery Method:</label><br />
+      <label>
+        <input
+          type="radio"
+          name="entrega"
+          id="entrega"
+          onchange="mostrarTextarea()"
+          value="Pickup"
+          required
+        />
+        Pickup from store
+      </label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          name="entrega"
+          id="envio"
+          value="Delivery"
+          required
+          onchange="mostrarTextarea()"
+        />
+        Home delivery
+      </label>
+    </div>
+    <div id="especificacion_entrega" style="display: none">
+      <label for="extra">Any delivery specifications?</label><br />
+      <textarea name="extra" id="extra" rows="5" cols="25"></textarea>
+    </div>
+    <div>
+      <button type="submit" id="aceptar_paso_3">CONTINUE</button>
+    </div>
+  </form>
 </div>

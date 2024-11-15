@@ -1,17 +1,24 @@
-<div>Enter your information to register in the store</div>
-<form>
-  <label for="nombre">First Name:</label>
-  <input type="text" id="nombre" name="nombre" /> <br />
-  <label for="apellido">Last Name:</label>
-  <input type="text" name="apellido" id="apellido" /><br />
-  <label for="nomUsuario">Username:</label>
-  <input type="text" name="nomUsuario" id="nomUsuario" /><br />
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="email" /> <br />
-  <label for="pass">Password:</label>
-  <input type="password" id="pass" name="pass" /> <br />
-  <label for="codPostal">Postal Code:</label>
-  <input type="number" name="codPostal" id="codPostal" /><br />
+<div class="signup-container">
+  <h1>Sign Up</h1>
+  <form id="form_registro">
+    <label for="nombre">First Name:</label>
+    <input type="text" id="nombre" name="nombre" required />
 
-  <input type="button" id="boton_registro_usuario" value="REGISTER" />
-</form>
+    <label for="apellido">Last Name:</label>
+    <input type="text" name="apellido" id="apellido" required />
+
+    <label for="nomUsuario">Username:</label>
+    <input type="text" name="nomUsuario" id="nomUsuario" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="pass">Password:</label>
+    <input type="password" id="pass" name="pass" required />
+
+    <label for="codPostal">Postal Code:</label>
+    <input type="number" name="codPostal" id="codPostal" required />
+
+    <input type="button" id="boton_registro_usuario" value="REGISTER" />
+  </form>
+</div>

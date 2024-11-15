@@ -1,46 +1,53 @@
-<!-- Step 4 of the checkout process -->
-<h1>PLACE ORDER</h1>
-<h3>Order Summary:</h3>
+<div id="summary">
+  <h1>PLACE ORDER - SUMMARY</h1>
+  <h3>Order Summary:</h3>
 
-<div>Order Products:</div>
-<div id="productos_pedido">
-  {{#instrumentos}}
-  <div style="margin: 10px">
-    Name: {{NOMBRE_INSTRUMENTO}} <br />
-    <img
-      src="mostrar_imagen?id={{ID}}"
-      height="40px"
-      alt="Product Image"
-    /><br />
-    Quantity: {{CANTIDAD}} <br />
-    Price/unit: {{PRECIO}} €
+  <div class="summary-section">
+    <h4>Order Products:</h4>
+    <div id="productos_pedido">
+      {{#instrumentos}}
+      <div class="product-item">
+        <img src="mostrar_imagen?id={{id}}" alt="{{nombre_instrumento}}" />
+        <div>
+          Name: {{nombre_instrumento}} <br />
+          Quantity: {{cantidad}} <br />
+          Price/unit: {{precio}} €
+        </div>
+      </div>
+      {{/instrumentos}}
+    </div>
   </div>
-  {{/instrumentos}}
-</div>
 
-<div>Payment Information:</div>
-<div style="margin: 10px">
-  Card Type: {{tipoTarjeta}} <br />
-  Cardholder: {{titularTarjeta}} <br />
-  Card Number: {{numeroTarjeta}} <br />
-  CVV: {{cvv}} <br />
-  Card Expiration: {{caducidadTarjeta}}
-</div>
+  <div class="summary-section">
+    <h4>Payment Information:</h4>
+    <div>
+      Card Type: <span id="tipoTarjeta">{{tipoTarjeta}}</span> <br />
+      Cardholder: <span id="titularTarjeta">{{titularTarjeta}}</span> <br />
+      Card Number: <span id="numeroTarjeta">{{numeroTarjeta}}</span>
+      <br />
+      CVV: <span id="cvv">{{cvv}}</span> <br />
+      Card Expiry:
+      <span id="caducidadTarjeta">{{caducidadTarjeta}}</span>
+    </div>
+  </div>
 
-<div>Shipping Information:</div>
-<div style="margin: 10px">
-  Full Name: {{nombreCompleto}} <br />
-  Country: {{pais}} <br />
-  Phone Number: {{telefono}} <br />
-  Address: {{direccion}} <br />
-  State/Province: {{provincia}} <br />
-  City: {{poblacion}} <br />
-  Delivery Method: <span id="envio">{{formaEntrega}}</span> <br />
-  <div id="especificaciones" style="display: none">{{extra}}</div>
-</div>
+  <div class="summary-section">
+    <h4>Shipping Information:</h4>
+    <div>
+      Full Name: <span id="nombreCompleto">{{nombreCompleto}}</span>
+      <br />
+      Country: <span id="pais">{{pais}}</span> <br />
+      Phone: <span id="telefono">{{telefono}}</span> <br />
+      Address: <span id="direccion"> {{direccion}}</span> <br />
+      Province: <span id="provincia">{{provincia}}</span> <br />
+      City: <span id="poblacion">{{poblacion}}</span> <br />
+      Shipping Method: <span id="envio">{{formaEntrega}}</span> <br />
+      <div id="especificaciones" style="display: none">
+        Shipping Specifications:
+        <div id="extra">{{extra}}</div>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <button style="padding: 10px" id="boton_confirmar_pedido">
-    CONFIRM ORDER
-  </button>
+  <button id="boton_confirmar_pedido">CONFIRM ORDER</button>
 </div>

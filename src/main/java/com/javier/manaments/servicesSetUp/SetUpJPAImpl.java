@@ -160,63 +160,63 @@ public class SetUpJPAImpl implements SetUp {
 			 * instrumento)","(estado (nuevo, segunda mano,etc))",(precio double),new
 			 * Date(System.currentTimeMillis()))
 			 */
-
+			Date fechaCreacion = new Date(System.currentTimeMillis());
 			// Instrumentos
 			Instrumento yamahaI1 = new Instrumento(piano, "Piano SU", yamaha,
 					"Piano acústico de la serie SU de Yamaha, fabricado a mano con materiales de alta calidad, ofreciendo un sonido resonante, claridad de tonos graves y agudos, y una acción de teclas excepcional que proporciona una experiencia interpretativa de primer nivel. Ideal para estudios profesionales y salas de conciertos.",
-					5000.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					5000.0, "Acústico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI2 = new Instrumento(guitarra, "Guitarra Acústica FG", yamaha,
 					"Guitarra acústica de la serie FG de Yamaha, famosa por su tono cálido, proyección equilibrada y una construcción duradera con tapa de abeto macizo, ofreciendo un sonido lleno y resonante ideal tanto para principiantes como para guitarristas avanzados.",
-					350.0, "Acústico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
+					350.0, "Acústico", "Media", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI3 = new Instrumento(bajo, "Bajo BB", yamaha,
 					"Bajo eléctrico de la serie BB, reconocido por su tono profundo, sustain prolongado, y una gran versatilidad sonora que lo hace adecuado para diversos estilos musicales, desde rock hasta jazz, con una construcción robusta y cómoda para tocar en escenarios o en el estudio.",
-					700.0, "Eléctrico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					700.0, "Eléctrico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI4 = new Instrumento(guitarra, "Guitarra Eléctrica Revstar", yamaha,
 					"Guitarra eléctrica Revstar de Yamaha, caracterizada por su diseño moderno inspirado en motocicletas clásicas, un sonido dinámico y potente ideal para géneros como rock y metal, con pastillas humbucker de alta salida y un cuerpo ergonómico para mayor confort durante largas sesiones de interpretación.",
-					800.0, "Eléctrico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					800.0, "Eléctrico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI5 = new Instrumento(bateria, "Batería Live Custom Hybrid Oak", yamaha,
 					"Batería acústica Live Custom Hybrid Oak de Yamaha, construida con capas de roble y un núcleo de phenol para un sonido más robusto y con mayor proyección. Ideal para actuaciones en vivo, esta batería destaca por su ataque potente y una excelente respuesta de tono que se adapta a múltiples géneros musicales.",
-					4000.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					4000.0, "Acústico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI6 = new Instrumento(bateria, "Batería Electrónica DTX10 Series", yamaha,
 					"Batería electrónica DTX10 Series de Yamaha, diseñada para ofrecer una experiencia de percusión extremadamente realista gracias a sus pads de silicona y su módulo de sonido avanzado, permitiendo una amplia gama de sonidos y funcionalidades, ideal para bateristas profesionales y estudios de grabación.",
-					3000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					3000.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI7 = new Instrumento(viento, "Trompeta YTR-9335CHS", yamaha,
 					"Trompeta de la serie YTR-9335CHS, conocida por su facilidad de ejecución, proyección impresionante, y un sonido cálido con una excelente afinación en todos los registros. Construida con precisión para músicos de orquestas y solistas exigentes.",
-					2500.0, "Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					2500.0, "Viento", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI8 = new Instrumento(viento, "Saxofón YAS-875EX", yamaha,
 					"Saxofón alto de la serie YAS-875EX de Yamaha, diseñado para ofrecer un rendimiento superior con un sonido brillante y potente, respuesta rápida y una excelente proyección. Ideal para intérpretes profesionales que buscan versatilidad en jazz, clásico y otros estilos.",
-					4500.0, "Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					4500.0, "Viento", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI9 = new Instrumento(viento, "Flauta Serie 900", yamaha,
 					"Flauta de la serie 900 de Yamaha, con una respuesta rápida, construcción en plata maciza para un tono cálido y proyectado, diseñada para músicos profesionales que requieren una precisión excepcional y expresividad en sus interpretaciones.",
-					2000.0, "Viento", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					2000.0, "Viento", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI10 = new Instrumento(cuerda, "Violín YVN500S", yamaha,
 					"Violín de nivel intermedio YVN500S de Yamaha, reconocido por su tono claro y resonante, con maderas seleccionadas que brindan una proyección óptima. Ideal para estudiantes avanzados y músicos que buscan un sonido refinado y una ejecución cómoda.",
-					800.0, "Cuerda", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					800.0, "Cuerda", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI11 = new Instrumento(cuerda, "Viola VA7SG", yamaha,
 					"Viola VA7SG de Yamaha, un instrumento de cuerda de calidad superior con un tono rico y cálido, ideal para músicos avanzados y profesionales que requieren una respuesta tonal precisa y una construcción duradera.",
-					1000.0, "Cuerda", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					1000.0, "Cuerda", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI12 = new Instrumento(sintetizadores, "Teclado Portátil PSR-EW425", yamaha,
 					"Teclado portátil PSR-EW425 de Yamaha, equipado con 76 teclas sensibles al tacto, más de 800 sonidos, y características educativas avanzadas como lecciones integradas y conectividad USB, ideal para principiantes y músicos en desarrollo.",
-					350.0, "Electrónico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
+					350.0, "Electrónico", "Media", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI13 = new Instrumento(sintetizadores, "Sintetizador MONTAGE M", yamaha,
 					"Sintetizador MONTAGE M de Yamaha, con un motor de síntesis híbrido que combina AWM2 y FM-X, permitiendo la creación de sonidos complejos y manipulaciones en tiempo real gracias a su Super Knob y funciones avanzadas de control en vivo. Ideal para músicos y productores que buscan un sintetizador de alto rendimiento.",
-					2000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					2000.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento yamahaI14 = new Instrumento(percusion, "Timbales Serie TP-8300R", yamaha,
 					"Timbales de la serie TP-8300R de Yamaha, con una construcción de cobre martillado a mano para un tono rico y resonante, diseñado para músicos de orquestas sinfónicas y bandas que requieren una resonancia excepcional y durabilidad en cada presentación.",
-					1500.0, "Acústico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					1500.0, "Acústico", "Alta", "Nuevo", fechaCreacion);
 
 			yamahaI1.setImagenPortada(
 					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/yamaha/instrumentos/yamahaI1.png"));
@@ -287,31 +287,31 @@ public class SetUpJPAImpl implements SetUp {
 
 			Instrumento rolandI1 = new Instrumento(piano, "Kiyola KF-10", roland,
 					"Piano digital Kiyola (Made in Japan series KF-10) de Roland, combina un diseño elegante de inspiración escandinava con tecnología de sonido de última generación. Este piano digital cuenta con un mueble artesanal de madera maciza, fabricado por artesanos de la renombrada empresa Karimoku, y un motor de sonido SuperNATURAL que reproduce con gran fidelidad la resonancia y el tono de un piano acústico. Con teclas de madera PHA-50 y un sistema de altavoces integrados, ofrece una experiencia musical envolvente y auténtica, ideal tanto para decoración de interiores modernos como para músicos exigentes.",
-					4500.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					4500.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento rolandI2 = new Instrumento(sintetizadores, "GAIA 2", roland,
 					"Sintetizador GAIA 2 de Roland, una potente herramienta para el diseño de sonido y la experimentación musical. Equipado con un motor de síntesis avanzado, este sintetizador es capaz de crear una amplia gama de sonidos, desde texturas ambientales hasta leads agresivos. Cuenta con un panel de control intuitivo con faders, perillas y botones iluminados para un flujo de trabajo rápido y creativo. Además, incluye polifonía mejorada, efectos integrados, y un teclado de 49 teclas sensibles al tacto, lo que lo convierte en una excelente opción tanto para estudios como para presentaciones en vivo.",
-					800.0, "Electrónico", "Media", "Nuevo", new Date(System.currentTimeMillis()));
+					800.0, "Electrónico", "Media", "Nuevo", fechaCreacion);
 
 			Instrumento rolandI3 = new Instrumento(sintetizadores, "GR-55", roland,
 					"Sintetizador de guitarra GR-55 de Roland, un revolucionario procesador de guitarra que combina sintetización avanzada y modelado de amplificadores. Equipado con la tecnología COSM, este dispositivo permite transformar el sonido de tu guitarra en una amplia gama de timbres, desde emulaciones de instrumentos acústicos hasta complejos pads de sintetizador. Con 910 tonos diferentes, MIDI integrado, y capacidad para conectar una pastilla GK, es ideal tanto para guitarristas que desean expandir su paleta sonora como para músicos de estudio en busca de versatilidad.",
-					1200.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					1200.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento rolandI4 = new Instrumento(sintetizadores, "Katana Artist Gen 3", roland,
 					"Sintetizador de bajo Katana Artist Gen 3 de Roland, diseñado específicamente para bajistas que buscan un sonido potente y personalizado. Este sintetizador combina modelado de amplificadores con efectos premium, y ofrece un motor de sonido completamente ajustable con control de tono preciso. Incluye 5 tipos de amplificadores, efectos integrados, y un altavoz especial Waza de 12 pulgadas que proporciona un rendimiento inigualable tanto en el escenario como en el estudio.",
-					1100.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					1100.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento rolandI5 = new Instrumento(bateria, "VAD507 V-Drums Acoustic Design", roland,
 					"Batería electrónica VAD507 de Roland, perteneciente a la serie V-Drums Acoustic Design, combina la estética clásica de un set acústico con la tecnología digital avanzada de Roland. Ofrece pads con parches de malla de doble capa para una sensación realista y un sistema de sonido dinámico que incluye el módulo TD-27, proporcionando una extensa biblioteca de kits personalizables. Con un chasis de madera real y herrajes de alta calidad, esta batería está diseñada para brindar una experiencia de interpretación auténtica, ideal para bateristas profesionales que buscan versatilidad tanto en el estudio como en el escenario.",
-					3500.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					3500.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento rolandI6 = new Instrumento(percusion, "SPD-SX PRO Sampling Pad", roland,
 					"Pad de percusión SPD-SX PRO de Roland, el estándar para músicos que necesitan llevar su creatividad a nuevos niveles en el escenario y en el estudio. Este pad de muestras avanzado permite cargar y manipular hasta 4 GB de muestras, ofreciendo 9 pads sensibles al tacto con retroalimentación LED para una mejor visualización en escenarios oscuros. Con funciones como Multi-Pad Sampling, efectos integrados, y conectividad avanzada, es una herramienta esencial para bateristas, DJs y productores que desean integrar elementos electrónicos en sus actuaciones en vivo.",
-					1000.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					1000.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			Instrumento rolandI7 = new Instrumento(viento, "Aerophone AE-20", roland,
 					"Instrumento de viento digital Aerophone AE-20 de Roland, diseñado para músicos versátiles que buscan la expresividad de un instrumento de viento tradicional combinado con la flexibilidad digital. Equipado con un sensor de respiración y teclas sensibles, el AE-20 permite interpretar sonidos de saxofón, flauta, clarinete y otros instrumentos de viento con gran realismo. Además, incluye una extensa librería de sonidos electrónicos, conectividad Bluetooth para aplicaciones de música móvil, y un diseño ergonómico que lo hace perfecto tanto para el estudio como para presentaciones en vivo.",
-					900.0, "Electrónico", "Alta", "Nuevo", new Date(System.currentTimeMillis()));
+					900.0, "Electrónico", "Alta", "Nuevo", fechaCreacion);
 
 			rolandI1.setImagenPortada(
 					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/roland/instrumentos/rolandI1.png"));
@@ -341,6 +341,129 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(rolandI5);
 			entityManager.persist(rolandI6);
 			entityManager.persist(rolandI7);
+
+			/**
+			 * Instrumentos korg
+			 */
+			Instrumento korgI1 = new Instrumento(piano, "EK-50 Limitless ENTERTAINER KEYBOARD", korg,
+					"Teclado profesional con acompañamiento automático, ideal para entretenimiento y actuaciones en vivo.",
+					450.00, "Teclado", "Alta", "Nuevo", fechaCreacion);
+
+			// 2. Piano - XE20 DIGITAL ENSEMBLE PIANO
+			Instrumento korgI2 = new Instrumento(piano, "XE20 DIGITAL ENSEMBLE PIANO", korg,
+					"Piano digital con acompañamientos, adecuado tanto para principiantes como para músicos avanzados.",
+					750.00, "Piano digital", "Media", "Nuevo", fechaCreacion);
+
+			// 3. Piano - Pa600 PROFESSIONAL ARRANGER
+			Instrumento korgI3 = new Instrumento(piano, "Pa600 PROFESSIONAL ARRANGER", korg,
+					"Teclado arranger profesional con sonidos realistas y funciones avanzadas de edición.", 1200.00,
+					"Arranger", "Alta", "Nuevo", fechaCreacion);
+
+			// 4. Sintetizador - modwave module WAVETABLE SYNTHESIZER
+			Instrumento korgI4 = new Instrumento(sintetizadores, "modwave module WAVETABLE SYNTHESIZER", korg,
+					"Sintetizador de tablas de ondas con capacidades de modulación avanzadas, ideal para diseñadores de sonido.",
+					900.00, "Sintetizador", "Alta", "Nuevo", fechaCreacion);
+
+			// 5. Sintetizador - opsix module ALTERED FM SYNTHESIZER
+			Instrumento korgI5 = new Instrumento(sintetizadores, "opsix module ALTERED FM SYNTHESIZER", korg,
+					"Sintetizador de síntesis FM alterada, perfecto para exploración sonora y diseño de tonos únicos.",
+					950.00, "Sintetizador FM", "Alta", "Nuevo", fechaCreacion);
+
+			// 6. Sintetizador - wavestate module WAVE SEQUENCING SYNTHESIZER
+			Instrumento korgI6 = new Instrumento(sintetizadores, "wavestate module WAVE SEQUENCING SYNTHESIZER", korg,
+					"Sintetizador de secuenciación de ondas con funciones avanzadas de manipulación de sonido.",
+					1100.00, "Sintetizador", "Alta", "Nuevo", fechaCreacion);
+			korgI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/korg/instrumentos/korgI1.png"));
+			korgI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/korg/instrumentos/korgI2.png"));
+			korgI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/korg/instrumentos/korgI3.png"));
+			korgI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/korg/instrumentos/korgI4.png"));
+			korgI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/korg/instrumentos/korgI5.png"));
+			korgI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/korg/instrumentos/korgI6.png"));
+
+			korgI1.setVentas(random.nextInt(101));
+			korgI2.setVentas(random.nextInt(101));
+			korgI3.setVentas(random.nextInt(101));
+			korgI4.setVentas(random.nextInt(101));
+			korgI5.setVentas(random.nextInt(101));
+			korgI6.setVentas(random.nextInt(101));
+
+			entityManager.persist(korgI1);
+			entityManager.persist(korgI2);
+			entityManager.persist(korgI3);
+			entityManager.persist(korgI4);
+			entityManager.persist(korgI5);
+			entityManager.persist(korgI6);
+
+			// Objetos Instrumento de la marca Casio
+
+			// 1. Piano - CELVIANO AP-550BN
+			Instrumento casioI1 = new Instrumento(piano, "CELVIANO AP-550BN", casio,
+					"Piano digital de alta gama con teclado de acción de martillo graduado, ideal para interpretaciones clásicas.",
+					1300.00, "Piano digital", "Alta", "Nuevo", fechaCreacion);
+
+			// 2. Piano - CELVIANO AP-550WE
+			Instrumento casioI2 = new Instrumento(piano, "CELVIANO AP-550WE", casio,
+					"Piano digital con un elegante acabado en blanco, adecuado para entornos domésticos y profesionales.",
+					1350.00, "Piano digital", "Alta", "Nuevo", fechaCreacion);
+
+			// 3. Piano - CELVIANO AP-S450BK
+			Instrumento casioI3 = new Instrumento(piano, "CELVIANO AP-S450BK", casio,
+					"Piano digital con sonidos de alta calidad y funciones avanzadas para estudiantes y profesionales.",
+					1200.00, "Piano digital", "Media", "Nuevo", fechaCreacion);
+
+			// 4. Piano - CELVIANO AP-S450BN
+			Instrumento casioI4 = new Instrumento(piano, "CELVIANO AP-S450BN", casio,
+					"Piano digital con un diseño en color marrón, ideal para una experiencia de interpretación auténtica.",
+					1250.00, "Piano digital", "Media", "Nuevo", fechaCreacion);
+
+			// 5. Sintetizador - CT-S200WE Casiotone
+			Instrumento casioI5 = new Instrumento(sintetizadores, "CT-S200WE Casiotone", casio,
+					"Sintetizador compacto y portátil, perfecto para principiantes y músicos en movimiento.", 150.00,
+					"Sintetizador portátil", "Baja", "Nuevo", fechaCreacion);
+
+			// 6. Sintetizador - CT-S100 Casiotone
+			Instrumento casioI6 = new Instrumento(sintetizadores, "CT-S100 Casiotone", casio,
+					"Teclado compacto diseñado para principiantes, con funciones simples y facilidad de uso.", 100.00,
+					"Sintetizador portátil", "Baja", "Nuevo", fechaCreacion);
+
+			// 7. Sintetizador - CT-S1-76BK Casiotone
+			Instrumento casioI7 = new Instrumento(sintetizadores, "CT-S1-76BK Casiotone", casio,
+					"Sintetizador portátil con 76 teclas, ideal para músicos que buscan portabilidad sin sacrificar funciones.",
+					200.00, "Sintetizador portátil", "Media", "Nuevo", fechaCreacion);
+			casioI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI1.png"));
+			casioI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI2.png"));
+			casioI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI3.png"));
+			casioI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI4.png"));
+			casioI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI5.png"));
+			casioI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI6.png"));
+			casioI7.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/casio/instrumentos/casioI7.png"));
+			casioI1.setVentas(random.nextInt(101));
+			casioI2.setVentas(random.nextInt(101));
+			casioI3.setVentas(random.nextInt(101));
+			casioI4.setVentas(random.nextInt(101));
+			casioI5.setVentas(random.nextInt(101));
+			casioI6.setVentas(random.nextInt(101));
+			casioI7.setVentas(random.nextInt(101));
+			entityManager.persist(casioI1);
+			entityManager.persist(casioI2);
+			entityManager.persist(casioI3);
+			entityManager.persist(casioI4);
+			entityManager.persist(casioI5);
+			entityManager.persist(casioI6);
+			entityManager.persist(casioI7);
 
 			Usuario u1 = new Usuario("Javier", "Gonzalez", "mana", "jgonzalez@centronelson.org", "123", 28440);
 			Usuario u2 = new Usuario("Sergio", "Prados", "prapra", "sprados@centronelson.org", "123", 28440);

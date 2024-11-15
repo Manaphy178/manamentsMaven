@@ -16,6 +16,9 @@ function reiniciarContainers() {
  * Funcion para obtener los 5 productos mas vendidos y mostrarlos
  */
 function obtenerTopCinco() {
+  nombre_a_buscar = "";
+  comienzo_resultado = 0;
+  pagina = 1;
   $.ajax("obtener-mas-vendidos").done(function (res) {
     let cinco = JSON.parse(res);
     console.log(cinco);
@@ -42,13 +45,9 @@ function obtenerProductos() {
   }); //end ajax
 }
 
-let nombre_a_buscar = "";
-let comienzo_resultado = 0;
-let pagina = 1;
-
 /**
  * FUncion para obtener todos los productos
- * pero da error
+
  */
 function obtenerTodosProductos() {
   console.log(comienzo_resultado);
@@ -388,10 +387,9 @@ function obtenerCategorias() {
     $(".listado-producto-categoria").click(mostrarProductosCategoria);
   });
 }
-let idCategoria = 0;
 function mostrarProductosCategoria() {
   reiniciarContainers();
-  idCategoria = $(this).attr("id-categoria") || 0;
+  idCategoria = $(this).attr("id-categoria") || idCategoria;
 
   // Verifica si idCategoria es válido antes de continuar
   if (idCategoria === 0) {
@@ -471,10 +469,10 @@ function obtenerMarcas() {
     $(".listado-producto-marca").click(mostrarProductosMarca);
   });
 }
-let idMarca = 0;
+
 function mostrarProductosMarca() {
   reiniciarContainers();
-  idMarca = $(this).attr("id-marca");
+  idMarca = $(this).attr("id-marca") || idMarca;
   $.getJSON({
     url: "obtener-todos-productos-marca-json",
     data: {
