@@ -24,22 +24,25 @@ function checkout_paso_1_aceptar() {
     return;
   }
 
-  $.post("realizar-pedido-paso1", {
-    nombre: nombre,
-    pais: pais,
-    telefono: telefono,
-    direccion: direccion,
-    provincia: provincia,
-    poblacion: poblacion,
-  }).done(function (res) {
-    if (res == "ok") {
-      $("#contenedor").html(html_checkout_2);
-      $("#aceptar_paso_2").click(checkout_paso_2_aceptar);
-      console.log(res);
-    } else {
-      alert("fallo en realizar-pedido-paso1");
-      console.log(res);
-    }
+  $("#form_check1").submit(function (e) {
+    e.preventDefault();
+    $.post("realizar-pedido-paso1", {
+      nombre: nombre,
+      pais: pais,
+      telefono: telefono,
+      direccion: direccion,
+      provincia: provincia,
+      poblacion: poblacion,
+    }).done(function (res) {
+      if (res == "ok") {
+        $("#contenedor").html(html_checkout_2);
+        $("#aceptar_paso_2").click(checkout_paso_2_aceptar);
+        console.log(res);
+      } else {
+        alert("fallo en realizar-pedido-paso1");
+        console.log(res);
+      }
+    });
   });
 } // end checkout_paso_1_aceptar
 
@@ -59,22 +62,24 @@ function checkout_paso_2_aceptar() {
     alert("Hay datos que no estan correctos");
     return;
   }
-
-  $.post("realizar-pedido-paso2", {
-    tarjeta: tipo_tarjeta,
-    numero: numero_tarjeta,
-    titular: titular_tarjeta,
-    cvv: codigo_seguridad,
-    caducidad: fecha_caducidad,
-  }).done(function (res) {
-    /**
-     * res tiene el resumen del pedido para mostrarlo
-     * en checkout_3.html
-     */
-    console.log(res);
-    let html = Mustache.render(html_checkout_3, res);
-    $("#contenedor").html(html);
-    $("#aceptar_paso_3").click(resumen_pedido);
+  $("#form_check2").submit(function (e) {
+    e.preventDefault();
+    $.post("realizar-pedido-paso2", {
+      tarjeta: tipo_tarjeta,
+      numero: numero_tarjeta,
+      titular: titular_tarjeta,
+      cvv: codigo_seguridad,
+      caducidad: fecha_caducidad,
+    }).done(function (res) {
+      /**
+       * res tiene el resumen del pedido para mostrarlo
+       * en checkout_3.html
+       */
+      console.log(res);
+      let html = Mustache.render(html_checkout_3, res);
+      $("#contenedor").html(html);
+      $("#aceptar_paso_3").click(resumen_pedido);
+    });
   });
 }
 
@@ -89,21 +94,23 @@ function mostrarTextarea() {
 }
 
 function resumen_pedido() {
-  // TODO no encuentra el valor de entrega a lo mejor haciendo un document.getElementById
   let envio = document.querySelector('input[name="entrega"]:checked').value;
   let extra = $("#extra").val();
-  $.post("resumen-pedido", {
-    formaEntrega: envio,
-    extra: extra,
-  }).done(function (res) {
-    console.log(res);
-    let html = Mustache.render(html_resumen_pedido, res);
+  $("#form_check3").submit(function (e) {
+    e.preventDefault();
+    $.post("resumen-pedido", {
+      formaEntrega: envio,
+      extra: extra,
+    }).done(function (res) {
+      console.log(res);
+      let html = Mustache.render(html_resumen_pedido, res);
 
-    $("#contenedor").html(html);
-    if (envio == "Envio" || envio == "Delivery") {
-      $("#especificaciones").css("display", "block");
-    }
-    $("#boton_confirmar_pedido").click(confirmar_pedido);
+      $("#contenedor").html(html);
+      if (envio == "Envio" || envio == "Delivery") {
+        $("#especificaciones").css("display", "block");
+      }
+      $("#boton_confirmar_pedido").click(confirmar_pedido);
+    });
   });
 }
 
@@ -112,11 +119,7 @@ function confirmar_pedido() {
     console.log("Respuesta del REST de pedidos: " + res);
     if (res == "pedido completado") {
       alert("Gracias por realizar tu pedido con nosotros");
-      obtenerProductos();
+      inicio();
     }
   });
-}
-
-function opcionEntrega() {
-  const especificaciones = $("#especificaciones");
 }

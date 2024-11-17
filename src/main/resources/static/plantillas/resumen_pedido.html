@@ -1,3 +1,15 @@
+<!-- <link rel="stylesheet" href="../css/portada.css" />
+<link rel="stylesheet" href="../css/userView.css" />
+<link rel="stylesheet" href="../css/carrusel.css" />
+<link rel="stylesheet" href="../css/productCard.css" />
+<link rel="stylesheet" href="../css/listado_productos.css" />
+<link rel="stylesheet" href="../css/singleProduct.css" />
+<link rel="stylesheet" href="../css/categoriesView.css" />
+<link rel="stylesheet" href="../css/brandsView.css" />
+<link rel="stylesheet" href="../css/carrito.css" />
+<link rel="stylesheet" href="../css/login.css" />
+<link rel="stylesheet" href="../css/registrar.css" />
+<link rel="stylesheet" href="../css/checkout.css" /> -->
 <div id="summary">
   <h1>REALIZAR PEDIDO - RESUMEN</h1>
   <h3>Resumen del pedido:</h3>
@@ -8,10 +20,19 @@
       {{#instrumentos}}
       <div class="product-item">
         <img src="mostrar_imagen?id={{id}}" alt="{{nombre_instrumento}}" />
-        <div>
-          Nombre: {{nombre_instrumento}} <br />
-          Cantidad: {{cantidad}} <br />
-          Precio/unidad: {{precio}} €
+        <div class="details">
+          <div>
+            <span class="info">Nombre:</span>
+            {{nombre_instrumento}}
+          </div>
+          <div><span class="info">Marca: </span> {{nombre_marca}}</div>
+          <div>
+            <span class="info">Categoria: </span>
+            {{nombre_categoria}}
+          </div>
+          <div><span class="info">Estado: </span> {{estado}}</div>
+          <div><span class="info">Cantidad:</span> {{cantidad}}</div>
+          <div><span class="info">Precio/unidad:</span> {{precio}} €</div>
         </div>
       </div>
       {{/instrumentos}}
@@ -21,29 +42,29 @@
   <div class="summary-section">
     <h4>Datos de pago:</h4>
     <div>
-      Tipo de tarjeta: <span id="tipoTarjeta">{{tipoTarjeta}}</span> <br />
-      Titular: <span id="titularTarjeta">{{titularTarjeta}}</span> <br />
-      Número de tarjeta: <span id="numeroTarjeta">{{numeroTarjeta}}</span>
-      <br />
-      CVV: <span id="cvv">{{cvv}}</span> <br />
-      Caducidad de tarjeta:
-      <span id="caducidadTarjeta">{{caducidadTarjeta}}</span>
+      <div><span class="info">Tipo de tarjeta:</span> {{tipoTarjeta}}</div>
+      <div><span class="info">Titular:</span> {{titularTarjeta}}</div>
+      <div><span class="info">Número de tarjeta:</span> {{numeroTarjeta}}</div>
+      <div><span class="info">CVV:</span> {{cvv}}</div>
+      <div>
+        <span class="info">Caducidad de tarjeta:</span>
+        {{caducidadTarjeta}}
+      </div>
     </div>
   </div>
 
   <div class="summary-section">
     <h4>Datos de envío:</h4>
     <div>
-      Nombre Completo: <span id="nombreCompleto">{{nombreCompleto}}</span>
-      <br />
-      País: <span id="pais">{{pais}}</span> <br />
-      Teléfono: <span id="telefono">{{telefono}}</span> <br />
-      Dirección: <span id="direccion"> {{direccion}}</span> <br />
-      Provincia: <span id="provincia">{{provincia}}</span> <br />
-      Población: <span id="poblacion">{{poblacion}}</span> <br />
-      Forma de envío: <span id="envio">{{formaEntrega}}</span> <br />
+      <div><span class="info">Nombre Completo:</span> {{nombreCompleto}}</div>
+      <div><span class="info">País:</span> {{pais}}</div>
+      <div><span class="info">Teléfono:</span> {{telefono}}</div>
+      <div><span class="info">Dirección:</span> {{direccion}}</div>
+      <div><span class="info">Provincia:</span> {{provincia}}</div>
+      <div><span class="info">Población:</span> {{poblacion}}</div>
+      <div><span class="info">Forma de envío:</span> {{formaEntrega}}</div>
       <div id="especificaciones" style="display: none">
-        Especificaciones del envío:
+        <span class="info">Especificaciones del envío:</span>
         <div id="extra">{{extra}}</div>
       </div>
     </div>

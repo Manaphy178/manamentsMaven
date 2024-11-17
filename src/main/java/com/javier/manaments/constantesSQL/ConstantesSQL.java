@@ -43,7 +43,12 @@ public class ConstantesSQL {
 	 * CARRITO
 	 */
 
-	public static final String SQL_OBTENER_PRODUCTOS_CARRITO = "SELECT tl.id,tl.nombre_instrumento,tl.precio,pc.cantidad FROM tabla_instrumentos AS tl, producto_carrito AS pc WHERE pc.instrumento_id = tl.id AND pc.carrito_id = :carrito_id ORDER BY tl.precio DESC;";
+	public static final String SQL_OBTENER_PRODUCTOS_CARRITO = "SELECT " + "ti.id, " + "ti.nombre_instrumento, "
+			+ "ti.precio, " + "ti.categoria_id_categoria, " + "ti.estado, " + "m.nombre_marca, " + "c.id_categoria, "
+			+ "c.nombre_categoria, " + "pc.cantidad " + "FROM " + "tabla_instrumentos AS ti, "
+			+ "producto_carrito AS pc, " + "marca as m, " + "categoria as c " + "WHERE " + "pc.instrumento_id = ti.id "
+			+ "AND pc.carrito_id = :carrito_id " + "AND ti.marca_id = m.id_marca "
+			+ "AND c.id_categoria = ti.categoria_id_categoria " + "ORDER BY " + "ti.precio DESC;";
 	public static final String SQL_BORRAR_PRODUCTOS_CARRITO = "delete from producto_carrito where carrito_id = :carrito_id";
 
 }

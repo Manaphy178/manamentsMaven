@@ -465,6 +465,360 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(casioI6);
 			entityManager.persist(casioI7);
 
+			/**
+			 * Objetos Instrumento de la marca Fender
+			 */
+
+			// Guitarras
+			// 1. Guitarra - Stratocaster Player Plus de Edición Limitada
+			Instrumento fenderI1 = new Instrumento(guitarra, "Stratocaster Player Plus de Edición Limitada", fender,
+					"Guitarra eléctrica con diseño icónico y mejoras modernas, ideal para guitarristas que buscan versatilidad.",
+					1200.00, "Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// 2. Guitarra - Stratocaster HSS HT Player Plus de Edición Limitada
+			Instrumento fenderI2 = new Instrumento(guitarra, "Stratocaster HSS HT Player Plus de Edición Limitada",
+					fender,
+					"Guitarra eléctrica con configuración HSS y puente fijo, perfecta para tonos pesados y solos.",
+					1300.00, "Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// 3. Guitarra - Fender x Hello Kitty Stratocaster blanca
+			Instrumento fenderI3 = new Instrumento(guitarra, "Fender x Hello Kitty Stratocaster blanca", fender,
+					"Edición especial con diseño temático de Hello Kitty, ideal para coleccionistas y fans.", 900.00,
+					"Guitarra eléctrica", "Media", "Nuevo", fechaCreacion);
+
+			// 4. Guitarra - Stratocaster Player II British Racing Green de Edición Limitada
+			Instrumento fenderI4 = new Instrumento(guitarra,
+					"Stratocaster Player II British Racing Green de Edición Limitada", fender,
+					"Guitarra de edición limitada con acabado en verde, destacada por su tono y estilo clásico.",
+					1400.00, "Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// Bajos
+			// 5. Bajo - Jazz Bass V American Ultra II
+			Instrumento fenderI5 = new Instrumento(bajo, "Jazz Bass V American Ultra II", fender,
+					"Bajo de 5 cuerdas con un diseño moderno y electrónica avanzada, ideal para músicos profesionales.",
+					1600.00, "Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 6. Bajo - Jazz Bass American Ultra II
+			Instrumento fenderI6 = new Instrumento(bajo, "Jazz Bass American Ultra II", fender,
+					"Bajo eléctrico con un perfil delgado y comodidad mejorada para largas sesiones de interpretación.",
+					1500.00, "Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 7. Bajo - Jaguar Bass Mark Hoppus de Edición Limitada
+			Instrumento fenderI7 = new Instrumento(bajo, "Jaguar Bass Mark Hoppus de Edición Limitada", fender,
+					"Bajo de edición especial diseñado en colaboración con Mark Hoppus, ideal para fans del punk rock.",
+					1400.00, "Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 8. Bajo - Jazz Bass Player Plus x Blu DeTiger de Edición Limitada
+			Instrumento fenderI8 = new Instrumento(bajo, "Jazz Bass Player Plus x Blu DeTiger de Edición Limitada",
+					fender, "Edición especial en colaboración con Blu DeTiger, perfecto para bajos funky y grooves.",
+					1300.00, "Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 9. Bajo - American Professional II Precision Bass
+			Instrumento fenderI9 = new Instrumento(bajo, "American Professional II Precision Bass", fender,
+					"Bajo de alto rendimiento con diseño Precision clásico y mejoras modernas.", 1700.00,
+					"Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 10. Bajo - Player Plus Active Precision Bass
+			Instrumento fenderI10 = new Instrumento(bajo, "Player Plus Active Precision Bass", fender,
+					"Bajo eléctrico activo con gran versatilidad de tonos y comodidad para tocar.", 1250.00,
+					"Bajo eléctrico", "Media", "Nuevo", fechaCreacion);
+
+			fenderI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI1.png"));
+			fenderI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI2.png"));
+			fenderI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI3.png"));
+			fenderI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI4.png"));
+			fenderI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI5.png"));
+			fenderI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI6.png"));
+			fenderI7.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI7.png"));
+			fenderI8.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI8.png"));
+			fenderI9.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI9.png"));
+			fenderI10.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/fender/instrumentos/fenderI10.png"));
+
+			fenderI1.setVentas(random.nextInt(101));
+			fenderI2.setVentas(random.nextInt(101));
+			fenderI3.setVentas(random.nextInt(101));
+			fenderI4.setVentas(random.nextInt(101));
+			fenderI5.setVentas(random.nextInt(101));
+			fenderI6.setVentas(random.nextInt(101));
+			fenderI7.setVentas(random.nextInt(101));
+			fenderI8.setVentas(random.nextInt(101));
+			fenderI9.setVentas(random.nextInt(101));
+			fenderI10.setVentas(random.nextInt(101));
+
+			entityManager.persist(fenderI1);
+			entityManager.persist(fenderI2);
+			entityManager.persist(fenderI3);
+			entityManager.persist(fenderI4);
+			entityManager.persist(fenderI5);
+			entityManager.persist(fenderI6);
+			entityManager.persist(fenderI7);
+			entityManager.persist(fenderI8);
+			entityManager.persist(fenderI9);
+			entityManager.persist(fenderI10);
+
+			/**
+			 * Objetos Instrumento de la marca Gibson
+			 */
+
+			// Guitarras
+			// 1. Guitarra - Les Paul Standard 60s - Bourbon Burst
+			Instrumento gibsonI1 = new Instrumento(guitarra, "Les Paul Standard 60s - Bourbon Burst", gibson,
+					"Guitarra eléctrica icónica con tono clásico y acabado en Bourbon Burst, perfecta para rock y blues.",
+					2500.00, "Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// 2. Guitarra - Les Paul Supreme - Ebony, 3-Pickup
+			Instrumento gibsonI2 = new Instrumento(guitarra, "Les Paul Supreme - Ebony, 3-Pickup", gibson,
+					"Edición de lujo con 3 pastillas y un acabado elegante en Ebony, ideal para tonos versátiles.",
+					3500.00, "Guitarra eléctrica", "Premium", "Nuevo", fechaCreacion);
+
+			// 3. Guitarra - Les Paul Standard 60s Figured Top - Dark Purple Burst
+			Instrumento gibsonI3 = new Instrumento(guitarra, "Les Paul Standard 60s Figured Top - Dark Purple Burst",
+					gibson, "Versión moderna de la Les Paul con tapa figurada y acabado en Dark Purple Burst.", 2700.00,
+					"Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// 4. Guitarra - Les Paul Modern Figured - Cobalt Burst
+			Instrumento gibsonI4 = new Instrumento(guitarra, "Les Paul Modern Figured - Cobalt Burst", gibson,
+					"Diseño moderno con mejoras ergonómicas y acabado en Cobalt Burst.", 2800.00, "Guitarra eléctrica",
+					"Alta", "Nuevo", fechaCreacion);
+
+			// 5. Guitarra - Adam Jones Les Paul Standard - Antique Silverburst
+			Instrumento gibsonI5 = new Instrumento(guitarra, "Adam Jones Les Paul Standard - Antique Silverburst",
+					gibson,
+					"Edición especial inspirada en el guitarrista de Tool, Adam Jones, con un acabado distintivo.",
+					4000.00, "Guitarra eléctrica", "Edición Limitada", "Nuevo", fechaCreacion);
+
+			// 6. Guitarra - ES-335 - Dark Purple Burst
+			Instrumento gibsonI6 = new Instrumento(guitarra, "ES-335 - Dark Purple Burst", gibson,
+					"Clásica guitarra semi-hueca, famosa por su versatilidad en jazz y blues.", 3200.00,
+					"Guitarra semi-hueca", "Alta", "Nuevo", fechaCreacion);
+
+			// 7. Guitarra - ES-335 Figured - Sixties Cherry
+			Instrumento gibsonI7 = new Instrumento(guitarra, "ES-335 Figured - Sixties Cherry", gibson,
+					"Versión con tapa figurada y acabado vintage en Sixties Cherry.", 3300.00, "Guitarra semi-hueca",
+					"Alta", "Nuevo", fechaCreacion);
+
+			// 8. Guitarra - SG Standard '61 - Vintage Cherry
+			Instrumento gibsonI8 = new Instrumento(guitarra, "SG Standard '61 - Vintage Cherry", gibson,
+					"Guitarra eléctrica con diseño SG clásico y tono icónico en acabado Vintage Cherry.", 2200.00,
+					"Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// Bajos
+			// 9. Bajo - Thunderbird Bass - Tobacco Burst
+			Instrumento gibsonI9 = new Instrumento(bajo, "Thunderbird Bass - Tobacco Burst", gibson,
+					"Bajo eléctrico con diseño icónico y tonos profundos, ideal para rock y metal.", 1800.00,
+					"Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 10. Bajo - Non-Reverse Thunderbird - Ebony
+			Instrumento gibsonI10 = new Instrumento(bajo, "Non-Reverse Thunderbird - Ebony", gibson,
+					"Versión con diseño no reversible, acabado en Ebony y tonos versátiles.", 1700.00, "Bajo eléctrico",
+					"Alta", "Nuevo", fechaCreacion);
+
+			// 11. Bajo - Gene Simmons G2 Thunderbird - Ébano
+			Instrumento gibsonI11 = new Instrumento(bajo, "Gene Simmons G2 Thunderbird - Ébano", gibson,
+					"Edición especial diseñada en colaboración con Gene Simmons, perfecta para el escenario.", 2100.00,
+					"Bajo eléctrico", "Edición Limitada", "Nuevo", fechaCreacion);
+
+			// 12. Bajo - Rex Brown Signature Thunderbird - Ébano
+			Instrumento gibsonI12 = new Instrumento(bajo, "Rex Brown Signature Thunderbird - Ébano", gibson,
+					"Bajo de firma diseñado para el bajista de Pantera, Rex Brown.", 2300.00, "Bajo eléctrico",
+					"Edición Limitada", "Nuevo", fechaCreacion);
+
+			// 13. Bajo - Les Paul Junior Tribute DC Bass - Worn Ebony
+			Instrumento gibsonI13 = new Instrumento(bajo, "Les Paul Junior Tribute DC Bass - Worn Ebony", gibson,
+					"Bajo eléctrico compacto con un diseño clásico y tono contundente.", 1500.00, "Bajo eléctrico",
+					"Media", "Nuevo", fechaCreacion);
+
+			gibsonI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI1.png"));
+			gibsonI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI2.png"));
+			gibsonI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI3.png"));
+			gibsonI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI4.png"));
+			gibsonI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI5.png"));
+			gibsonI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI6.png"));
+			gibsonI7.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI7.png"));
+			gibsonI8.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI8.png"));
+			gibsonI9.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI9.png"));
+			gibsonI10.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI10.png"));
+			gibsonI11.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI11.png"));
+			gibsonI12.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI12.png"));
+			gibsonI13.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/gibson/instrumentos/gibsonI13.png"));
+
+			gibsonI1.setVentas(random.nextInt(101));
+			gibsonI2.setVentas(random.nextInt(101));
+			gibsonI3.setVentas(random.nextInt(101));
+			gibsonI4.setVentas(random.nextInt(101));
+			gibsonI5.setVentas(random.nextInt(101));
+			gibsonI6.setVentas(random.nextInt(101));
+			gibsonI7.setVentas(random.nextInt(101));
+			gibsonI8.setVentas(random.nextInt(101));
+			gibsonI9.setVentas(random.nextInt(101));
+			gibsonI10.setVentas(random.nextInt(101));
+			gibsonI11.setVentas(random.nextInt(101));
+			gibsonI12.setVentas(random.nextInt(101));
+			gibsonI13.setVentas(random.nextInt(101));
+
+			entityManager.persist(gibsonI1);
+			entityManager.persist(gibsonI2);
+			entityManager.persist(gibsonI3);
+			entityManager.persist(gibsonI4);
+			entityManager.persist(gibsonI5);
+			entityManager.persist(gibsonI6);
+			entityManager.persist(gibsonI7);
+			entityManager.persist(gibsonI8);
+			entityManager.persist(gibsonI9);
+			entityManager.persist(gibsonI10);
+			entityManager.persist(gibsonI11);
+			entityManager.persist(gibsonI12);
+			entityManager.persist(gibsonI13);
+
+			/**
+			 * Objetos Instrumento de la marca Ibanez
+			 */
+
+			// Guitarras
+			// 1. Guitarra - AZES31
+			Instrumento ibanezI1 = new Instrumento(guitarra, "AZES31", ibanez,
+					"Guitarra eléctrica versátil y moderna, ideal para principiantes y profesionales.", 450.00,
+					"Guitarra eléctrica", "Media", "Nuevo", fechaCreacion);
+
+			// 2. Guitarra - AZES40
+			Instrumento ibanezI2 = new Instrumento(guitarra, "AZES40", ibanez,
+					"Modelo avanzado con características mejoradas para un tono excepcional.", 550.00,
+					"Guitarra eléctrica", "Media", "Nuevo", fechaCreacion);
+
+			// 3. Guitarra - AZES40L
+			Instrumento ibanezI3 = new Instrumento(guitarra, "AZES40L", ibanez,
+					"Versión para zurdos de la AZES40, con el mismo diseño y calidad.", 550.00, "Guitarra eléctrica",
+					"Media", "Nuevo", fechaCreacion);
+
+			// 4. Guitarra - AZ2407F Prestige
+			Instrumento ibanezI4 = new Instrumento(guitarra, "AZ2407F Prestige", ibanez,
+					"Guitarra de alta gama de la serie Prestige, diseñada para la máxima precisión y confort.", 2200.00,
+					"Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// 5. Guitarra - AZ2402 Prestige
+			Instrumento ibanezI5 = new Instrumento(guitarra, "AZ2402 Prestige", ibanez,
+					"Modelo de gama alta con construcción de precisión y componentes premium.", 2100.00,
+					"Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// 6. Guitarra - AZ2402L Prestige
+			Instrumento ibanezI6 = new Instrumento(guitarra, "AZ2402L Prestige", ibanez,
+					"Guitarra Prestige para zurdos, diseñada para músicos exigentes.", 2100.00, "Guitarra eléctrica",
+					"Alta", "Nuevo", fechaCreacion);
+
+			// 7. Guitarra - AZ24027 Prestige
+			Instrumento ibanezI7 = new Instrumento(guitarra, "AZ24027 Prestige", ibanez,
+					"Guitarra de 7 cuerdas de la serie Prestige, perfecta para géneros pesados y técnicos.", 2300.00,
+					"Guitarra eléctrica", "Alta", "Nuevo", fechaCreacion);
+
+			// Bajos
+			// 8. Bajo - EHB1500
+			Instrumento ibanezI8 = new Instrumento(bajo, "EHB1500", ibanez,
+					"Bajo eléctrico de cuerpo ergonómico, ideal para tocar durante largas sesiones.", 1600.00,
+					"Bajo eléctrico", "Alta", "Nuevo", fechaCreacion);
+
+			// 9. Bajo - EHB1505
+			Instrumento ibanezI9 = new Instrumento(bajo, "EHB1505", ibanez,
+					"Bajo de 5 cuerdas con diseño moderno y electrónica avanzada.", 1800.00, "Bajo eléctrico", "Alta",
+					"Nuevo", fechaCreacion);
+
+			// 10. Bajo - EHB1505MS
+			Instrumento ibanezI10 = new Instrumento(bajo, "EHB1505MS", ibanez,
+					"Versión multiescala del EHB1505, optimizada para mayor rango tonal.", 1900.00,
+					"Bajo eléctrico multiescala", "Alta", "Nuevo", fechaCreacion);
+
+			// 11. Bajo - EHB1506MS
+			Instrumento ibanezI11 = new Instrumento(bajo, "EHB1506MS", ibanez,
+					"Bajo de 6 cuerdas multiescala, perfecto para bajistas que buscan versatilidad.", 2000.00,
+					"Bajo eléctrico multiescala", "Alta", "Nuevo", fechaCreacion);
+
+			// 12. Bajo - EHB1265MS
+			Instrumento ibanezI12 = new Instrumento(bajo, "EHB1265MS", ibanez,
+					"Bajo multiescala con un diseño ergonómico y gran rango de tonos.", 1700.00,
+					"Bajo eléctrico multiescala", "Alta", "Nuevo", fechaCreacion);
+
+			// 13. Bajo - EHB1000
+			Instrumento ibanezI13 = new Instrumento(bajo, "EHB1000", ibanez,
+					"Bajo eléctrico de la serie EHB con diseño sin cabezal, ideal para portabilidad.", 1400.00,
+					"Bajo eléctrico", "Media", "Nuevo", fechaCreacion);
+
+			ibanezI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI1.png"));
+			ibanezI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI2.png"));
+			ibanezI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI3.png"));
+			ibanezI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI4.png"));
+			ibanezI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI5.png"));
+			ibanezI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI6.png"));
+			ibanezI7.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI7.png"));
+			ibanezI8.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI8.png"));
+			ibanezI9.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI9.png"));
+			ibanezI10.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI10.png"));
+			ibanezI11.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI11.png"));
+			ibanezI12.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI12.png"));
+			ibanezI13.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/ibanez/instrumentos/ibanezI13.png"));
+
+			ibanezI1.setVentas(random.nextInt(101));
+			ibanezI2.setVentas(random.nextInt(101));
+			ibanezI3.setVentas(random.nextInt(101));
+			ibanezI4.setVentas(random.nextInt(101));
+			ibanezI5.setVentas(random.nextInt(101));
+			ibanezI6.setVentas(random.nextInt(101));
+			ibanezI7.setVentas(random.nextInt(101));
+			ibanezI8.setVentas(random.nextInt(101));
+			ibanezI9.setVentas(random.nextInt(101));
+			ibanezI10.setVentas(random.nextInt(101));
+			ibanezI11.setVentas(random.nextInt(101));
+			ibanezI12.setVentas(random.nextInt(101));
+			ibanezI13.setVentas(random.nextInt(101));
+
+			entityManager.persist(ibanezI1);
+			entityManager.persist(ibanezI2);
+			entityManager.persist(ibanezI3);
+			entityManager.persist(ibanezI4);
+			entityManager.persist(ibanezI5);
+			entityManager.persist(ibanezI6);
+			entityManager.persist(ibanezI7);
+			entityManager.persist(ibanezI8);
+			entityManager.persist(ibanezI9);
+			entityManager.persist(ibanezI10);
+			entityManager.persist(ibanezI11);
+			entityManager.persist(ibanezI12);
+			entityManager.persist(ibanezI13);
+
 			Usuario u1 = new Usuario("Javier", "Gonzalez", "mana", "jgonzalez@centronelson.org", "123", 28440);
 			Usuario u2 = new Usuario("Sergio", "Prados", "prapra", "sprados@centronelson.org", "123", 28440);
 			Usuario u3 = new Usuario("Alba", "Rueda", "albitagambita", "alba@gmail.com", "123", 28440);
@@ -630,36 +984,6 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(pp4);
 			entityManager.persist(pp5);
 			entityManager.persist(pp6);
-
-			/**
-			 * Antes de finalizar el setup
-			 * 
-			 * vamos a registrar 100 instrumentos para poder hacer unas pruebas con la
-			 * paginacion
-			 */
-			String nombre = "Bateria";
-			double precio = 1;
-			String descripcion = "Instrumento que le pegas y hace ruido";
-			List<Marca> marcas = new ArrayList<Marca>();
-			marcas.add(yamaha);
-			marcas.add(roland);
-			marcas.add(pearl);
-			marcas.add(dw);
-			marcas.add(meinl);
-
-			for (int i = 0; i < 100; i++) {
-				// Selecciona una marca aleatoriamente del ArrayList
-				Marca marcaAleatoria = marcas.get(random.nextInt(marcas.size()));
-
-				// Crea un nuevo instrumento con la marca aleatoria
-				Instrumento nuevo = new Instrumento(nombre + i, descripcion + i, marcaAleatoria, precio + i);
-
-				// Asigna la categoría al instrumento
-				nuevo.setCategoria(percusion);
-
-				// Persistir el objeto en la base de datos
-				entityManager.persist(nuevo);
-			}
 
 			com.javier.manaments.model.SetUp setUp = new com.javier.manaments.model.SetUp();
 			setUp.setCompleto(true);

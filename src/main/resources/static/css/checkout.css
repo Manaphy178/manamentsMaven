@@ -141,16 +141,21 @@ select {
 #summary h3 {
   color: var(--oscuro);
 }
+
+#summary .summary-section h4 {
+  font-size: 1.5rem;
+}
 #summary .summary-section {
   background-color: var(--claro);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  font-size: 1.15rem;
 }
 #summary .product-item {
   display: flex;
-  align-items: center;
+  justify-content: start;
   margin-bottom: 10px;
   padding: 10px;
   background-color: var(--fondo-single-product);
@@ -158,7 +163,22 @@ select {
 }
 #summary .product-item img {
   margin-right: 15px;
+  width: 50%;
+  height: auto;
 }
+#summary .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1.25rem;
+}
+#summary .info {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
 #summary button {
   background-color: var(--oscuro);
   color: var(--claro);
