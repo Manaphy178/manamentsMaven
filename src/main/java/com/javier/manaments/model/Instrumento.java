@@ -56,7 +56,7 @@ public class Instrumento {
 
 	@Size(min = 3, max = 80, message = "El nombre del instrumento tiene que tener entre 3 y 80 caracteres")
 	@NotEmpty(message = "El nombre no puede estar vacio")
-	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ.,'-]{3,80}$", message = "El nombre solo puede tener números, letras, espacios, comas, puntos y guiones")
+	@Pattern(regexp = "^[A-Za-z0-9 áéíóúÁÉÍÓÚñÑ.,'-/]{3,80}$", message = "El nombre solo puede tener números, letras, espacios, comas, puntos y guiones")
 	@Column(name = "nombre_instrumento", length = 120)
 	private String nombre;
 

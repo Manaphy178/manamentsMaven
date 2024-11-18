@@ -131,7 +131,6 @@ public class SetUpJPAImpl implements SetUp {
 
 			Marca meinl = new Marca("Meinl");
 			meinl.addCategoria(percusion);
-			meinl.addCategoria(bateria);
 
 			entityManager.persist(yamaha);
 			entityManager.persist(roland);
@@ -818,6 +817,269 @@ public class SetUpJPAImpl implements SetUp {
 			entityManager.persist(ibanezI11);
 			entityManager.persist(ibanezI12);
 			entityManager.persist(ibanezI13);
+
+			/**
+			 * Objetos Instrumento de la marca Drum Workshop (DW)
+			 * 
+			 */
+			// Baterías
+			// 1. Batería - 6-Piece Performance Series Kit
+			Instrumento dwI1 = new Instrumento(bateria, "6-Piece Performance Series Kit", dw,
+					"Set de batería de 6 piezas, parte de la serie Performance, conocida por su calidad y resonancia.",
+					3200.00, "Batería acústica", "Alta", "Nuevo", fechaCreacion);
+
+			// 2. Batería - 4-Piece Performance Series Kit
+			Instrumento dwI2 = new Instrumento(bateria, "4-Piece Performance Series Kit", dw,
+					"Set de batería de 4 piezas, ideal para estudios y presentaciones en vivo.", 2500.00,
+					"Batería acústica", "Alta", "Nuevo", fechaCreacion);
+
+			// 3. Batería - DWe Drum Kit Bundle, 4-Piece
+			Instrumento dwI3 = new Instrumento(bateria, "DWe Drum Kit Bundle, 4-Piece", dw,
+					"Batería electrónica de 4 piezas, incluye todos los elementos esenciales para empezar.", 1800.00,
+					"Batería electrónica", "Media", "Nuevo", fechaCreacion);
+
+			// 4. Batería - DWe Drum Kit Bundle, 5-Piece
+			Instrumento dwI4 = new Instrumento(bateria, "DWe Drum Kit Bundle, 5-Piece", dw,
+					"Batería electrónica de 5 piezas, perfecta para estudios y práctica en casa.", 2000.00,
+					"Batería electrónica", "Media", "Nuevo", fechaCreacion);
+
+			// 5. Batería - Design 4-Piece Kit, Limited
+			Instrumento dwI5 = new Instrumento(bateria, "Design 4-Piece Kit, Limited", dw,
+					"Edición limitada de la serie Design, con un diseño exclusivo y componentes de alta calidad.",
+					2700.00, "Batería acústica", "Edición Limitada", "Nuevo", fechaCreacion);
+
+			// Percusión
+			// 6. Percusión - DWe Hi-Hat Cymbal, 14"
+			Instrumento dwI6 = new Instrumento(percusion, "DWe Hi-Hat Cymbal, 14 inch", dw,
+					"Platillo de Hi-Hat de 14 pulgadas, diseñado para un sonido nítido y definido.", 400.00, "Platillo",
+					"Alta", "Nuevo", fechaCreacion);
+
+			// 7. Percusión - DWe Electronic Crash/Ride Cymbal 18 inch
+			Instrumento dwI7 = new Instrumento(percusion, "DWe Electronic Crash/Ride Cymbal 18 inch", dw,
+					"Platillo electrónico de 18 pulgadas, perfecto para setups híbridos.", 350.00,
+					"Platillo Electrónico", "Media", "Nuevo", fechaCreacion);
+
+			// 8. Percusión - DW DWe Electronic Cymbal Pack, 3-Piece
+			Instrumento dwI8 = new Instrumento(percusion, "DW DWe Electronic Cymbal Pack, 3-Piece", dw,
+					"Set de 3 platillos electrónicos, ideal para expandir kits electrónicos.", 800.00,
+					"Platillo Electrónico", "Media", "Nuevo", fechaCreacion);
+
+			// 9. Percusión - DW DWe Electronic Cymbal Pack, 4-Piece
+			Instrumento dwI9 = new Instrumento(percusion, "DW DWe Electronic Cymbal Pack, 4-Piece", dw,
+					"Set de 4 platillos electrónicos, diseñado para mayor versatilidad en kits de batería.", 1000.00,
+					"Platillo Electrónico", "Alta", "Nuevo", fechaCreacion);
+
+			// 10. Percusión - Design Maple Snare 6x14, Limited
+			Instrumento dwI10 = new Instrumento(percusion, "Design Maple Snare 6x14, Limited", dw,
+					"Caja de madera de arce de 6x14 pulgadas, edición limitada con un tono profundo.", 500.00, "Caja",
+					"Edición Limitada", "Nuevo", fechaCreacion);
+
+			// 11. Percusión - Design Series Maple Snare, 6x14
+			Instrumento dwI11 = new Instrumento(percusion, "Design Series Maple Snare, 6x14", dw,
+					"Caja de la serie Design con un tono brillante y versátil.", 450.00, "Caja", "Alta", "Nuevo",
+					fechaCreacion);
+
+			dwI1.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI1.png"));
+			dwI2.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI2.png"));
+			dwI3.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI3.png"));
+			dwI4.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI4.png"));
+			dwI5.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI5.png"));
+			dwI6.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI6.png"));
+			dwI7.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI7.png"));
+			dwI8.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI8.png"));
+			dwI9.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI9.png"));
+			dwI10.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI10.png"));
+			dwI11.setImagenPortada(leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/dw/instrumentos/dwI11.png"));
+
+			dwI1.setVentas(random.nextInt(101));
+			dwI2.setVentas(random.nextInt(101));
+			dwI3.setVentas(random.nextInt(101));
+			dwI4.setVentas(random.nextInt(101));
+			dwI5.setVentas(random.nextInt(101));
+			dwI6.setVentas(random.nextInt(101));
+			dwI7.setVentas(random.nextInt(101));
+			dwI8.setVentas(random.nextInt(101));
+			dwI9.setVentas(random.nextInt(101));
+			dwI10.setVentas(random.nextInt(101));
+			dwI11.setVentas(random.nextInt(101));
+
+			entityManager.persist(dwI1);
+			entityManager.persist(dwI2);
+			entityManager.persist(dwI3);
+			entityManager.persist(dwI4);
+			entityManager.persist(dwI5);
+			entityManager.persist(dwI6);
+			entityManager.persist(dwI7);
+			entityManager.persist(dwI8);
+			entityManager.persist(dwI9);
+			entityManager.persist(dwI10);
+			entityManager.persist(dwI11);
+
+			// Objetos Instrumento de la marca Pearl
+
+			// Baterías
+			// 1. Batería - Masterworks
+			Instrumento pearlI1 = new Instrumento(bateria, "Masterworks", pearl,
+					"Batería de alta gama completamente personalizable, diseñada para ofrecer la máxima calidad sonora.",
+					7000.00, "Batería acústica", "Premium", "Nuevo", fechaCreacion);
+
+			// 2. Batería - Masters Maple Gum
+			Instrumento pearlI2 = new Instrumento(bateria, "Masters Maple Gum", pearl,
+					"Set de batería de arce y goma, perfecto para un tono cálido y resonante.", 4000.00,
+					"Batería acústica", "Alta", "Nuevo", fechaCreacion);
+
+			// 3. Batería - Crystal Beat
+			Instrumento pearlI3 = new Instrumento(bateria, "Crystal Beat", pearl,
+					"Batería transparente de acrílico, diseñada para destacar visual y sonoramente en el escenario.",
+					3000.00, "Batería acústica", "Media", "Nuevo", fechaCreacion);
+
+			// 4. Batería - Decade Maple Artisan
+			Instrumento pearlI4 = new Instrumento(bateria, "Decade Maple Artisan", pearl,
+					"Set de batería artesanal de arce, perfecto para músicos que buscan un tono clásico.", 2000.00,
+					"Batería acústica", "Media", "Nuevo", fechaCreacion);
+
+			// 5. Batería - Decade Maple
+			Instrumento pearlI5 = new Instrumento(bateria, "Decade Maple", pearl,
+					"Batería versátil de arce, ideal para estudios y presentaciones en vivo.", 1500.00,
+					"Batería acústica", "Media", "Nuevo", fechaCreacion);
+
+			// 6. Batería - Roadshow
+			Instrumento pearlI6 = new Instrumento(bateria, "Roadshow", pearl,
+					"Set de batería para principiantes, incluye todo lo necesario para empezar a tocar.", 800.00,
+					"Batería acústica", "Baja", "Nuevo", fechaCreacion);
+
+			// Percusión
+			// 7. Percusión - Stave Craft
+			Instrumento pearlI7 = new Instrumento(percusion, "Stave Craft", pearl,
+					"Caja artesanal de alta gama, diseñada para ofrecer un tono profundo y resonante.", 900.00, "Caja",
+					"Alta", "Nuevo", fechaCreacion);
+
+			// 8. Percusión - Sensitone
+			Instrumento pearlI8 = new Instrumento(percusion, "Sensitone", pearl,
+					"Caja versátil con un tono brillante, ideal para todo tipo de géneros musicales.", 600.00, "Caja",
+					"Media", "Nuevo", fechaCreacion);
+
+			// 9. Percusión - Hybrid Exotic
+			Instrumento pearlI9 = new Instrumento(percusion, "Hybrid Exotic", pearl,
+					"Caja de diseño híbrido con materiales exóticos, perfecta para músicos que buscan un sonido único.",
+					750.00, "Caja", "Alta", "Nuevo", fechaCreacion);
+
+			// 10. Percusión - Effects Snares
+			Instrumento pearlI10 = new Instrumento(percusion, "Effects Snares", pearl,
+					"Caja diseñada para efectos especiales y sonidos únicos en el estudio o en vivo.", 500.00, "Caja",
+					"Media", "Nuevo", fechaCreacion);
+
+			// 11. Percusión - UltraCast
+			Instrumento pearlI11 = new Instrumento(percusion, "UltraCast", pearl,
+					"Caja de aluminio fundido, conocida por su proyección y potencia sonora.", 650.00, "Caja", "Media",
+					"Nuevo", fechaCreacion);
+
+			pearlI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI1.png"));
+			pearlI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI2.png"));
+			pearlI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI3.png"));
+			pearlI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI4.png"));
+			pearlI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI5.png"));
+			pearlI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI6.png"));
+			pearlI7.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI7.png"));
+			pearlI8.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI8.png"));
+			pearlI9.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI9.png"));
+			pearlI10.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI10.png"));
+			pearlI11.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/pearl/instrumentos/pearlI11.png"));
+
+			pearlI1.setVentas(random.nextInt(101));
+			pearlI2.setVentas(random.nextInt(101));
+			pearlI3.setVentas(random.nextInt(101));
+			pearlI4.setVentas(random.nextInt(101));
+			pearlI5.setVentas(random.nextInt(101));
+			pearlI6.setVentas(random.nextInt(101));
+			pearlI7.setVentas(random.nextInt(101));
+			pearlI8.setVentas(random.nextInt(101));
+			pearlI9.setVentas(random.nextInt(101));
+			pearlI10.setVentas(random.nextInt(101));
+			pearlI11.setVentas(random.nextInt(101));
+
+			entityManager.persist(pearlI1);
+			entityManager.persist(pearlI2);
+			entityManager.persist(pearlI3);
+			entityManager.persist(pearlI4);
+			entityManager.persist(pearlI5);
+			entityManager.persist(pearlI6);
+			entityManager.persist(pearlI7);
+			entityManager.persist(pearlI8);
+			entityManager.persist(pearlI9);
+			entityManager.persist(pearlI10);
+			entityManager.persist(pearlI11);
+
+			// Objetos Instrumento de la marca Meinl (Percusión)
+
+			// 1. Percusión - String Cajon Seguiriya Line, Indian Heartwood
+			Instrumento meinlI1 = new Instrumento(percusion, "String Cajon Seguiriya Line, Indian Heartwood", meinl,
+					"Cajón de la línea Seguiriya, hecho de Indian Heartwood, con cuerdas internas ajustables para un sonido flamenco auténtico.",
+					350.00, "Cajón", "Alta", "Nuevo", fechaCreacion);
+
+			// 2. Percusión - String Cajon Fandago Line, Indian Heartwood, Tulip Poplar
+			Instrumento meinlI2 = new Instrumento(percusion,
+					"String Cajon Fandago Line, Indian Heartwood, Tulip Poplar", meinl,
+					"Cajón de la línea Fandago, construido con Indian Heartwood y Tulip Poplar para un tono cálido y profundo.",
+					320.00, "Cajón", "Alta", "Nuevo", fechaCreacion);
+
+			// 3. Percusión - String Cajon Martinete Line, Brazilian Ironwood
+			Instrumento meinlI3 = new Instrumento(percusion, "String Cajon Martinete Line, Brazilian Ironwood", meinl,
+					"Cajón de la línea Martinete, fabricado con Brazilian Ironwood para una proyección potente y clara.",
+					400.00, "Cajón", "Alta", "Nuevo", fechaCreacion);
+
+			// 4. Percusión - String Cajon Cantina Line Limba
+			Instrumento meinlI4 = new Instrumento(percusion, "String Cajon Cantina Line Limba", meinl,
+					"Cajón de la línea Cantina, hecho de Limba, ideal para tonos equilibrados y versátiles.", 300.00,
+					"Cajón", "Media", "Nuevo", fechaCreacion);
+
+			// 5. Percusión - String Cajon Buleria Line, Mongoy
+			Instrumento meinlI5 = new Instrumento(percusion, "String Cajon Buleria Line, Mongoy", meinl,
+					"Cajón de la línea Buleria, con acabado en Mongoy, proporciona un sonido profundo y resonante perfecto para flamenco.",
+					370.00, "Cajón", "Alta", "Nuevo", fechaCreacion);
+
+			// 6. Percusión - String Cajon Cantina Line Brown Eucalyptus
+			Instrumento meinlI6 = new Instrumento(percusion, "String Cajon Cantina Line Brown Eucalyptus", meinl,
+					"Cajón de la línea Cantina con acabado en Brown Eucalyptus, ofreciendo un sonido cálido y redondo.",
+					330.00, "Cajón", "Media", "Nuevo", fechaCreacion);
+
+			meinlI1.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/meinl/instrumentos/meinlI1.png"));
+			meinlI2.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/meinl/instrumentos/meinlI2.png"));
+			meinlI3.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/meinl/instrumentos/meinlI3.png"));
+			meinlI4.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/meinl/instrumentos/meinlI4.png"));
+			meinlI5.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/meinl/instrumentos/meinlI5.png"));
+			meinlI6.setImagenPortada(
+					leerBytesDeRutaOrigen("http://localhost:8080/img/marcas/meinl/instrumentos/meinlI6.png"));
+
+			meinlI1.setVentas(random.nextInt(101));
+			meinlI2.setVentas(random.nextInt(101));
+			meinlI3.setVentas(random.nextInt(101));
+			meinlI4.setVentas(random.nextInt(101));
+			meinlI5.setVentas(random.nextInt(101));
+			meinlI6.setVentas(random.nextInt(101));
+
+			entityManager.persist(meinlI1);
+			entityManager.persist(meinlI2);
+			entityManager.persist(meinlI3);
+			entityManager.persist(meinlI4);
+			entityManager.persist(meinlI5);
+			entityManager.persist(meinlI6);
 
 			Usuario u1 = new Usuario("Javier", "Gonzalez", "mana", "jgonzalez@centronelson.org", "123", 28440);
 			Usuario u2 = new Usuario("Sergio", "Prados", "prapra", "sprados@centronelson.org", "123", 28440);
