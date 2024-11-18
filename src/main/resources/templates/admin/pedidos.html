@@ -3,34 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/menu.css" />
-    <link rel="stylesheet" href="../css/portada.css" />
+    <link rel="stylesheet" href="../css/adminView.css" />
+    <link rel="stylesheet" href="../css/adminOrders.css" />
     <!-- PONER ESTILO A PEDIDOS -->
     <title th:text="#{pedidos.titulo}">Pedidos</title>
   </head>
 
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
-    <h1 th:text="#{pedidos.titulo}">Listado de pedidos de la tienda</h1>
-    <table>
-      <tr>
-        <th th:text="#{pedidos.nombre.completo}">Nombre completo</th>
-        <th th:text="#{pedidos.direccion}">Dirección</th>
-        <th th:text="#{pedidos.estado}">Estado</th>
-        <th th:text="#{pedidos.detalles}">Detalles</th>
-      </tr>
-      <tr th:each="p : ${pedidos}">
-        <td><span th:text="${p.nombreCompleto}"></span></td>
-        <td><span th:text="${p.direccion}"></span></td>
-        <td><span th:text="${p.estado}"></span></td>
-        <td>
-          <a
-            th:href="@{${'ver-detalles-pedido?id='+p.id}}"
-            th:text="#{pedidos.ver.detalles}"
-            >Ver detalles</a
-          >
-        </td>
-      </tr>
-    </table>
+    <div class="container">
+      <h1 th:text="#{pedidos.titulo}">Listado de pedidos de la tienda</h1>
+
+      <table class="orders-table">
+        <tr>
+          <th th:text="#{pedidos.nombre.completo}">Nombre completo</th>
+          <th th:text="#{pedidos.direccion}">Dirección</th>
+          <th th:text="#{pedidos.estado}">Estado</th>
+          <th th:text="#{pedidos.detalles}">Detalles</th>
+        </tr>
+        <tr th:each="p : ${pedidos}">
+          <td><span th:text="${p.nombreCompleto}"></span></td>
+          <td><span th:text="${p.direccion}"></span></td>
+          <td><span th:text="${p.estado}"></span></td>
+          <td>
+            <a
+              th:href="@{${'ver-detalles-pedido?id='+p.id}}"
+              th:text="#{pedidos.ver.detalles}"
+              class="view-details"
+              >Ver detalles</a
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

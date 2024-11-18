@@ -1,0 +1,42 @@
+:root {
+  --claro: #d2d4d1;
+  --oscuro: #554835;
+  --fondo: #d7d3cd;
+  --fondo-our-products: #c9beae;
+  --producto_detalles: #9f755d;
+  --fondo-all-products: #c9beae;
+  --fondo-single-product: #c0ab8a;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--fondo);
+  color: var(--oscuro);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  color: var(--oscuro);
+  border-bottom: 2px solid var(--producto_detalles);
+  padding-bottom: 10px;
+}
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--fondo-single-product);
+}
+.users-table th,
+.users-table td {
+  padding: 10px;
+  border: 1px solid var(--oscuro);
+}
+.users-table th {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+}
+.users-table tr:nth-child(even) {
+  background-color: var(--fondo-all-products);
+}

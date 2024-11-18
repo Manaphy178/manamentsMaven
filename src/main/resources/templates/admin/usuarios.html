@@ -3,46 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/menu.css" />
-    <link rel="stylesheet" href="../css/portada.css" />
+    <link rel="stylesheet" href="../css/adminUsers.css" />
+    <link rel="stylesheet" href="../css/adminView.css" />
     <title th:text="#{usuarios.titulo}">User List</title>
   </head>
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
+    <div class="container">
+      <h1 th:text="#{usuarios.titulo}">Listado de Usuarios</h1>
 
-    <h1 th:text="#{usuarios.titulo}">Listado de Usuarios</h1>
-    <table>
-      <tr>
-        <th th:text="#{usuarios.nombre}">Nombre</th>
-        <th th:text="#{usuarios.apellido}">Apellido</th>
-        <th th:text="#{usuarios.nombre.usuario}">Nombre Usuario</th>
-        <th th:text="#{usuarios.email}">Email</th>
-        <th th:text="#{usuarios.contrasena}">Contraseña</th>
-        <th th:text="#{usuarios.codigo.postal}">Codigo Postal</th>
-        <!-- <th>&nbsp;</th>
-        <th>&nbsp;</th> -->
-      </tr>
-      <tr th:each="u : ${usuarios}">
-        <td><span th:text="${u.nombre}"></span></td>
-        <td><span th:text="${u.apellido}"></span></td>
-        <td><span th:text="${u.nomUsuario}"></span></td>
-        <td><span th:text="${u.email}"></span></td>
-        <td><span th:text="${u.pass}"></span></td>
-        <td><span th:text="${u.codPostal}"></span></td>
-        <!-- <td class="delete">
-          <a
-            href="usuario-borrar?id=${elemento.id }"
-            class="delLink"
-            onclick="return confirm('¿seguro?')"
-            >Borrar</a
-          >
-        </td>
-        <td class="edit">
-          <a href="usuario-editar?id=${elemento.id }" class="editLink"
-            >Editar</a
-          >
-        </td> -->
-      </tr>
-    </table>
+      <table class="users-table">
+        <tr>
+          <th th:text="#{usuarios.nombre}">Nombre</th>
+          <th th:text="#{usuarios.apellido}">Apellido</th>
+          <th th:text="#{usuarios.nombre.usuario}">Nombre Usuario</th>
+          <th th:text="#{usuarios.email}">Email</th>
+          <th th:text="#{usuarios.contrasena}">Contraseña</th>
+          <th th:text="#{usuarios.codigo.postal}">Codigo Postal</th>
+          <!-- <th colspan="2" th:text="#{instrumento.acciones}">Acciones</th> -->
+        </tr>
+        <tr th:each="u : ${usuarios}">
+          <td><span th:text="${u.nombre}"></span></td>
+          <td><span th:text="${u.apellido}"></span></td>
+          <td><span th:text="${u.nomUsuario}"></span></td>
+          <td><span th:text="${u.email}"></span></td>
+          <td><span th:text="${u.pass}"></span></td>
+          <td><span th:text="${u.codPostal}"></span></td>
+          <!-- <td class="delete">
+            <a
+              th:href="@{${'usuario-borrar?id='+u.id}}"
+              class="delLink"
+              onclick="return confirm('¿seguro?')"
+            >
+              <span th:text="#{instrumento.borrar}"></span>
+            </a>
+          </td>
+          <td class="edit">
+            <a th:href="@{${'usuario-editar?id='+u.id}}" class="editLink">
+              <span th:text="#{instrumento.editar}"></span>
+            </a>
+          </td> -->
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

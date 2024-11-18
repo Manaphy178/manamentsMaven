@@ -3,113 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/menu.css" />
-    <link rel="stylesheet" href="../css/portada.css" />
+    <!-- <link rel="stylesheet" href="../../static/css/adminOrders.css" />
+    <link rel="stylesheet" href="../../static/css/adminView.css" /> -->
+    <link rel="stylesheet" href="../css/adminOrders.css" />
+    <link rel="stylesheet" href="../css/adminView.css" />
     <title th:text="#{pedido.detalles.titulo}">Order Details</title>
   </head>
   <body>
     <div th:insert="fragments/general.html :: menu"></div>
-    <h1 th:text="#{pedido.detalles.titulo}">Detalles del pedido</h1>
+    <section id="orders">
+      <h1 th:text="#{pedido.detalles.titulo}">Detalles del pedido</h1>
+      <div class="order-details">
+        <div class="order-section">
+          <h2 th:text="#{pedido.envio.datos}">Datos del envio:</h2>
+          <p>
+            <strong th:text="#{pedido.nombre.completo}">Full Name:</strong>
+            <span id="fullName" th:text="${pedido.nombreCompleto}"
+              >John Doe</span
+            >
+          </p>
+          <p>
+            <strong th:text="#{pedido.pais}">Country:</strong>
+            <span th:text="${pedido.pais}" id="country">USA</span>
+          </p>
+          <p>
+            <strong th:text="#{pedido.telefono}">Phone:</strong>
+            <span th:text="${pedido.telefono}" id="phone">+1 234 567 8900</span>
+          </p>
+          <p>
+            <strong th:text="#{pedido.direccion}">Address:</strong>
+            <span th:text="${pedido.direccion}" id="address"
+              >123 Main St, Anytown</span
+            >
+          </p>
+          <p>
+            <strong th:text="#{pedido.provincia}">State:</strong>
+            <span id="state" th:text="${pedido.provincia}">California</span>
+          </p>
+          <p>
+            <strong th:text="#{pedido.poblacion}">City:</strong>
+            <span th:text="${pedido.poblacion}" id="city">Los Angeles</span>
+          </p>
+          <p>
+            <strong th:text="#{pedido.metodo.envio}">Shipping Method:</strong>
+            <span th:text="${pedido.formaEnvio}" id="shippingMethod"
+              >Express</span
+            >
+          </p>
+          <!-- Añadir las especificaciones y la forma de envio -->
+        </div>
 
-    <div style="text-align: center" th:text="#{pedido.envio.datos}">
-      Datos del envio:
-    </div>
+        <div class="order-section">
+          <h2 th:text="#{pedido.pago.datos}">Payment Information</h2>
+          <p>
+            <strong th:text="#{pedido.tipo.tarjeta}">Card Type:</strong>
+            <span th:text="${pedido.tipoTarjeta}" id="cardType">Visa</span>
+          </p>
+          <p>
+            <strong th:text="#{pedido.titular.tarjeta}">Card Holder:</strong>
+            <span th:text="${pedido.titularTarjeta}" id="cardHolder"
+              >John Doe</span
+            >
+          </p>
+          <p>
+            <strong th:text="#{pedido.numero.tarjeta}">Card Number:</strong>
+            <span th:text="${pedido.numeroTarjeta}" id="cardNumber"
+              >**** **** **** 1234</span
+            >
+          </p>
+          <p>
+            <strong th:text="#{pedido.cvv.tarjeta}">CVV:</strong>
+            <span th:text="${pedido.cvv}" id="cvv">***</span>
+          </p>
+          <p>
+            <strong th:text="#{pedido.caducidad.tarjeta}"
+              >Expiration Date:</strong
+            >
+            <span th:text="${pedido.caducidadTarjeta}" id="expirationDate"
+              >12/25</span
+            >
+          </p>
+        </div>
 
-    <div>
-      <span th:text="#{pedido.nombre.completo}">Nombre completo:</span>
-      <span th:text="${pedido.nombreCompleto}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.pais}">Pais:</span>
-      <span th:text="${pedido.pais}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.telefono}">Telefono:</span>
-      <span th:text="${pedido.telefono}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.direccion}">Direccion:</span>
-      <span th:text="${pedido.direccion}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.provincia}">Provincia:</span>
-      <span th:text="${pedido.provincia}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.poblacion}">Poblacion:</span>
-      <span th:text="${pedido.poblacion}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.metodo.envio}">Metodo envio:</span>
-      <span th:text="${pedido.formaEnvio}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.poblacion}">Poblacion:</span>
-      <span th:text="${pedido.poblacion}"></span>
-    </div>
-
-    <!-- Añadir las especificaciones y la forma de envio -->
-
-    <div style="text-align: center" th:text="#{pedido.pago.datos}">
-      Datos del pago:
-    </div>
-    <div>
-      <span th:text="#{pedido.tipo.tarjeta}">Tipo de tarjeta:</span>
-      <span th:text="${pedido.tipoTarjeta}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.titular.tarjeta}">Titular de tarjeta:</span>
-      <span th:text="${pedido.titularTarjeta}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.numero.tarjeta}">Numero de tarjeta:</span>
-      <span th:text="${pedido.numeroTarjeta}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.cvv.tarjeta}">CVV:</span>
-      <span th:text="${pedido.cvv}"></span>
-    </div>
-    <div>
-      <span th:text="#{pedido.caducidad.tarjeta}">Caducidad tarjeta:</span>
-      <span th:text="${pedido.caducidadTarjeta}"></span>
-    </div>
-
-    <div style="text-align: center" th:text="#{pedido.productos.datos}">
-      Productos del pedido:
-    </div>
-    <div th:each="producto : ${pedido.productoPedidos}" style="margin: 15px">
-      <img
-        height="80px"
-        th:src="@{${'../mostrar_imagen?id=' + producto.instrumento.id}}"
-        alt="Producto"
-      /><br />
-      <div>
-        <span th:text="#{pedido.nombre}">Nombre:</span>
-        <span th:text="${producto.instrumento.nombre}"></span>
+        <div class="order-section">
+          <h2 th:text="#{pedido.productos.datos}">Order Items</h2>
+          <div
+            class="product-list"
+            th:each="producto : ${pedido.productoPedidos}"
+          >
+            <div class="product-item">
+              <img
+                th:src="@{${'../mostrar_imagen?id=' + producto.instrumento.id}}"
+                alt="Producto"
+                class="product-image"
+              />
+              <p>
+                <strong th:text="#{pedido.nombre}">Nombre:</strong>
+                <span th:text="${producto.instrumento.nombre}"></span>
+              </p>
+              <p>
+                <strong th:text="#{pedido.precio.unidad}"
+                  >Precio/Unidad:</strong
+                >
+                <span th:text="${producto.instrumento.precio}"></span>
+              </p>
+              <p>
+                <strong th:text="#{pedido.cantidad}">Cantidad:</strong>
+                <span th:text="${producto.cantidad}"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <input
+          type="hidden"
+          name="id_pedido"
+          id="id_pedido"
+          th:field="${pedido.id}"
+        />
+        <div class="order-section">
+          <h2>Order Status</h2>
+          <select id="select_estado" th:field="${pedido.estado}">
+            <option
+              th:each="estado: ${estados}"
+              th:text="${estado}"
+              th:value="${estado.key}"
+            ></option>
+          </select>
+        </div>
       </div>
-      <div>
-        <span th:text="#{pedido.precio.unidad}">Precio/Unidad:</span>
-        <span th:text="${producto.instrumento.precio}"></span>
-      </div>
-      <div>
-        <span th:text="#{pedido.cantidad}">Cantidad:</span>
-        <span th:text="${producto.cantidad}"></span>
-      </div>
-    </div>
-
-    <input
-      type="hidden"
-      name="id_pedido"
-      id="id_pedido"
-      th:field="${pedido.id}"
-    />
-    <select id="select_estado" th:field="${pedido.estado}">
-      <option
-        th:each="estado: ${estados}"
-        th:text="${estado}"
-        th:value="${estado.key}"
-      ></option>
-    </select>
+    </section>
 
     <script src="../librerias_js/jquery.js"></script>
     <script>

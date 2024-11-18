@@ -32,9 +32,9 @@ public class ControladorPedidos {
 //		vamos a darle a la vista tambien, los valores del desplegable
 //		de estados del pedido
 		Map<String, String> estados = new HashMap<String, String>();
-		estados.put(EstadosPedido.INCOMPLETO.name(), "iniciado por el usuario");
-		estados.put(EstadosPedido.COMPLETO.name(), "completado por el usuario");
-		estados.put(EstadosPedido.FINALIZADO.name(), "pedido ya enviado");
+		estados.put(EstadosPedido.INCOMPLETO.name(), " iniciado por el usuario");
+		estados.put(EstadosPedido.COMPLETO.name(), " completado por el usuario");
+		estados.put(EstadosPedido.FINALIZADO.name(), " pedido ya enviado");
 		model.addAttribute("estados", estados);
 
 		return "admin/pedido-detalles";

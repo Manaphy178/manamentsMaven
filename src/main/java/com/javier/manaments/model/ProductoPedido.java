@@ -1,5 +1,6 @@
 package com.javier.manaments.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +15,8 @@ public class ProductoPedido {
 	@JoinColumn(name = "pedido_id")
 	private Pedido pedido;
 
-	@OneToOne
+
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(referencedColumnName = "id")
 	private Instrumento instrumento;
 

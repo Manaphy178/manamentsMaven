@@ -1,0 +1,90 @@
+:root {
+  --claro: #d2d4d1;
+  --oscuro: #554835;
+  --fondo: #d7d3cd;
+  --fondo-our-products: #c9beae;
+  --producto_detalles: #9f755d;
+  --fondo-all-products: #c9beae;
+  --fondo-single-product: #c0ab8a;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--fondo);
+  color: var(--oscuro);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  color: var(--oscuro);
+  border-bottom: 2px solid var(--producto_detalles);
+  padding-bottom: 10px;
+  margin: 1rem;
+}
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--fondo-single-product);
+}
+.orders-table th,
+.orders-table td {
+  padding: 10px;
+  border: 1px solid var(--oscuro);
+}
+.orders-table th {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+}
+.orders-table tr:nth-child(even) {
+  background-color: var(--fondo-all-products);
+}
+.view-details {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.product-image {
+  max-width: 200px;
+  max-height: 300px;
+  margin-top: 1rem;
+}
+.order-details {
+  background-color: var(--fondo-single-product);
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-top: 1rem;
+  max-width: 70%;
+}
+.order-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--oscuro);
+}
+.order-section h2 {
+  color: var(--oscuro);
+  margin-bottom: 0.5rem;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.product-item {
+  background-color: var(--fondo-our-products);
+  padding: 1rem;
+  border-radius: 4px;
+  width: calc(33.33% - 1rem);
+}
+select {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}

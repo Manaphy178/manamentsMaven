@@ -2,20 +2,31 @@
 <html lang="en" xmlns="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
+    <!-- <link rel="stylesheet" href="../../static/css/adminInstruments.css" /> -->
+    <link rel="stylesheet" href="../css/adminInstruments.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:text="#{instrumento.editar.titulo}">Editar Instrumento</title>
   </head>
   <body>
+    <section id="instruments"></section>
     <h1 th:text="#{instrumento.editar.titulo}">
       Introduce los nuevos datos al instrumento
     </h1>
     <form
+      class="editForm"
       action="#"
       th:action="instrumentos-guardar-cambios"
       th:object="${instrumentoEditar}"
       method="post"
       enctype="multipart/form-data"
     >
+      <div class="contImg">
+        <img
+          th:src="@{/mostrar_imagen(id=${instrumentoEditar.id})}"
+          alt="Imagen producto"
+          style="max-width: 200px; max-height: 300px"
+        />
+      </div>
       <label for="nombre" th:text="#{instrumento.nombre}">Nombre</label>
       <input
         type="text"
@@ -29,50 +40,80 @@
         th:if="${#fields.hasErrors('nombre')}"
         th:errors="*{nombre}"
       ></span>
-      <br />
 
-      <label for="tipo" th:text="#{instrumento.tipo}">Tipo</label>
-      <select name="tipo" id="tipo" th:field="*{tipo}">
-        <option value="Eléctrico">Eléctrico</option>
-        <option value="Acústico">Acústico</option>
-      </select>
+      <div class="typeGamma">
+        <label for="tipo" th:text="#{instrumento.tipo}" class="type"
+          >Type:</label
+        >
+        <select id="tipo" name="tipo" th:field="*{tipo}" class="sType">
+          <option value="Eléctrico" th:text="#{instrumento.tipo.electrico}">
+            Electric
+          </option>
+          <option value="Acústico" th:text="#{instrumento.tipo.acustico}">
+            Acoustic
+          </option>
+        </select>
+        <label for="gamma" th:text="#{instrumento.gamma}" class="gamma"
+          >Gamma</label
+        >
+        <select name="gamma" id="gamma" th:field="*{gamma}" class="sGamma">
+          <option value="Baja" th:text="#{instrumento.gamma.baja}">Baja</option>
+          <option value="Media" th:text="#{instrumento.gamma.media}">
+            Media
+          </option>
+          <option value="Alta" th:text="#{instrumento.gamma.alta}">Alta</option>
+        </select>
+      </div>
       <span
         style="color: red"
         th:if="${#fields.hasErrors('tipo')}"
         th:errors="*{tipo}"
       ></span>
-      <br />
-
-      <label for="marca" th:text="#{instrumento.marca}">Marca</label>
-      <input
-        type="text"
-        name="marca"
-        id="marca"
-        th:field="*{marca}"
-        th:value="*{marca}"
-      />
-      <span
-        style="color: red"
-        th:if="${#fields.hasErrors('marca')}"
-        th:errors="*{marca}"
-      ></span>
-      <br />
-
-      <label for="gamma" th:text="#{instrumento.gamma}">Gamma</label>
-      <select name="gamma" id="gamma" th:field="*{gamma}">
-        <option value="Baja" th:text="#{instrumento.gamma.baja}">Baja</option>
-        <option value="Media" th:text="#{instrumento.gamma.media}">
-          Media
-        </option>
-        <option value="Alta" th:text="#{instrumento.gamma.alta}">Alta</option>
-      </select>
       <span
         style="color: red"
         th:if="${#fields.hasErrors('gamma')}"
         th:errors="*{gamma}"
       ></span>
-      <br />
-
+      <div class="brandCategorie">
+        <label for="marca" th:text="#{instrumento.marca}" class="brand"
+          >Marca</label
+        >
+        <select name="marca" id="marca" th:field="*{idMarca}" class="sBrand">
+          <option
+            th:each="m : ${marcas}"
+            th:text="${m.nombre}"
+            th:value="${m.id}"
+          ></option>
+        </select>
+        <label
+          for="categoria"
+          th:text="#{instrumento.categoria.editar}"
+          class="categorie"
+          >Categoría</label
+        >
+        <select
+          name="categoria"
+          id="categoria"
+          th:field="*{idCategoria}"
+          class="sCategorie"
+        >
+          <option
+            th:each="c : ${categorias}"
+            th:text="${c.nombre}"
+            th:value="${c.id}"
+          ></option>
+        </select>
+      </div>
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('idMarca')}"
+        th:errors="*{idMarca}"
+      ></span>
+      <span
+        style="color: red"
+        th:if="${#fields.hasErrors('idCategoria')}"
+        th:errors="*{idCategoria}"
+      ></span>
       <label for="descripcion" th:text="#{instrumento.descripcion}"
         >Descripción</label
       >
@@ -89,32 +130,8 @@
         th:if="${#fields.hasErrors('descripcion')}"
         th:errors="*{descripcion}"
       ></span>
-      <br />
 
-      <label for="categoria" th:text="#{instrumento.categoria.editar}"
-        >Elige una categoría</label
-      >
-      <select name="categoria" id="categoria" th:field="*{idCategoria}">
-        <option
-          th:each="c : ${categorias}"
-          th:text="${c.nombre}"
-          th:value="${c.id}"
-        />
-      </select>
-      <span
-        style="color: red"
-        th:if="${#fields.hasErrors('idCategoria')}"
-        th:errors="*{idCategoria}"
-      ></span>
-      <br />
-
-      <div th:text="#{instrumento.foto.actual}">Foto actual del producto</div>
-      <img
-        th:src="@{/mostrar_imagen(id=${instrumentoEditar.id})}"
-        alt="Imagen producto"
-        style="max-width: 200px; max-height: 300px"
-      /><br />
-      <label for="foto" th:text="#{instrumento.subir.foto}"
+      <label class="foto" for="foto" th:text="#{instrumento.subir.foto}"
         >Subir nueva foto:</label
       >
       <input type="file" name="foto" id="foto" th:field="*{archivoSubido}" />
@@ -123,23 +140,23 @@
         th:if="${#fields.hasErrors('archivoSubido')}"
         th:errors="*{archivoSubido}"
       ></span>
-      <br />
 
-      <label for="precio" th:text="#{instrumento.precio}">Precio</label>
-      <input
-        type="number"
-        name="precio"
-        id="precio"
-        step="0.10"
-        th:field="*{precio}"
-        th:value="*{precio}"
-      />
+      <div class="precio">
+        <label for="precio" th:text="#{instrumento.precio}">Precio</label>
+        <input
+          type="number"
+          name="precio"
+          id="precio"
+          step="0.1"
+          th:field="*{precio}"
+        />
+      </div>
       <span
         style="color: red"
         th:if="${#fields.hasErrors('precio')}"
         th:errors="*{precio}"
       ></span>
-      <br />
+
       <input
         type="hidden"
         id="imagenPortada"

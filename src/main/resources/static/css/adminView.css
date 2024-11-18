@@ -1,0 +1,86 @@
+:root {
+  --claro: #d2d4d1;
+  --oscuro: #554835;
+  --fondo: #d7d3cd;
+  --fondo-our-products: #c9beae;
+  --producto_detalles: #9f755d;
+  --fondo-all-products: #c9beae;
+  --fondo-single-product: #c0ab8a;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--fondo);
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: var(--oscuro);
+  color: var(--claro);
+  padding: 1rem;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--claro);
+}
+
+.logo img {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.language-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.language-options a {
+  color: var(--claro);
+  text-decoration: none;
+}
+
+.header-bottom {
+  background-color: rgba(166, 138, 100, 0.8);
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li a {
+  color: var(--claro);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.menu li a:hover {
+  background-color: var(--producto_detalles);
+}
+
+main {
+  padding: 2rem;
+}
+
+h1 {
+  color: var(--oscuro);
+}

@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.javier.manaments.constantesSQL.ConstantesSQL;
 import com.javier.manaments.model.Categoria;
 import com.javier.manaments.model.Instrumento;
+import com.javier.manaments.model.Marca;
 import com.javier.manaments.services.ServicioInstrumento;
 
 @Service
@@ -32,6 +33,8 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 		 */
 		Categoria c = entityManager.find(Categoria.class, i.getIdCategoria());
 		i.setCategoria(c);
+		Marca m = entityManager.find(Marca.class, i.getIdMarca());
+		i.setMarca(m);
 		entityManager.persist(i);
 	}
 
@@ -190,8 +193,7 @@ public class ServiciosInstrumentosJPAImpl implements ServicioInstrumento {
 
 	@Override
 	public List<Map<String, Object>> obtenerTodosInstrumentosParaListadoMarca(String nombre, int comienzo, int marca) {
-		Query query = entityManager
-				.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS_INCLUYENDO_MARCA);
+		Query query = entityManager.createNativeQuery(ConstantesSQL.SQL_OBTENER_LISTADO_INSTRUMENTOS_INCLUYENDO_MARCA);
 		query.setParameter("nombre", "%" + nombre + "%");
 		query.setParameter("idmar", marca);
 		query.setParameter("comienzo", comienzo);

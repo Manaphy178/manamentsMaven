@@ -1,0 +1,220 @@
+:root {
+  --claro: #d2d4d1;
+  --oscuro: #554835;
+  --fondo: #d7d3cd;
+  --fondo-our-products: #c9beae;
+  --producto_detalles: #9f755d;
+  --fondo-all-products: #c9beae;
+  --fondo-single-product: #c0ab8a;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--fondo);
+  color: var(--oscuro);
+  line-height: 1.6;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  color: var(--oscuro);
+  border-bottom: 2px solid var(--producto_detalles);
+  padding-bottom: 10px;
+}
+.search-form {
+  background-color: var(--fondo-our-products);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.search-form button {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.pagination a {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.instruments-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--fondo-single-product);
+}
+.instruments-table th,
+.instruments-table td {
+  padding: 10px;
+  border: 1px solid var(--oscuro);
+}
+.instruments-table th {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+}
+.instruments-table tr:nth-child(even) {
+  background-color: var(--fondo-all-products);
+}
+.add-new {
+  display: inline-block;
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.descripcion {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.nuevoForm {
+  background-color: var(--fondo-single-product);
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  color: var(--oscuro);
+}
+.precio {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+.typeGamma {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-areas:
+    "Tipo Gamma"
+    "sTipo sGamma";
+  column-gap: 1rem;
+}
+.type {
+  grid-area: Tipo;
+}
+.sType {
+  grid-area: sTipo;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}
+.sGamma {
+  grid-area: sGamma;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}
+.gamma {
+  grid-area: Gamma;
+}
+.descripcion {
+  margin-top: 1rem;
+}
+.foto {
+  margin-top: 1rem;
+}
+.brandCategorie {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-areas:
+    "Marca Categoria"
+    "sMarca sCategoria";
+  column-gap: 1rem;
+}
+.brand {
+  grid-area: Marca;
+}
+.sBrand {
+  grid-area: sMarca;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}
+.sCategorie {
+  grid-area: sCategoria;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}
+.categorie {
+  grid-area: Categoria;
+}
+
+input[type="number"],
+textarea {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}
+input[type="text"] {
+  max-width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--oscuro);
+  border-radius: 4px;
+  background-color: var(--claro);
+}
+input[type="submit"] {
+  background-color: var(--producto_detalles);
+  color: var(--claro);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+input[type="submit"]:hover {
+  background-color: var(--oscuro);
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+}
+.editForm {
+  background-color: var(--fondo-single-product);
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.contImg{
+  margin: 0 auto;
+}
+
+

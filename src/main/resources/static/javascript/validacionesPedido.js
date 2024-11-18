@@ -3,7 +3,7 @@ let regExpNombreCompleto = /^[a-z áéíóúñ\s]{2,50}$/i;
 let regExpDireccion = /^[a-z0-9 áéíóúñ\s,.-]{5,100}$/i;
 let regExpProvincia = /^[a-z áéíóúñ\s]{2,50}$/i;
 let regExpPais = /^[a-z áéíóúñ\s]{2,50}$/i;
-let regExpTelefono = /^\d{7,15}$/i;
+let regExpTelefono = /^[0-9\d]{7,15}$/i;
 let regExpPoblacion = /^[a-z áéíóúñ\s]{2,50}$/i;
 
 function validarNombreCompleto(nombre) {

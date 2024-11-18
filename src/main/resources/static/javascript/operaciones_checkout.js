@@ -2,6 +2,9 @@ function checkout_paso_0() {
   // mostrar el formulario donde inserta la informacion de envio
   $("#contenedor").html(html_checkout_1);
   $("#aceptar_paso_1").click(checkout_paso_1_aceptar);
+  $("#form_check1").submit(function (e) {
+    e.preventDefault();
+  });
 } // end checkout_paso_0
 
 function checkout_paso_1_aceptar() {
@@ -22,28 +25,31 @@ function checkout_paso_1_aceptar() {
   ) {
     alert("Hay datos que no son posibles");
     return;
-  }
-
-  $("#form_check1").submit(function (e) {
-    e.preventDefault();
-    $.post("realizar-pedido-paso1", {
-      nombre: nombre,
-      pais: pais,
-      telefono: telefono,
-      direccion: direccion,
-      provincia: provincia,
-      poblacion: poblacion,
-    }).done(function (res) {
-      if (res == "ok") {
-        $("#contenedor").html(html_checkout_2);
-        $("#aceptar_paso_2").click(checkout_paso_2_aceptar);
-        console.log(res);
-      } else {
-        alert("fallo en realizar-pedido-paso1");
-        console.log(res);
-      }
+  } else {
+    $("#form_check1").submit(function (e) {
+      e.preventDefault();
+      $.post("realizar-pedido-paso1", {
+        nombre: nombre,
+        pais: pais,
+        telefono: telefono,
+        direccion: direccion,
+        provincia: provincia,
+        poblacion: poblacion,
+      }).done(function (res) {
+        if (res == "ok") {
+          $("#contenedor").html(html_checkout_2);
+          $("#aceptar_paso_2").click(checkout_paso_2_aceptar);
+          $("#form_check2").submit(function (e) {
+            e.preventDefault();
+          });
+          console.log(res);
+        } else {
+          alert("fallo en realizar-pedido-paso1");
+          console.log(res);
+        }
+      });
     });
-  });
+  }
 } // end checkout_paso_1_aceptar
 
 function checkout_paso_2_aceptar() {
@@ -79,6 +85,9 @@ function checkout_paso_2_aceptar() {
       let html = Mustache.render(html_checkout_3, res);
       $("#contenedor").html(html);
       $("#aceptar_paso_3").click(resumen_pedido);
+      $("#form_check3").submit(function (e) {
+        e.preventDefault();
+      });
     });
   });
 }

@@ -568,8 +568,8 @@ public class SetUpJPAImpl implements SetUp {
 
 			/**
 			 * Objetos Instrumento de la marca Gibson
+			 * 
 			 */
-
 			// Guitarras
 			// 1. Guitarra - Les Paul Standard 60s - Bourbon Burst
 			Instrumento gibsonI1 = new Instrumento(guitarra, "Les Paul Standard 60s - Bourbon Burst", gibson,
